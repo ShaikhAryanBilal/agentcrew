@@ -51,7 +51,7 @@ AgentCrew gives any AI agent a **repeatable SDLC brain** — 18 specialized role
 > **Zero dependencies. Zero SaaS. Zero vendor lock.**
 > Just markdown files — every AI agent can read them.
 
-[📖 Read the docs](https://shaikaryanbilal.github.io/agentcrew) · [🐙 View on GitHub](https://github.com/ShaikhAryanBilal/agentcrew)
+[📖 Read the docs](docs/index.md) · [🐙 View on GitHub](https://github.com/ShaikhAryanBilal/agentcrew)
 
 ---
 
@@ -255,6 +255,6 @@ All you need is:
 
 **⭐ [Star on GitHub](https://github.com/ShaikhAryanBilal/agentcrew)** · 🐛 [Report an issue](https://github.com/ShaikhAryanBilal/agentcrew/issues) · 🤝 [Contributions welcome](CONTRIBUTING.md)
 
-📖 **Read the full docs:** [https://shaikaryanbilal.github.io/agentcrew](https://shaikaryanbilal.github.io/agentcrew)
+📖 **Read the full docs:** [docs/index.md](docs/index.md)
 
 </div>
