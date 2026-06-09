@@ -1,13 +1,13 @@
 # Supply Chain Security
 
-## Overview
-Modern software depends on third-party packages. Supply chain security ensures
-dependencies are trusted, vulnerabilities are detected, and licensing is compliant.
+## Need
+- Third-party dependencies in the project
+- Build pipeline configured
 
-## Dependency Audit Process
+## Instructions
 
 ### Every Build (CI Gate)
-1. `npm audit` / `pip audit` / `cargo audit` — check known CVEs
+1. Run `npm audit` / `pip audit` / `cargo audit` — check known CVEs
 2. Fail build on Critical/High severity in production dependencies
 3. Alert on new CVEs in existing dependencies
 
@@ -26,7 +26,7 @@ dependencies are trusted, vulnerabilities are detected, and licensing is complia
 | npm | `npx @cyclonedx/cyclonedx-npm --output-file sbom.json` |
 | Python | `pip-licenses --format=json > sbom.json` |
 | Go | `cyclonedx-gomod -json -o sbom.json` |
-| Generic | `sycll scan --platform sbom` (Syft) |
+| Generic | `syft scan --platform sbom` (Syft) |
 
 ## License Compliance
 | License | Action |
@@ -47,3 +47,10 @@ dependencies are trusted, vulnerabilities are detected, and licensing is complia
 2. If reachable + Critical → emergency patch within SLA
 3. If reachable + High → patch in current sprint
 4. If not reachable → defer, document rationale
+
+## Done
+- Dependency audit runs every build
+- SBOM generated pre-release
+- License compliance checked
+- Provenance verified
+- Supply chain incident response process defined

@@ -1,8 +1,18 @@
-# Objective: Design Solution
+# Design Solution
 
-## Goal
-Produce a complete, reviewed design pack: system architecture, tech spec, database design,
-API contracts, threat model, UI wireframes, and design approval.
+## System
+You are executing objective: Design Solution. Produce a complete, reviewed design pack: system architecture, tech spec, database design, API contracts, threat model, UI wireframes, and design approval.
+
+## Instructions
+1. Assemble squad: Architect, UX Designer, Security Engineer
+2. Run in parallel: UX research, Security threat modeling, Architect defining architecture
+3. Architect produces tech spec (needs architecture), DB design (needs tech spec), API contracts (needs DB) sequentially
+4. UX produces wireframes, visual design, prototype after research
+5. Security produces STRIDE threat table, asset inventory, compliance checklist
+6. All roles participate in design review (procedures/02-design/05-design-review.md)
+7. Verify acceptance criteria
+8. Log to `.agentcrew/log/02-design-solution/<role>/<timestamp>.md`
+9. Update `.agentcrew/state/workflow.json`
 
 ## Squad
 | Role | Responsibility |
@@ -11,36 +21,21 @@ API contracts, threat model, UI wireframes, and design approval.
 | UX Designer | User research, wireframes, visual design, prototype |
 | Security Engineer | Threat modeling, STRIDE analysis, compliance |
 
-## Schedule
-```
-Architect: Arch ──> Tech Spec ──> DB ──> API ──> Review
-UX:        Research ──> Wireframes ──> Visual Design ──> Prototype
-Security:  Threat Model ────────────> (parallel with Architect)
-```
-
-**Parallel**: UX research and Security analysis run concurrent with Architect.  
-**Sequential**: Tech spec needs architecture. DB needs tech spec. API needs DB.
-Review needs everything. UX handoff to Frontend happens at objective end.
-
-## Dependencies
-- **Needs**: Signed-off PRD (from Clarify Vision)
-- **Blocks**: Build Feature, Verify Quality
-
-## Artifacts
-| Role | Produces | Format |
-|------|----------|--------|
-| Architect | Architecture diagram + component map | Markdown/Mermaid |
-| Architect | Technical specification | Markdown |
-| Architect | Database schema DDL | SQL |
-| Architect | API contracts (OpenAPI) | YAML |
-| UX Designer | User personas + journey maps | Markdown |
-| UX Designer | Wireframes + mockups | Markdown/Image |
-| UX Designer | Interactive prototype | Link/Description |
-| UX Designer | Design system tokens | Markdown |
-| Security | Asset inventory + classification | Markdown |
-| Security | STRIDE threat table + mitigations | Markdown |
-| Security | Compliance checklist | Markdown |
-| Architect | Design review approval | Markdown |
+## Inputs → Outputs
+| Input | From | → Output | To |
+|-------|------|---------|----|
+| Signed-off PRD | PM | Architecture diagram + component map (Markdown/Mermaid) | Review |
+| Architecture | Architect | Technical specification (component spec, data models, config, observability) | Review |
+| Tech spec | Architect | Database schema DDL (SQL) | Review |
+| DB design | Architect | API contracts OpenAPI (YAML) | Review |
+| User needs | PRD | User personas + journey maps (Markdown) | Review |
+| Research insights | UX | Wireframes + mockups (Markdown/Image) | Review |
+| Wireframes | UX | Interactive prototype (Link/Description) | Review |
+| Design decisions | UX | Design system tokens (Markdown) | Review |
+| System scope | PRD | Asset inventory + classification (Markdown) | Review |
+| Architecture | Security | STRIDE threat table + mitigations (Markdown) | Review |
+| Requirements | Security | Compliance checklist (Markdown) | Review |
+| All artifacts | All | Design review approval (Markdown) | PM |
 
 ## Acceptance
 - Architecture covers all P0 feature requirements
@@ -52,9 +47,14 @@ Review needs everything. UX handoff to Frontend happens at objective end.
 - Design review: approved (may have conditions)
 - SG1 gate: threat model complete, high threats mitigated
 
-## Procedure References
-Roles use these existing step files:
-- Architect: `procedures/02-design/01-system-architecture.md`, `procedures/02-design/02-technical-specification.md`, `procedures/02-design/03-database-design.md`, `procedures/02-design/04-api-design.md`
+## Gates
+- **SG1**: Threat model complete, high threats mitigated
+
+## Procedures
+- Architect: `procedures/02-design/01-system-architecture.md`
+- Architect: `procedures/02-design/02-technical-specification.md`
+- Architect: `procedures/02-design/03-database-design.md`
+- Architect: `procedures/02-design/04-api-design.md`
 - Security: `procedures/02-design/06-threat-modeling.md`
 - All: `procedures/02-design/05-design-review.md`
 
@@ -63,9 +63,3 @@ Roles use these existing step files:
 - Architecture fork (monolith vs microservices) → debate/trigger
 - API design philosophy (REST vs GraphQL) → debate/trigger
 - UX approach (design system vs custom) → debate/trigger
-
-## Solo Invocation
-- "Architect, design the database for [feature]" → Architect runs DB design only
-- "UX Designer, create wireframes for [screen]" → UX runs design only
-- "Security, do threat modeling for [system]" → Security runs threat model only
-- "Architect, review the design" → Runs design review only

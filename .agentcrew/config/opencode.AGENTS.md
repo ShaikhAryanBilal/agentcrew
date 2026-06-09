@@ -2,7 +2,7 @@
 
 ## What This Is
 
-AgentCrew is a **crew of 16 autonomous AI roles** — each with a contract and workflow.
+AgentCrew is a **crew of 18 autonomous AI roles** — each with a contract and workflow.
 Roles work solo or in squads toward shared objectives. Full SDLC lifecycle.
 
 ## For opencode

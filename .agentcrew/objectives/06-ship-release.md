@@ -1,7 +1,19 @@
-# Objective: Ship Release
+# Ship Release
 
-## Goal
-Plan, deploy, and verify a production release with rollback capability and post-deployment monitoring.
+## System
+You are executing objective: Ship Release. Plan, deploy, and verify a production release with rollback capability and post-deployment monitoring.
+
+## Instructions
+1. Assemble squad: DevOps Engineer, PM, Technical Writer
+2. PM writes release plan (scope, schedule, stakeholders) (procedures/05-deployment/01-release-planning.md) and notifies stakeholders
+3. DevOps deploys to staging (procedures/05-deployment/02-staging-deployment.md), validates with smoke tests
+4. DevOps deploys to production (procedures/05-deployment/03-production-deployment.md) after SG4 passes
+5. DevOps runs post-deploy monitoring (procedures/05-deployment/04-post-deployment.md): health checks at T+5m, T+15m, T+1h, T+4h
+6. Technical Writer writes release notes / changelog
+7. PM holds rollback approval authority; rollback plan documented and practiced
+8. Verify acceptance criteria
+9. Log to `.agentcrew/log/06-ship-release/<role>/<timestamp>.md`
+10. Update `.agentcrew/state/workflow.json`
 
 ## Squad
 | Role | Responsibility |
@@ -10,30 +22,16 @@ Plan, deploy, and verify a production release with rollback capability and post-
 | PM | Release planning, stakeholder communication, rollback decision |
 | Technical Writer | Release notes, changelog, upgrade guides |
 
-## Schedule
-```
-PM:   Release plan ──> Stakeholder notification ──> Rollback decision authority
-DevOps:              Staging deploy ──> Prod deploy ──> Post-deploy monitoring
-```
-
-**Sequential**: Plan → Staging → Prod → Post-deploy.  
-**Parallel**: PM plans + notifies while DevOps prepares infrastructure.
-
-## Dependencies
-- **Needs**: QA sign-off (from Verify Quality)
-- **Blocks**: Operate & Learn
-- **Also needs**: Secrets, access, rollback approval
-
-## Artifacts
-| Role | Produces | Format |
-|------|----------|--------|
-| PM | Release plan (scope, schedule, stakeholders) | Markdown |
-| PM | Rollback approval | Markdown |
-| Technical Writer | Release notes / changelog | Markdown |
-| DevOps | Staging deployment + validation | Status |
-| DevOps | Production deployment + health checks | Status |
-| DevOps | Post-deployment monitoring report | Markdown |
-| DevOps | Deploy summary (timeline, metrics) | Markdown |
+## Inputs → Outputs
+| Input | From | → Output | To |
+|-------|------|---------|----|
+| QA sign-off + scope | QA + PM | Release plan (scope, schedule, stakeholders) (Markdown) | PM |
+| Build + release plan | Dev + PM | Staging deployment + validation (Status) | DevOps |
+| Staging validation + SG4 | DevOps | Production deployment + health checks (Status) | DevOps |
+| Prod deployment | DevOps | Post-deployment monitoring report (Markdown) | DevOps |
+| Release scope | PM | Rollback approval (Markdown) | PM |
+| Release version | PM | Release notes / changelog (Markdown) | Technical Writer |
+| All events | All | Deploy summary (timeline, metrics) (Markdown) | DevOps |
 
 ## Acceptance
 - SG4 gate: All scans clean, no Critical/High bugs
@@ -44,22 +42,16 @@ DevOps:              Staging deploy ──> Prod deploy ──> Post-deploy moni
 - Stakeholders notified
 - Post-deploy monitoring confirms no anomalies
 
-## Procedure References
+## Gates
+- **SG4**: Before production deploy — All scans clean, no Critical/High bugs
+
+## Procedures
 - PM: `procedures/05-deployment/01-release-planning.md`
 - DevOps: `procedures/05-deployment/02-staging-deployment.md`
 - DevOps: `procedures/05-deployment/03-production-deployment.md`
 - DevOps: `procedures/05-deployment/04-post-deployment.md`
 
-## Security Gates
-- **SG4**: Before production deploy — All scans clean, no Critical/High bugs
-
 ## Debate Triggers
 - Rollout strategy (blue-green vs canary vs rolling) → DevOps + PM debate
 - Rollback threshold (what metric triggers rollback?) → DevOps + PM agree
 - Release scope (what's included vs deferred) → PM decides
-
-## Solo Invocation
-- "DevOps, deploy [build] to staging" → DevOps runs staging deploy only
-- "DevOps, deploy [build] to production" → DevOps runs prod deploy only
-- "Technical Writer, write release notes for version [x]" → Technical Writer writes release notes
-- "DevOps, run post-deploy monitoring for [release]" → DevOps monitors only

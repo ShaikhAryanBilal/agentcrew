@@ -1,7 +1,7 @@
 ---
 name: sdlc
 description: >
-  AgentCrew — objective-based SDLC crew with 16 invocable AI roles.
+  AgentCrew — objective-based SDLC crew with 18 invocable AI roles.
   Every request routes through `.agentcrew/00-objectives.md`. Roles work solo, squad,
   or orchestrated. Each has contract + workflow + skills + templates.
   Also triggered by: "SDLC", "workflow", "follow the process", /sdlc.

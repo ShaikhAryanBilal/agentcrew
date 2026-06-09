@@ -29,4 +29,32 @@ quality_checklist:
   - API errors surface user-friendly message, not raw error
 ---
 
-# Frontend Workflow
+## Trigger
+Tech spec + API contracts + UX designs available.
+
+## Instructions
+1. Implement UI — build components, pages, state management, and API integration.
+2. Code review — review for security, performance, and accessibility (SG2).
+3. Unit testing — write component tests and integration tests with API.
+4. Integration — connect to API and verify end-to-end flows.
+5. Log to `.agentcrew/log/frontend/<timestamp>.md`
+6. Update `.agentcrew/state/workflow.json`
+
+## Done When
+All screens implemented, API integrated, tests passing, review approved.
+
+## Needs → Gives
+| Need | From | → Gives | To |
+|------|------|--------|----|
+| UI designs + assets | UX Designer | UI code, component tests | Repo, QA |
+| API contracts | Backend / Architect | Integration | QA (E2E) |
+| Coding standards | Tech Lead | — | — |
+
+## Quality Checklist
+- All states covered: loading, empty, error, success, edge case
+- Responsive at all breakpoints (320px, 768px, 1440px, 2560px)
+- Keyboard navigable, focus indicators visible
+- Color contrast meets WCAG AA minimum (4.5:1 text, 3:1 large text)
+- Bundle size budget met (no regressions from feature)
+- Lazy loading for below-fold components
+- API errors surface user-friendly message, not raw error

@@ -5,23 +5,7 @@
 - Stakeholder list (who needs to approve)
 - Known outstanding questions (if any)
 
-## Decision Tree
-
-```
-Does this feature touch: auth, payments, PII, or sensitive data?
-├── Yes → SG1 applies. Route to Threat Modeling AFTER sign-off.
-└── No → SG1 not required. Proceed to design directly.
-
-Do stakeholders disagree on scope?
-├── Yes → Escalate: options with trade-offs, PM decides.
-└── No → Standard sign-off.
-
-Is there a hard deadline (e.g., regulatory, contract)?
-├── Yes → Flag in review. Scope is flexible, deadline is not.
-└── No → Standard timing.
-```
-
-## Do
+## Instructions
 
 ### 1. Review Cycle
 
@@ -88,13 +72,11 @@ Scope frozen: Yes — changes after this point require change request
 
 ### 4. Scope Freeze
 
-After sign-off:
 - [ ] Scope is frozen. Changes = change request.
 - [ ] Change request process: impact assessment → PM decision → version bump
 - [ ] Minor clarifications (no scope change) do NOT require re-sign-off
 
 ## Anti-Patterns
-
 | Don't | Instead |
 |-------|---------|
 | Infinite review rounds | 2 rounds max. Round 3 = you didn't write clearly enough. |
@@ -104,7 +86,6 @@ After sign-off:
 | Scope creep without process | Change request or defer. No free additions. |
 
 ## Time Budget
-
 | Stakeholders | Rounds | Typical Time |
 |-------------|--------|-------------|
 | 2-3 (small) | 1 | 1 day |
@@ -112,13 +93,11 @@ After sign-off:
 | 7+ (large, multi-team) | 2 | 3-5 days |
 | Compliance-involved | 2+ | 1-2 weeks |
 
-Sign-off should never take longer than the analysis phase. If it does, the PRD is too vague.
-
 ## Done
 - Signed-off PRD (v1.0, scope frozen)
 - Approval record (who, when)
 - SG1 decision made (route to threat model or skip)
 - Change request process documented
 
-## Next → `02-design/01-system-architecture.md`
+→ Next: `02-design/01-system-architecture.md`
 Scope disagreement? PM resolves. Feasibility concern? Tech Lead writes impact note. If still blocked, revert to `03-prd.md` with updated constraints.

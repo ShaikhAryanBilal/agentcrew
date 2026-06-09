@@ -1,3 +1,18 @@
+# Post-Mortem Template
+
+## Need
+- Incident resolved (SEV1/SEV2/SEV3 with lesson)
+- Timeline, logs, metrics collected
+
+## Instructions
+1. Copy template
+2. Fill each section
+3. Review with team
+4. Publish to `.agentcrew/log/postmortem/<date>-<slug>.md`
+
+## Template
+
+```markdown
 # Post-Mortem: [Incident Title]
 
 ## Incident Summary
@@ -53,3 +68,10 @@ Which controls should have prevented or detected this?
 ## Blameless Statement
 This post-mortem documents facts for learning. We do not blame individuals.
 Systems and processes failed — we fix those.
+```
+
+## Done
+- Template filled with incident details
+- Reviewed by team
+- Action items tracked
+- Archived to log directory

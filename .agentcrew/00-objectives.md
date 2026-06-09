@@ -151,65 +151,20 @@ security_gates:
 
 # Objective-Based SDLC — Router
 
-## Shift
-
-This replaces `00-router.md` step-routing with **objective-based routing**.
-Instead of "what step are we on?", ask **"what objective are we achieving?"**
-
-## Core Model
-
+## Model
 ```
-Request → Objective(s) → Squad(s) → Artifacts → Done
+Request → Objective → Squad(s) → Artifacts → Acceptance → Log → State
 ```
 
-## Invocation Modes
-
+## Modes
 | Mode | Pattern | When |
 |------|---------|------|
-| **Solo** | "[Role], do [task]" | Single role, self-contained |
-| **Squad** | "Squad ([roles]), achieve [objective]" | Multiple roles, one objective |
-| **Orchestrate** | "Build this [feature/system]" | Multiple objectives, full lifecycle |
+| Solo | "[Role], do [task]" | Single role |
+| Squad | "Squad ([roles]), achieve [objective]" | Multiple roles, one objective |
+| Orchestrate | "Build this [feature/system]" | Multiple objectives |
 
-## Architecture
-
-Each objective is a **self-contained unit** with:
-- **Goal**: Success criteria
-- **Squad**: Required roles
-- **Schedule**: Parallel or sequential dependencies
-- **Artifacts**: What each role produces
-- **Assembly**: How artifacts combine into objective output
-- **Acceptance**: How to verify done
-- **References**: Links to step guides (old step files) that roles use as procedure
-
-### Solo Mode
-No orchestration needed. Role executes autonomously.
-```
-User → "[Role], do [task]" → Role invokes contract → Artifact produced
-```
-
-### Squad Mode
-Roles within one objective work in parallel where possible, sequential where needed.
-```
-User → "[Objective]" → Squad → Parallel work → Assembly → Acceptance
-```
-
-### Orchestrate Mode
-Orchestrator breaks request into multiple objectives, assigns squads, tracks progress.
-```
-User → "Build this product" → Orchestrator → [Obj1, Obj2, ...] → Squads → Coordination → Done
-```
-
-## State Tracking
-
-State file format: `.agentcrew/state/workflow.json`
-
-Objectives track:
-- `achievedObjectives`: List of completed objectives with timestamps
-- `currentObjective`: Active objective
-- `artifacts`: Map of produced artifacts per objective
-- `phaseGates`: Security gate status (unchanged)
+## State
+`.agentcrew/state/workflow.json` tracks: achievedObjectives, currentObjective, artifacts, phaseGates
 
 ## Logging
-
-Each role action within an objective logs to `.agentcrew/log/`.
-Format: `.agentcrew/log/<objective-id>/<role>/<timestamp>.md`
+`.agentcrew/log/<objective-id>/<role>/<timestamp>.md`

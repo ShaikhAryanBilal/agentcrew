@@ -5,41 +5,18 @@
 - Codebase map (insertion points known)
 - Current branch off main
 
-## Decision Tree — Before You Write a Line
-
-```
-Is this > 200 lines across > 2 files?
-├── Yes → Is design clear enough to start?
-│   ├── Yes → Write tests FIRST (TDD for complex logic)
-│   └── No → Ask: what's unclear? (design gap → revert to design/review)
-└── No → Is it a mechanical change (rename, extract, move)?
-    ├── Yes → Code first, tests after (low risk)
-    └── No → Write logic first, tests after (standard flow)
-
-Is there a DB schema change?
-├── Yes → Write migration BEFORE app code
-└── No → Skip
-```
-
-## Do
+## Instructions
 
 ### 1. Branch + Commit Discipline
 
 ```
-Branch:  feat/TICKET-123-short-description
-         fix/TICKET-123-what-broke
-         refactor/TICKET-123-what
-
+Branch: feat/TICKET-123-short-description
+        fix/TICKET-123-what-broke
+        refactor/TICKET-123-what
 Commits: conventional commits, squash NOT allowed on branch
   feat: add payment webhook handler
   fix: handle null memo in invoice export
-  refactor: extract retry logic to shared util
-  test: cover payment timeout edge case
-  chore: upgrade axios to v1.7
-
-Commit body — answer WHY, not what:
-  Before: "Added null check"          ← useless
-  After:  "redis get returns nil on cache miss, not empty string"
+Commit body — answer WHY, not what
 ```
 
 ### 2. Implementation Order (priority)
@@ -48,14 +25,7 @@ Commit body — answer WHY, not what:
 - [ ] **Core logic** — pure functions, no I/O. Testable in isolation
 - [ ] **I/O layer** — DB calls, API calls, file reads. Thin wrappers
 - [ ] **Handler/controller** — wires logic + I/O. Keep < 30 lines
-- [ ] **Error handling** per layer:
-  ```
-  Layer           Strategy
-  ─────           ────────
-  Pure logic      Return Result/Option/Either, throw only for programmer errors
-  I/O             Catch, wrap, rethrow with context (not raw driver errors)
-  Handler/API     Catch-all → structured error response, log original
-  ```
+- [ ] **Error handling** per layer
 - [ ] **Input validation** — validate at boundary, not inside logic
 - [ ] **Edge cases per type**:
   ```
@@ -71,20 +41,11 @@ Commit body — answer WHY, not what:
 ### 3. Tests
 
 - [ ] Match existing test framework + patterns (look at 3 existing tests first)
-- [ ] File naming: `*.test.ts` / `*_test.go` / `*.spec.tsx` — whatever project uses
+- [ ] File naming: `*.test.ts` / `*_test.go` — whatever project uses
 - [ ] Coverage expectation: new code ≥ 80%, existing uncovered code NOT required
-- [ ] Structure per test:
-  ```python
-  def test_X_when_Y_does_Z():   # pattern: test_{unit}_when_{condition}_does_{result}
-      # Arrange
-      # Act  
-      # Assert
-  ```
-- [ ] Mock external services, NOT internal logic (prefer real instances of your own classes)
+- [ ] Mock external services, NOT internal logic
 
 ### 4. Self-Review Checklist
-
-Run this BEFORE opening PR:
 
 - [ ] No `console.log`, `print()`, `debugger`, `TODO`, `FIXME`, `XXX` in committed code
 - [ ] No commented-out code blocks
@@ -93,36 +54,30 @@ Run this BEFORE opening PR:
 - [ ] No file > 400 lines (if yes, split)
 - [ ] No import of unused modules
 - [ ] No secrets, keys, tokens, connection strings in code
-- [ ] Public API documented (docstring or type signature sufficient)
+- [ ] Public API documented
 - [ ] Logs use structured format (JSON), not string interpolation
 - [ ] Breaking change in shared interface? Flag in PR description
 - [ ] CI passes locally (lint + typecheck + test)
 
 ### 5. PR Output
 
-- [ ] PR title: `type(scope): description` (matches commit style)
+- [ ] PR title: `type(scope): description`
 - [ ] PR body template:
   ```
   Closes TICKET-123
-
   ## What
-  3-line summary of what this does
-
+  3-line summary
   ## Why
   Why this approach, not alternatives considered
-
   ## Test plan
   - `npm test regression`
-  - Manual: trigger webhook with null payload → verify 200 + logged
-
   ## Breaking changes
   None / List them
   ```
-- [ ] Add reviewer(s) per `00-roles.md` ownership matrix
+- [ ] Add reviewer(s) per ownership matrix
 - [ ] Link to any related issues, designs, or discussions
 
-## Anti-Patterns (Don't)
-
+## Anti-Patterns
 | Don't | Instead |
 |-------|---------|
 | Mix refactor + feature in same PR | Separate PRs or commits (clear boundary) |
@@ -134,15 +89,12 @@ Run this BEFORE opening PR:
 | Giant PR (> 400 lines changed) | Split into stacked PRs |
 
 ## Time Budget
-
 | Size | Implementation | Tests | Self-Review | Total |
 |------|---------------|-------|-------------|-------|
 | Tiny (< 50 lines, 1 file) | 15 min | 10 min | 5 min | 30 min |
 | Medium (50-200 lines, 2-3 files) | 1-2 hr | 30 min | 15 min | 2-3 hr |
 | Large (200-500 lines, 4-8 files) | 3-5 hr | 1-2 hr | 30 min | 5-8 hr |
 | X-Large (500+ lines, 8+ files) | 1-2 days | 3-4 hr | 1 hr | Split into sub-tasks |
-
-Exceeded budget? You're over-engineering, missing design clarity, or need to split scope.
 
 ## Done
 - Feature branch with conventional commits
@@ -151,5 +103,5 @@ Exceeded budget? You're over-engineering, missing design clarity, or need to spl
 - PR open with description + reviewer
 - Migration scripts committed (if schema change)
 
-## Next → `05-code-review.md`
+→ Next: `05-code-review.md`
 Blocked? Design gap → revert to design/review. External dependency issue → flag in PR.

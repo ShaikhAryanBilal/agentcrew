@@ -43,4 +43,38 @@ quality_checklist:
   - SBOM generated and published with release
 ---
 
-# DevOps Workflow
+## Trigger
+Project starts / deployment requested / monitoring alert.
+
+## Instructions
+1. Infrastructure setup — provision environments, networking, secrets, and CI/CD.
+2. CI/CD pipeline — configure lint → type-check → test → build → scan → deploy.
+3. Monitoring setup — configure logging, metrics, traces, dashboards, and alerts.
+4. Staging deploy — deploy build, run health checks and smoke tests.
+5. Production deploy — execute deploy plan (SG4), run smoke tests, verify monitoring.
+6. Post-deploy monitoring — maintain 24h hyper-care and respond to incidents.
+7. Hotfix deploy — execute emergency deploy for critical issues.
+8. Log to `.agentcrew/log/devops/<timestamp>.md`
+9. Update `.agentcrew/state/workflow.json`
+
+## Done When
+Environments provisioned, CI/CD green, monitoring active, production deployed.
+
+## Needs → Gives
+| Need | From | → Gives | To |
+|------|------|--------|----|
+| Build artifact | Dev | Staging environment | QA |
+| Build config (Dockerfile) | Tech Lead | CI/CD pipeline | Everyone |
+| Secrets/keys | PM / Security | Deployed builds | QA, Security |
+| Release plan | PM + Tech Lead | Monitoring dashboards | Everyone |
+| Rollback approval | PM | Deployment status | PM |
+
+## Quality Checklist
+- Infrastructure defined as code (IaC), not manual configuration
+- CI/CD pipeline passes all gates: lint → test → build → scan → deploy
+- Secrets managed via vault, never in repo or env files
+- Deployment has rollback plan — tested, documented
+- Health checks configured after deployment
+- Monitoring dashboards show SLIs (latency, error rate, throughput, saturation)
+- Alerts configured for on-call with runbook links
+- SBOM generated and published with release

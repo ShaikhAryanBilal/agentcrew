@@ -36,38 +36,34 @@ quality_checklist:
   - Minutes complete and archived
 ---
 
-# Meeting Facilitator Workflow
+## Trigger
+User invokes meeting mode: "/meeting [topic]" or "meeting mode [topic]"
 
-### Phase 1: Convene
-1. Parse meeting topic from user input
-2. Consult Role Selection Matrix in `objectives/08-conduct-meeting.md`
-3. Determine which roles to spawn based on topic keywords
-4. Show RPG party screen with assembled squad
-5. Set agenda with timeboxes
-6. Share agenda with all participants
+## Instructions
+1. Convene — parse the topic, consult the Role Selection Matrix in `objectives/08-conduct-meeting.md`, select roles based on topic keywords, show RPG party screen, set agenda with timeboxes, and share agenda with all participants.
+2. Brainstorm — present topic with context, invite each role to contribute from their perspective, capture all ideas (divergence) before evaluating using round-robin to ensure balance, parking lot off-topic ideas, and summarize.
+3. Decide — present options, facilitate discussion where each role gives pros/cons from their lens. If clear consensus, record decision with rationale and alternatives. If strong disagreement, escalate to Debate sub-workflow.
+4. Action items — derive items from decisions, assign owner + deliverable + deadline per item, confirm each owner accepts, and summarize.
+5. Minutes — compile the full meeting record.
+6. Log to `.agentcrew/log/meeting/<topic-slug>/<timestamp>.md`
+7. Update `.agentcrew/state/workflow.json`
 
-### Phase 2: Brainstorm
-1. Present topic with context
-2. Invite each role to contribute from their perspective
-3. Capture all ideas (divergence) before evaluating
-4. Use round-robin to ensure balanced contribution
-5. Parking lot for off-topic but valuable ideas
-6. Summarize ideas gathered
+## Done When
+Agenda set, roles spawned, ideas captured, decisions recorded, action items assigned, minutes logged.
 
-### Phase 3: Decide
-1. Present options / ideas for decision
-2. Facilitate discussion — each role gives pros/cons from their lens
-3. If clear consensus -> record decision
-4. If strong disagreement -> escalate to Debate sub-workflow (debate/trigger)
-5. Record decision with rationale, alternatives, and consensus level
+## Needs → Gives
+| Need | From | → Gives | To |
+|------|------|--------|----|
+| Meeting topic | User | Meeting agenda | All participants |
+| Role roster | 00-roles.md | Meeting minutes | Archive |
+| Role selection matrix | objectives/08-conduct-meeting.md | Decision records | State, ADR |
+| Debate sub-workflow | debate/ (if needed) | Action items | Assigned owners |
 
-### Phase 4: Action Items
-1. Derive action items from decisions made
-2. Assign owner + deliverable + deadline per item
-3. Confirm each owner accepts their item
-4. Summarize all action items
-
-### Phase 5: Minutes
-1. Compile full meeting record
-2. Write to `.agentcrew/log/meeting/<topic-slug>/<timestamp>.md`
-3. Update `.agentcrew/state/workflow.json` with meeting artifact
+## Quality Checklist
+- Agenda defined with timeboxes before discussion
+- Roles selected match meeting topic (from matrix)
+- All attendees given airtime (no domination)
+- Ideas captured in full before evaluation
+- Decisions documented with alternatives and rationale
+- Action items assigned with owner + deliverable + deadline
+- Minutes complete and archived

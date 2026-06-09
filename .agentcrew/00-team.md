@@ -60,10 +60,10 @@ roles:
     contract: roles/technical-writer/contract.md
     workflow: roles/technical-writer/workflow.md
     specialty: API docs, user guides, release notes
-  - name: Debate Facilitator
+  - name: Debator
     contract: roles/debator/contract.md
     workflow: roles/debator/workflow.md
-    specialty: Neutral debate moderator
+    specialty: Structured debate, scoring, resolution
   - name: Orchestrator
     contract: roles/orchestrator/contract.md
     workflow: roles/orchestrator/workflow.md
@@ -76,165 +76,24 @@ roles:
 
 # AgentCrew — Crew Orchestration Hub
 
-## Overview
-
-AgentCrew is a full software development crew of 18 AI roles, each invocable solo or in squads toward shared objectives.
-Each role is self-contained with a contract (inputs/outputs) and workflow (process).
-
 ## Invocation Patterns
 
-### 1. Solo Invocation
+### 1. Solo
+Syntax: `"[Role], do [task]"`
+Effect: Load contract → load workflow → produce artifact → log → update state
 
-Invoke a single role for a specific task.
+### 2. Squad
+Syntax: `"Squad ([roles]), achieve [objective]"`
+Effect: Load objective → each role loads contract+workflow → parallel/sequential work → assemble → verify acceptance → log → update state
 
-```
-Syntax: "[Role], do [task] for [context]"
-```
+### 3. Orchestrate
+Syntax: `"Build [feature]" / "Full SDLC for [project]"`
+Effect: Orchestrator decomposes → orders objectives → assigns squads → monitors → verifies → reports → logs → updates state
 
-Examples:
-- "Architect, design the database schema for the payment system"
-- "PM, write the PRD for user authentication"
-- "Backend Dev, implement the order API"
-- "QA, create test cases for the checkout flow"
-- "Security, review the threat model for the portal"
-- "UX Designer, create wireframes for the dashboard"
-- "DevOps, set up the CI/CD pipeline for this project"
-- "EM, plan the sprint for these features"
-- "Debate Facilitator, run a debate on tech stack"
+### 4. Meeting
+Syntax: `"/meeting [topic]" / "brainstorm [topic]"`
+Effect: Load meeting objective → spawn roles via matrix → convene → brainstorm → decide → action items → minutes → log
 
-**Effect:**
-1. Load role's contract.md → identify inputs needed and outputs expected
-2. Load role's workflow.md → know execution process
-3. Load relevant objective file (if applicable) → know goal + acceptance
-4. Load relevant step files as procedure reference
-5. Role executes, produces artifact
-6. Log to `.agentcrew/log/<objective-id>/<role>/<timestamp>.md`
-7. Update `.agentcrew/state/workflow.json` with completed artifact
-
-### 2. Squad Invocation
-
-Invoke multiple roles to achieve an objective together.
-
-```
-Syntax: "Squad ([roles]), achieve [objective]"
-```
-
-Examples:
-- "Squad (PM, BA), clarify the vision for the reporting module"
-- "Squad (Architect, UX, Security), design the solution for the customer portal"
-- "Squad (Frontend, Backend), build the user profile feature"
-- "Squad (QA, Security), verify quality of release v2.1"
-- "Squad (DevOps, PM), ship the release to production"
-
-**Effect:**
-1. Load objective file → know goal, squad, schedule, artifacts, acceptance
-2. Each role loads their contract + workflow
-3. Roles work **in parallel** where dependency graph allows
-4. Roles work **in sequence** where dependencies exist
-5. Assembly of artifacts into combined objective output
-6. Verify acceptance criteria
-7. Log each role's actions + objective completion
-8. Update state
-
-**Parallel vs Sequential within Objective:**
-
-```
-Parallel:     Role A ──> Artifact A
-              Role B ──> Artifact B
-              Role C ──> Artifact C
-              Assembly: A + B + C → Objective Output
-
-Sequential:   Role A ──> Artifact A ──> Role B ──> Artifact B
-```
-
-Objective files define which paths are parallel vs sequential.
-
-### 3. Orchestrated Invocation
-
-Full lifecycle management. The Orchestrator role coordinates multiple objectives.
-
-```
-Syntax: "Build [feature]" / "Full SDLC for [project]" / "Develop [system]"
-```
-
-Examples:
-- "Build the e-commerce platform from scratch"
-- "Full SDLC for the reporting dashboard"
-- "Develop the user authentication module"
-
-**Effect:**
-1. Orchestrator role loaded (roles/orchestrator/)
-2. Orchestrator decomposes user request into objectives
-3. Dependency order determined between objectives
-4. For each objective: assign squad, set schedule, track progress
-5. Squads execute per Squad pattern
-6. Orchestrator monitors progress, resolves cross-objective conflicts
-7. Orchestrator reports status to user
-8. Final verification of all objectives complete
-9. Log + update state
-
-## Orchestrator Decision Flow
-
-```
-User Request
-    ↓
-Orchestrator: Parse → "How many objectives does this need?"
-    ↓
-   [Single objective?] → Assign squad directly → Done (skip orchestration)
-    ↓
-   [Multiple objectives?] → Map to objectives → Order by dependencies
-    ↓
-   For each objective:
-     → Assign squad
-     → Set acceptance criteria
-     → Track progress
-     → Resolve blockers (use debate if needed)
-    ↓
-   All objectives achieved → Report to user
-```
-
-## Role Independence Principle
-
-Every role can be invoked **without** the orchestrator. The orchestrator is only needed when:
-- The request spans multiple objectives
-- Cross-objective dependencies need management
-- The user explicitly asks for full lifecycle management
-
-This means:
-- "Architect, design the DB" works with or without orchestration
-- "QA, run tests on build 42" works standalone
-- "Build the whole app" uses orchestrator to coordinate all roles
-
-### 4. Meeting Invocation
-
-Invoke meeting mode for structured brainstorming and decision-making.
-
-```
-Syntax: "/meeting [topic]" / "Meeting mode: [topic]" / "brainstorm [topic]"
-```
-
-Examples:
-- "/meeting brainstorm the new dashboard features"
-- "Meeting mode: decide on database technology for payments"
-- "brainstorm the authentication architecture"
-- "/meeting retro for sprint 5"
-- "meeting on API design approach"
-
-**Effect:**
-1. Load objective `objectives/08-conduct-meeting.md`
-2. Meeting Facilitator role loaded (roles/meeting-facilitator/)
-3. Topic parsed and roles selected via Role Selection Matrix
-4. Show RPG party screen with assembled meeting squad
-5. Facilitator runs: Convene → Agenda → Brainstorm → Decisions → Action Items → Minutes
-6. Each spawned role contributes from their perspective
-7. Decisions captured in ADR-style records
-8. Action items assigned with owner + deliverable + deadline
-9. Minutes logged to `.agentcrew/log/meeting/<topic>/<timestamp>.md`
-10. State updated with meeting outcomes
-
-## State & Logging
-
-- **State**: `.agentcrew/state/workflow.json` tracks achieved objectives + artifacts
-- **Logs**: `.agentcrew/log/<objective-id>/<role>/<timestamp>.md`
-- **Debate logs**: `.agentcrew/log/debate/<decision-slug>.md`
-- **Meeting logs**: `.agentcrew/log/meeting/<topic-slug>/<timestamp>.md`
+## State
+`.agentcrew/state/workflow.json` — achieved objectives + artifacts
+`.agentcrew/log/<objective-id>/<role>/<timestamp>.md` — per-role logs

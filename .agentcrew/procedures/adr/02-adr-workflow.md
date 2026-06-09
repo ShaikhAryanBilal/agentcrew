@@ -1,12 +1,12 @@
 # ADR Workflow
 
-## When to Write an ADR
+## Need
 - Significant architecture decision (framework, DB, protocol, deploy strategy)
 - Trade-off with non-trivial consequences
 - Decision that impacts multiple teams / objectives
 - Any decision that might need revisiting later
 
-## Process
+## Instructions
 1. **Propose** — Tech Lead or Architect drafts ADR using template
 2. **Review** — Squad reviews, may trigger debate if disagreement
 3. **Decide** — Architect (technical) or PM (product) makes final call
@@ -24,3 +24,9 @@ Proposed → Accepted → (optionally) Deprecated → Superseded
 
 ## Referencing
 Other documents reference ADRs as: `[ADR-001: Use PostgreSQL](adr/2026-06-09-use-postgresql.md)`
+
+## Done
+- ADR proposed, reviewed, decided
+- Filed in log directory
+- Communicated to affected teams
+- Compliance checks added

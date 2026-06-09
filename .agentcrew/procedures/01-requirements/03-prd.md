@@ -6,23 +6,7 @@
 - Conflict resolutions from PM
 - Known constraints (tech, timeline, budget, legal)
 
-## Decision Tree
-
-```
-Is this a new product or major feature (> 5 P0 items)?
-├── Yes → Full PRD template below. Every section required.
-└── No → Light PRD. Skip personas, out-of-scope, risk register.
-
-Does it affect external users (not internal)?
-├── Yes → Include UX guidelines, a11y, i18n, device support.
-└── No → Internal tool → skip UX section, focus on functional.
-
-Is there a compliance implication?
-├── Yes → Add compliance section. Involve legal.
-└── No → Skip compliance section.
-```
-
-## Do
+## Instructions
 
 ### 1. PRD Template
 
@@ -37,7 +21,6 @@ Copy this template. Fill every section. Remove section instructions (text in `[]
 
 ## 2. Target Users
 [Table]
-
 | Persona | Role | Key Need | Example |
 |---------|------|----------|---------|
 | [Name] | [Job title] | [Pain this solves] | [Real person if possible] |
@@ -45,7 +28,6 @@ Copy this template. Fill every section. Remove section instructions (text in `[]
 For internal-only features → skip this section.
 
 ## 3. Success Metrics
-
 | Metric | Current | Target | How Measured |
 |--------|---------|--------|-------------|
 | [e.g. export time] | [e.g. 4 hrs] | [e.g. < 3 sec] | [e.g. perf test] |
@@ -54,24 +36,19 @@ For internal-only features → skip this section.
 SMART only. "Make it faster" → rewrite. "Reduce P95 latency from 2s to 200ms" → keep.
 
 ## 4. Scope
-
 ### In Scope (this release)
 - [FR-001] Invoice data model
 - [FR-003] CSV export
-- [List P0 + P1 items]
 
 ### Out of Scope (explicitly not doing)
 - PDF export (future)
 - Scheduled auto-export (future)
-- [Everything not listed above that someone might assume is included]
 
 ### Future (deferred but tracked)
 - [FR-006] Scheduled export — revisit after launch
 
 ## 5. Feature Details
-
 For each P0 item:
-
 ### [FR-003] CSV Export
 **User story:** As an accountant I want to export invoices as CSV...
 **Acceptance criteria:**
@@ -83,7 +60,6 @@ For each P0 item:
 - Encoding: UTF-8 with BOM (Excel compatibility)
 
 ## 6. Non-Functional Requirements
-
 | NFR | Target | Rationale |
 |-----|--------|-----------|
 | [NFR-001] P95 response time | < 500ms | Accounting team expectation |
@@ -104,7 +80,6 @@ Skip if no measurable target. "Fast" is not an NFR.
 Internal tool → skip this section.
 
 ## 8. Constraints
-
 | Type | Constraint | Source |
 |------|-----------|--------|
 | Tech | Must use existing PostgreSQL | Engineering |
@@ -113,21 +88,18 @@ Internal tool → skip this section.
 | Legal | PII encrypted at rest + in transit | Compliance |
 
 ## 9. Dependencies
-
 | Dependency | Impact if delayed | Owner |
 |-----------|-------------------|-------|
 | Payment webhook API | Blocks FR-003 entirely | Backend team |
 | Design system v2 | FR-005 needs new component | Design team |
 
 ## 10. Risks + Mitigations
-
 | Risk | Likelihood | Impact | Mitigation |
 |------|-----------|--------|------------|
 | Legacy DB can't meet 500ms | Medium | High | Benchmark early, relax target if needed |
 | Export > 10k rows times out | Low | Medium | Implement streaming, not full-buffer |
 
 ## 11. Stakeholders
-
 | Role | Name | Approval needed? | Informed? |
 |------|------|-----------------|-----------|
 | Product Manager | [Name] | Yes | — |
@@ -136,7 +108,6 @@ Internal tool → skip this section.
 | Legal | [Name] | Only for compliance | If applicable |
 
 ## 12. Revision History
-
 | Date | Author | Change |
 |------|--------|--------|
 | yyyy-mm-dd | [Name] | Initial draft |
@@ -152,8 +123,6 @@ Internal tool → skip this section.
 
 ### 3. PRD Review Gates
 
-Before calling it done:
-
 - [ ] Problem statement readable by a non-technical stakeholder? Test it on someone outside the team.
 - [ ] Every "In Scope" item links to a user story or AC?
 - [ ] "Out of Scope" list would surprise nobody? Add anything someone might assume is included.
@@ -162,7 +131,6 @@ Before calling it done:
 - [ ] Total document fits on 2-3 printed pages? (If longer, you're including implementation details. Stop.)
 
 ## Anti-Patterns
-
 | Don't | Instead |
 |-------|---------|
 | PRD > 5 pages | 2-3 pages max. Detail lives in linked specs. |
@@ -173,7 +141,6 @@ Before calling it done:
 | Skipping Out of Scope | This is where scope creep hides. Write it explicitly. |
 
 ## Time Budget
-
 | Scope | Sections | Write | Review | Total |
 |-------|----------|-------|--------|-------|
 | Small (1-3 P0, no NF) | 8 required | 30 min | 10 min | 40 min |
@@ -187,5 +154,5 @@ Before calling it done:
 - Reviewed by: PM (content), Tech Lead (feasibility)
 - Signed off by stakeholders (or pending with dates)
 
-## Next → `04-requirements-review-and-signoff.md`
+→ Next: `04-requirements-review-and-signoff.md`
 PM says "this doesn't match what I asked"? Revert to intake.

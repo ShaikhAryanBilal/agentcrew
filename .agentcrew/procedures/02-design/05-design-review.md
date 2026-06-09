@@ -7,26 +7,7 @@
 - API contracts (OpenAPI spec)
 - Threat model (SG1 pass required — Critical/High threats mitigated)
 
-## Decision Tree
-
-```
-SG1 status?
-├── Pass (all Critical/High mitigated) → Proceed to full review
-├── Fail → Revert to threat modeling. Do NOT review design with open Critical threats.
-└── Not applicable (no security-significant features) → Skip SG1 check, proceed
-
-Design complexity?
-├── Simple (2-4 components, < 10 endpoints, < 10 tables) → Single reviewer
-├── Medium (5-8 components, 10-20 endpoints) → 2 reviewers
-└── Complex (9+ components, 20+ endpoints, multi-region) → Full review meeting
-
-How many reviewers needed?
-├── 1 reviewer minimum for standard changes
-├── 2 reviewers for features touching auth/payments/PII
-└── 3+ reviewers for architecture decisions affecting multiple teams
-```
-
-## Do
+## Instructions
 
 ### 1. SG1 Gate Check (First)
 
@@ -56,7 +37,7 @@ Before ANY review comments on design quality, verify security gate:
 
 - [ ] Each component has: inputs, processing steps, outputs, error paths?
 - [ ] Data models match entities in PRD?
-- [ ] Error handling strategy per layer defined? (validation, business, I/O, third-party)
+- [ ] Error handling strategy per layer defined?
 - [ ] Configuration documented? (keys, sources, defaults)
 - [ ] Observability plan: metrics, logs, traces, alerts?
 - [ ] Migration path documented (if replacing existing system)?
@@ -86,13 +67,7 @@ Before ANY review comments on design quality, verify security gate:
 ### 6. Risk Register Update
 
 - [ ] Identify new risks found during review
-- [ ] Update risk table with findings:
-  ```
-  | ID | Risk | Severity | Owner | Status |
-  |----|------|----------|-------|--------|
-  | R01 | Single AZ deployment — risk if AZ goes down | Medium | DevOps | Mitigate: multi-AZ |
-  | R02 | No caching on invoice list — perf risk at scale | Low | Backend | Accept (monitor) |
-  ```
+- [ ] Update risk table with findings
 
 ### 7. Outcome
 
@@ -100,40 +75,7 @@ Before ANY review comments on design quality, verify security gate:
 - [ ] **Conditional approve** → Minor issues noted, can proceed but fix before code review.
 - [ ] **Request changes** → Major issues found. Revert to relevant design step.
 
-## Output Format
-
-```
-DESIGN REVIEW: Invoice Export Feature
-Reviewer: [Name]
-Date: yyyy-mm-dd
-Result: Approve / Conditional / Changes requested
-
-SG1: ✅ Pass (all Critical/High threats mitigated)
-
-Architecture: ✅ Pass
-  Notes: Consider adding cache for invoice list endpoint
-
-Tech Spec: ✅ Pass
-  Notes: None
-
-DB Design: ✅ Conditional
-  Issues: Add composite index (customer_id, created_at) on invoices — missing from current design
-  Fix before: code review
-
-API Design: ✅ Pass
-  Notes: None
-
-Risk Register: Updated with R01, R02
-
-Review comments:
-🔴 Blocking:
-  1. Missing index (customer_id, created_at) on invoices — will cause slow queries
-🟡 Suggest:
-  1. Consider adding cache layer for invoice list
-```
-
 ## Anti-Patterns
-
 | Don't | Instead |
 |-------|---------|
 | Review design without reading PRD first | Map every requirement to a design element |
@@ -144,7 +86,6 @@ Review comments:
 | Review alone for critical systems | Get a second set of eyes on auth, payments, data integrity |
 
 ## Time Budget
-
 | Complexity | Pre-read | SG1 Check | Full Review | Write Output | Total |
 |-----------|----------|-----------|-------------|-------------|-------|
 | Simple | 15 min | 5 min | 20 min | 5 min | 45 min |
@@ -158,5 +99,5 @@ Review comments:
 - Issues tagged: 🔴 blocking / 🟡 suggest / 🟢 nitpick
 - Every issue has: what, where, severity
 
-## Next → `03-development/01-sprint-planning.md`
+→ Next: `03-development/01-sprint-planning.md`
 Major issues? Revert to relevant design step (arch, spec, DB, API, or threat). SG1 fail? Revert to threat modeling.

@@ -19,7 +19,7 @@ Is there a financial/security/legal implication?
 └── No → Standard path.
 ```
 
-## Do
+## Instructions
 
 ### 1. Parse — 5W1H+C Extraction
 
@@ -82,8 +82,6 @@ Is this a contradiction? (two stakeholders want opposite things)
 
 ### 5. Output Format
 
-Final output is a structured requirement list. Example:
-
 ```
 ## Requirements — Invoice Export (FR-001 — FR-005)
 
@@ -96,8 +94,13 @@ Final output is a structured requirement list. Example:
 | ❓ | What delimiter? Comma vs semicolon? | — | Gap | — | — |
 ```
 
-## Anti-Patterns
+## Done
+- Structured requirement list (ID, description, tag, source, confidence)
+- Gap list with blocker/non-blocker labels
+- Clarification questions sent (if any blockers)
+- Confidence per item documented
 
+## Anti-Patterns
 | Don't | Instead |
 |-------|---------|
 | Ask every question you can think of | Ask only blockers. Save non-blockers for analysis. |
@@ -106,7 +109,6 @@ Final output is a structured requirement list. Example:
 | Assume technical terms are understood | Define acronyms on first use. Always. |
 
 ## Time Budget
-
 | Input Quality | Parse | Gaps | Classify | Total |
 |---------------|-------|------|----------|-------|
 | Clear request (paragraph) | 5 min | 2 min | 3 min | 10 min |
@@ -114,13 +116,5 @@ Final output is a structured requirement list. Example:
 | Contradictory | 10 min | 10 min | 5 min | 25 min + PM escalation |
 | Long (email chain, doc) | 15 min | 10 min | 10 min | 35 min |
 
-Exceeded budget? You're over-analyzing. Ship the gap list with the question queue.
-
-## Done
-- Structured requirement list (ID, description, tag, source, confidence)
-- Gap list with blocker/non-blocker labels
-- Clarification questions sent (if any blockers)
-- Confidence per item documented
-
-## Next → `02-requirements-analysis.md`
+→ Next: `02-requirements-analysis.md`
 Blocked? Wait for answers. No blockers? Advance.

@@ -1,7 +1,20 @@
-# Objective: Verify Quality
+# Verify Quality
 
-## Goal
-Execute complete test coverage (functional, non-functional, security, regression), track bugs through resolution, and produce QA sign-off.
+## System
+You are executing objective: Verify Quality. Execute complete test coverage (functional, non-functional, security, regression), track bugs through resolution, and produce QA sign-off.
+
+## Instructions
+1. Assemble squad: QA Engineer, Security Engineer, Dev(s)
+2. QA writes test plan (scope, priority, exit criteria) (procedures/04-qa/01-test-planning.md)
+3. QA develops test cases (procedures/04-qa/02-test-case-development.md) mapped to requirements
+4. Run in parallel: QA executes functional tests (procedures/04-qa/03-functional-testing.md), Security runs pentest (procedures/04-qa/09-security-pentest.md)
+5. QA runs non-functional tests (procedures/04-qa/04-non-functional-testing.md)
+6. QA runs regression tests (procedures/04-qa/05-regression-testing.md)
+7. Dev fixes bugs throughout; QA tracks (procedures/04-qa/06-bug-tracking.md)
+8. QA runs UAT (procedures/04-qa/07-uat.md) and obtains sign-off (procedures/04-qa/08-qa-signoff.md)
+9. Verify acceptance criteria (including SG3)
+10. Log to `.agentcrew/log/05-verify-quality/<role>/<timestamp>.md`
+11. Update `.agentcrew/state/workflow.json`
 
 ## Squad
 | Role | Responsibility |
@@ -10,37 +23,22 @@ Execute complete test coverage (functional, non-functional, security, regression
 | Security Engineer | Penetration testing, DAST, security gate |
 | Dev(s) | Bug fixes, test support |
 
-## Schedule
-```
-QA:  Plan ──> Cases ──> Functional ──> Non-Functional ──> Regression ──> UAT ──> Sign-off
-Sec:                     Pentest ─────> (parallel with QA non-functional)
-Dev:                                               Bug fixes (ongoing)
-```
-
-**Parallel**: Security pentest runs concurrently with non-functional testing. Dev fixes bugs throughout.  
-**Sequential**: Test cases need plan. Functional needs cases. Regression needs all prior. Sign-off needs all.
-
-## Dependencies
-- **Needs**: Build artifact from Build Feature (or CI)
-- **Blocks**: Ship Release
-- **Also needs**: Test environment (DevOps), PRD + acceptance criteria (PM)
-
-## Artifacts
-| Role | Produces | Format |
-|------|----------|--------|
-| QA | Test plan (scope, priority, exit criteria) | Markdown |
-| QA | Test cases (TC-xxx per requirement) | Markdown |
-| QA | Functional test results | Markdown |
-| QA | Non-functional test results | Markdown |
-| QA | Regression test results | Markdown |
-| QA | Bug reports (severity + priority) | Markdown |
-| QA | UAT results + sign-off | Markdown |
-| QA | QA sign-off document | Markdown |
-| Security | SAST/DAST scan results | Reports |
-| Security | Dependency scan findings | Reports |
-| Security | Pentest report | Markdown |
-| Security | Security gate result (SG3) | Markdown |
-| Dev | Bug fixes | Commits |
+## Inputs → Outputs
+| Input | From | → Output | To |
+|-------|------|---------|----|
+| Build artifact + PRD | Dev + PM | Test plan (scope, priority, exit criteria) (Markdown) | QA |
+| Test plan + PRD | QA + PM | Test cases (TC-xxx per requirement) (Markdown) | QA |
+| Test cases + build | QA + Dev | Functional test results (Markdown) | QA |
+| NFR targets + build | PM + Dev | Non-functional test results (Markdown) | QA |
+| All prior tests | QA | Regression test results (Markdown) | QA |
+| Test failures | QA | Bug reports (severity + priority) (Markdown) | Dev |
+| Fixed bugs + build | Dev + QA | UAT results + sign-off (Markdown) | QA |
+| All passed | QA | QA sign-off document (Markdown) | PM |
+| Build | Dev | SAST/DAST scan results (Reports) | Security |
+| Dependencies | Build | Dependency scan findings (Reports) | Security |
+| Application | Dev | Pentest report (Markdown) | Security |
+| All scans | Security | Security gate result (SG3) (Markdown) | QA |
+| Bug reports | QA | Bug fixes (Commits) | Dev |
 
 ## Acceptance
 - All P0 test cases pass
@@ -51,24 +49,21 @@ Dev:                                               Bug fixes (ongoing)
 - QA sign-off: Pass or Conditional (documented)
 - Regression scope covers changed areas + fixed bugs
 
-## Procedure References
-- QA: `procedures/04-qa/01-test-planning.md`, `procedures/04-qa/02-test-case-development.md`
-- QA: `procedures/04-qa/03-functional-testing.md`, `procedures/04-qa/04-non-functional-testing.md`
-- QA: `procedures/04-qa/05-regression-testing.md`, `procedures/04-qa/06-bug-tracking.md`
-- QA: `procedures/04-qa/07-uat.md`, `procedures/04-qa/08-qa-signoff.md`
-- Security: `procedures/04-qa/09-security-pentest.md`
-
-## Security Gates
+## Gates
 - **SG3**: Before QA sign-off — DAST + pentest must have no Critical/High findings
+
+## Procedures
+- QA: `procedures/04-qa/01-test-planning.md`
+- QA: `procedures/04-qa/02-test-case-development.md`
+- QA: `procedures/04-qa/03-functional-testing.md`
+- QA: `procedures/04-qa/04-non-functional-testing.md`
+- QA: `procedures/04-qa/05-regression-testing.md`
+- QA: `procedures/04-qa/06-bug-tracking.md`
+- QA: `procedures/04-qa/07-uat.md`
+- QA: `procedures/04-qa/08-qa-signoff.md`
+- Security: `procedures/04-qa/09-security-pentest.md`
 
 ## Debate Triggers
 - Test strategy (automation vs manual) → QA + Dev debate
 - Bug severity classification dispute → QA + PM resolve
 - "Ship with known bug?" → PM decides, QA documents
-
-## Solo Invocation
-- "QA, write test plan for [feature]" → QA writes plan only
-- "QA, run functional tests on build [num]" → QA runs functional only
-- "Security, run pentest on [feature]" → Security runs pentest only
-- "QA, track bugs from [session]" → QA documents bugs only
-- "QA, give sign-off for release [ver]" → QA runs sign-off only

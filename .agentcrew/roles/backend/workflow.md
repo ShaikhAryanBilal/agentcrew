@@ -30,4 +30,33 @@ quality_checklist:
   - Response times within SLA: tracked, no regressions
 ---
 
-# Backend Workflow
+## Trigger
+Tech spec + DB design available.
+
+## Instructions
+1. Database implementation — create schema, migrations, and seed data.
+2. API implementation — build endpoints, business logic, auth, and middleware.
+3. Code review — review for security, performance, and error handling (SG2).
+4. Unit testing — write service tests and integration tests.
+5. Integration — verify API ↔ DB and API ↔ external services.
+6. Log to `.agentcrew/log/backend/<timestamp>.md`
+7. Update `.agentcrew/state/workflow.json`
+
+## Done When
+All endpoints implemented, business logic complete, tests passing, review approved.
+
+## Needs → Gives
+| Need | From | → Gives | To |
+|------|------|--------|----|
+| API contracts, DB design | Architect | API | Frontend, QA |
+| Coding standards | Tech Lead | DB schema | DevOps |
+| — | — | Integration tests | QA |
+
+## Quality Checklist
+- Every endpoint validates input before processing
+- Authentication enforced on all protected routes (not just frontend-hidden)
+- Error responses follow consistent shape: { error, code, message, details? }
+- Database migration has both up and down scripts
+- N+1 queries eliminated — verify with query log
+- Idempotency key support on mutating endpoints
+- Response times within SLA: tracked, no regressions

@@ -1,37 +1,33 @@
-# Objective: Conduct Meeting
+# Conduct Meeting
 
-## Goal
-Run a structured real-time meeting with dynamically assembled roles to brainstorm, decide, and produce action items for a given topic.
+## System
+You are executing objective: Conduct Meeting. Run a structured real-time meeting with dynamically assembled roles to brainstorm, decide, and produce action items for a given topic.
+
+## Instructions
+1. Assemble squad: Meeting Facilitator + dynamic roles spawned per Role Selection Matrix
+2. Facilitator convenes and sets agenda (meeting/01-convene.md)
+3. Facilitator runs brainstorm (meeting/02-brainstorm.md) with all spawned roles contributing in parallel
+4. Facilitator captures decisions with rationale (meeting/03-decisions.md)
+5. Facilitator records action items with owners (meeting/04-action-items.md)
+6. Facilitator writes minutes (meeting/05-minutes.md)
+7. Verify acceptance criteria
+8. Log to `.agentcrew/log/meeting/<topic>/<timestamp>.md`
+9. Update `.agentcrew/state/workflow.json`
 
 ## Squad
 | Role | Responsibility |
 |------|---------------|
 | Meeting Facilitator | Convene, agenda, guide discussion, capture outcomes |
-| *Dynamic roles* | Spawned based on meeting topic (see Role Selection Matrix below) |
+| Dynamic roles | Spawned based on meeting topic (see Role Selection Matrix) |
 
-## Schedule
-```
-Facilitator: Convene --> Agenda --> Brainstorm --> Decisions --> Action Items --> Minutes
-                 |            |            |             |              |
-                 v            v            v             v              v
-            Dynamic roles join based on topic relevance
-```
-
-**Parallel**: Brainstorming involves all spawned roles contributing simultaneously.
-**Sequential**: Agenda before brainstorm. Decisions after discussion. Action items after decisions. Minutes final.
-
-## Dependencies
-- **Needs**: Meeting topic / question from user
-- **Blocks**: Nothing (standalone objective)
-
-## Artifacts
-| Role | Produces | Format |
-|------|----------|--------|
-| Meeting Facilitator | Meeting agenda | Markdown |
-| Dynamic roles | Ideas, opinions, proposals | Markdown bullets |
-| Meeting Facilitator | Decision log | ADR-style Markdown |
-| Meeting Facilitator | Action item list | Markdown checklist |
-| Meeting Facilitator | Meeting minutes | Markdown |
+## Inputs → Outputs
+| Input | From | → Output | To |
+|-------|------|---------|----|
+| Meeting topic/question | User | Meeting agenda (Markdown) | Facilitator |
+| Topic + agenda | Facilitator | Ideas, opinions, proposals (Markdown bullets) | Dynamic roles |
+| Discussion | All | Decision log (ADR-style Markdown) | Facilitator |
+| Decisions | Facilitator | Action item list (Markdown checklist) | All |
+| All artifacts | Facilitator | Meeting minutes (Markdown) | Log |
 
 ## Acceptance
 - Agenda set and shared before discussion
@@ -42,9 +38,6 @@ Facilitator: Convene --> Agenda --> Brainstorm --> Decisions --> Action Items --
 - Minutes logged to `.agentcrew/log/meeting/<topic>/<timestamp>.md`
 
 ## Role Selection Matrix
-
-Meeting topic keywords determine which roles are spawned:
-
 | Topic Contains | Spawned Roles |
 |---------------|--------------|
 | feature, product, requirement, roadmap | PM, BA, Architect |
@@ -63,19 +56,17 @@ Meeting topic keywords determine which roles are spawned:
 | strategy, vision, roadmap | PM, Architect, EM |
 | general, brainstorm, ideation | PM, Architect, Tech Lead, relevant Dev |
 
-If topic doesn't match any keywords: spawn PM + Architect + Tech Lead as default.
+Default (no keyword match): PM + Architect + Tech Lead
 
-## Solo Invocation
-- "/meeting brainstorm [topic]" -> Convene with relevant roles
-- "/meeting decide [question]" -> Convene with decision-makers
-- "/meeting retro" -> Convene with full team
+## Gates
+- None
 
-## Procedure References
-- Facilitator: `meeting/01-convene.md` (convene + agenda)
-- Facilitator: `meeting/02-brainstorm.md` (brainstorming)
-- Facilitator: `meeting/03-decisions.md` (decision capture)
-- Facilitator: `meeting/04-action-items.md` (action items)
-- Facilitator: `meeting/05-minutes.md` (minutes)
+## Procedures
+- Facilitator: `meeting/01-convene.md`
+- Facilitator: `meeting/02-brainstorm.md`
+- Facilitator: `meeting/03-decisions.md`
+- Facilitator: `meeting/04-action-items.md`
+- Facilitator: `meeting/05-minutes.md`
 
-## Cross-Cutting
-- Decision points may trigger Debate (`debate/`) if strong disagreement arises
+## Debate Triggers
+- Decision points with strong disagreement → trigger debate (`debate/`)

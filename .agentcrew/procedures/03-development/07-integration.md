@@ -6,26 +6,7 @@
 - CI pipeline configured and working
 - Main branch in deployable state
 
-## Decision Tree
-
-```
-How many feature branches to integrate?
-├── 1 → Simple merge. Standard CI check.
-├── 2-3 → Merge in dependency order. Check for merge conflicts.
-└── 4+ → Consider staging branch. Integrate incrementally.
-
-CI status on main?
-├── Green → Proceed with merge
-├── Red → Fix main first. Never merge into a broken main.
-└── Unknown → Run CI on main before any merge.
-
-Integration tests exist?
-├── Yes → Run full suite
-├── No → Manual smoke test of critical paths
-└── Partial → Run what exists, note coverage gap
-```
-
-## Do
+## Instructions
 
 ### 1. Pre-Merge Checks
 
@@ -37,7 +18,6 @@ Integration tests exist?
 
 ### 2. Merge Strategy
 
-```
 | Strategy | When | How |
 |----------|------|-----|
 | Squash merge | Single-commit feature | `git merge --squash feature-branch` |
@@ -45,7 +25,6 @@ Integration tests exist?
 | Merge commit | Complex changes, preserve history | `git merge --no-ff feature-branch` |
 
 Default: squash merge for simple features, rebase for multi-commit branches.
-```
 
 - [ ] Choose strategy based on branch history
 - [ ] Merge in dependency order (if feature A depends on B, merge B first)
@@ -54,17 +33,16 @@ Default: squash merge for simple features, rebase for multi-commit branches.
 ### 3. CI Pipeline
 
 Pipeline stages (in order):
-
 ```
-1. Lint ──fail──> Block. Fix formatting/style issues.
-2. Type-check ──fail──> Block. Fix type errors.
-3. Unit tests ──fail──> Block. Fix failing tests.
-4. Build ──fail──> Block. Fix compilation.
-5. SAST scan ──fail──> Block. Fix security issue.
-6. Secret scan ──fail──> Block. Rotate leaked secret.
-7. Dependency scan ──fail──> Block or accept (document rationale).
-8. Integration tests ──fail──> Block. System-level failure.
-9. Artifact build ──fail──> Block. Can't deploy.
+1. Lint → Block. Fix formatting/style issues.
+2. Type-check → Block. Fix type errors.
+3. Unit tests → Block. Fix failing tests.
+4. Build → Block. Fix compilation.
+5. SAST scan → Block. Fix security issue.
+6. Secret scan → Block. Rotate leaked secret.
+7. Dependency scan → Block or accept.
+8. Integration tests → Block. System-level failure.
+9. Artifact build → Block. Can't deploy.
 ```
 
 - [ ] All stages must pass for CI to be green
@@ -73,55 +51,36 @@ Pipeline stages (in order):
 
 ### 4. Integration Tests
 
-What to cover:
-
-```
 | Test | What it checks | Example |
 |------|---------------|---------|
 | Component interaction | Service A → Service B | invoice service calls payment service |
-| API contract | Request → response matches spec | POST /invoices returns 201 with correct shape |
+| API contract | Request → response matches spec | POST /invoices returns 201 |
 | DB integration | Schema, queries, migrations | migration runs, data round-trips |
-| Auth integration | Login → token → protected endpoint | valid token returns 200, expired returns 401 |
-| Error propagation | Error in service A → correct error in API | payment timeout → 503, not 500 |
-```
+| Auth integration | Login → token → protected endpoint | valid token 200, expired 401 |
+| Error propagation | Error in A → correct error in API | payment timeout → 503 |
 
-- [ ] Run integration tests against real dependencies (test DB, test API instances)
+- [ ] Run integration tests against real dependencies
 - [ ] Use testcontainers or Docker Compose for ephemeral test environments
 - [ ] Each test requires: setup → execute → assert → teardown (no test pollution)
 
 ### 5. Regression Check
 
 - [ ] Run existing test suite (unit + integration): no regressions
-- [ ] Manual smoke test of critical flows (if automated coverage is thin):
-  ```
-  🚬 Login/logout flow
-  🚬 Main CRUD for affected resources
-  🚬 Error page for unauthorized access
-  ```
+- [ ] Manual smoke test of critical flows (if automated coverage is thin)
 - [ ] Compare performance: if change affects hot path, run perf comparison
 
 ### 6. Version Tagging
 
 ```
 Version format: semantic versioning (MAJOR.MINOR.PATCH)
-
-When to bump:
-  MAJOR: Breaking API change
-  MINOR: New feature, backward compatible
-  PATCH: Bug fix, backward compatible
-
-Pre-release: add -alpha, -beta, -rc.1 suffix for staging
-
-Tagging:
-  git tag v1.2.3
-  git push origin v1.2.3
+When to bump: MAJOR (breaking API), MINOR (new feature, backward compatible), PATCH (bug fix)
+Tagging: git tag v1.2.3 && git push origin v1.2.3
 ```
 
 - [ ] Tag the merge commit, not a branch
-- [ ] Update CHANGELOG.md (keep a changelog per Keep a Changelog format)
+- [ ] Update CHANGELOG.md
 
 ## Anti-Patterns
-
 | Don't | Instead |
 |-------|---------|
 | Merge into red main | Fix main first. Never stack on broken. |
@@ -131,7 +90,6 @@ Tagging:
 | Ignore flaky integration tests | Fix or disable. Red CI is always broken. |
 
 ## Time Budget
-
 | Branches | Pre-merge | CI run | Integration tests | Tagging | Total |
 |----------|-----------|--------|------------------|---------|-------|
 | 1 branch, simple | 5 min | 5-10 min | 5 min | 5 min | 20 min |
@@ -146,5 +104,5 @@ Tagging:
 - Version tag applied
 - CHANGELOG updated
 
-## Next → `04-qa/01-test-planning.md`
+→ Next: `04-qa/01-test-planning.md`
 CI red? Fix or revert merge. Regression found? Investigate and rollback if critical.

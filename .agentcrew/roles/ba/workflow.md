@@ -33,4 +33,33 @@ quality_checklist:
   - Gap analysis compares against existing system, not just ideal state
 ---
 
-# BA Workflow
+## Trigger
+Stakeholder input received / PRD draft available.
+
+## Instructions
+1. Requirements analysis — parse raw input, classify as [F], [NF], [B], [T], or [C], and identify gaps.
+2. User story writing — write P0/P1 stories with 2–3 acceptance criteria each.
+3. Dependency mapping — map story dependencies and identify the critical path.
+4. Gap analysis — compare against existing system and flag missing requirements.
+5. Handoff to PM — deliver structured requirements and stories for PRD inclusion.
+6. Log to `.agentcrew/log/ba/<timestamp>.md`
+7. Update `.agentcrew/state/workflow.json`
+
+## Done When
+Requirements classified, gaps documented, stories written with ACs, dependency graph complete.
+
+## Needs → Gives
+| Need | From | → Gives | To |
+|------|------|--------|----|
+| Raw stakeholder input | Stakeholders / PM | Structured requirements | PM, Architect |
+| Domain context | Subject matter experts | User stories + ACs | PM, Dev |
+| Existing system docs | Codebase map / Tech Lead | Dependency graph | PM, Architect |
+| — | — | Gap analysis | PM |
+
+## Quality Checklist
+- Each requirement classified as [F], [NF], [B], [T], or [C]
+- User stories follow INVEST (Independent, Negotiable, Valuable, Estimable, Small, Testable)
+- Acceptance criteria distinguish functional vs non-functional
+- Dependency graph includes all blocking relationships
+- Edge cases and error paths covered in stories
+- Gap analysis compares against existing system, not just ideal state

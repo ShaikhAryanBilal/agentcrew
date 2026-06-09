@@ -35,4 +35,35 @@ quality_checklist:
   - ADR written for each significant architectural decision
 ---
 
-# Architect Workflow
+## Trigger
+Signed-off PRD available.
+
+## Instructions
+1. System architecture — design components, trust boundaries, and tech stack.
+2. Technical specification — define data models, API contracts, and error handling.
+3. Database design — create schema, migrations, and indexing strategy.
+4. API design — define endpoints, auth, and rate limits.
+5. Threat modeling — run STRIDE per component, produce risk table and mitigations (SG1).
+6. Design review — review all designs, approve or request changes.
+7. Log to `.agentcrew/log/architect/<timestamp>.md`
+8. Update `.agentcrew/state/workflow.json`
+
+## Done When
+Architecture signed off, tech spec complete, design review approved.
+
+## Needs → Gives
+| Need | From | → Gives | To |
+|------|------|--------|----|
+| PRD | PM | Architecture diagram | Dev, DevOps, QA |
+| NF requirements | PM | Tech spec, DB design | Dev |
+| Security requirements | Security | API contracts | Frontend, Backend |
+| — | — | Threat model | Security |
+
+## Quality Checklist
+- Architecture diagram shows all components, data flows, trust boundaries
+- Tech stack selected with documented rationale (not just preference)
+- DB schema normalized to 3NF (or justified denormalization)
+- API contracts versioned and include error responses
+- Threat model covers all trust boundaries with STRIDE
+- Design review approved, all concerns resolved
+- ADR written for each significant architectural decision

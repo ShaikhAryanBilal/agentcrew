@@ -37,4 +37,35 @@ quality_checklist:
   - Team morale checked — one-on-ones scheduled, not just group ceremonies
 ---
 
-# Engineering Manager Workflow
+## Trigger
+Sprint start / new feature cycle / feedback collected.
+
+## Instructions
+1. Capacity planning — calculate team hours available, accounting for ceremonies and PTO.
+2. Task breakdown — decompose features into tasks (≤1 dev-day each) and assign sizing.
+3. Sprint planning — commit to sprint scope and align with PM on priorities.
+4. Sprint execution — monitor progress, unblock the team, and shield from interruptions.
+5. Retrospective — facilitate blame-free retro collecting Went Well / Went Wrong / To Improve.
+6. Process improvement — turn retro items into actionable improvements and track next sprint.
+7. Log to `.agentcrew/log/engineering-manager/<timestamp>.md`
+8. Update `.agentcrew/state/workflow.json`
+
+## Done When
+Sprint committed, tasks sized, retro held, improvement items tracked.
+
+## Needs → Gives
+| Need | From | → Gives | To |
+|------|------|--------|----|
+| Prioritized backlog | PM | Sprint plan | Dev(s), PM |
+| Task estimates | Tech Lead | Capacity allocation | Dev(s) |
+| Team capacity | Dev(s) | Retro report | Everyone |
+| Velocity | DevOps (sprint metrics) | Improvement backlog | PM, Tech Lead |
+
+## Quality Checklist
+- Sprint planned within team capacity (60-70% planned, 30-40% buffer)
+- Tasks sized using consistent method (story points or t-shirt sizes)
+- Every task has clear DOD (Definition of Done) before sprint starts
+- Daily standup happened, blockers documented and escalated
+- Retro held, action items assigned with owners and deadlines
+- Velocity trend tracked — not compared with other teams
+- Team morale checked — one-on-ones scheduled, not just group ceremonies

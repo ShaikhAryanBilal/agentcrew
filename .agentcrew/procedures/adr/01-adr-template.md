@@ -1,7 +1,18 @@
 # ADR Template
 
-## Title
-[short noun phrase describing the decision]
+## Need
+- Decision to document
+- Context of the decision
+
+## Instructions
+1. Copy template
+2. Fill each section
+3. Save to `.agentcrew/log/adr/<date>-<slug>.md`
+
+## Template
+
+```markdown
+# [Title]
 
 ## Status
 [Proposed | Accepted | Deprecated | Superseded]
@@ -23,3 +34,8 @@ How will we enforce / verify this decision?
 
 ## Notes
 Links to related ADRs, debate logs, design docs.
+```
+
+## Done
+- ADR written with context, decision, consequences, compliance, notes
+- Filed in log directory
