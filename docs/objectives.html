@@ -20,11 +20,11 @@
     <a href="index.html"><span class="nav-icon">&#9679;</span> Home</a>
 
     <div class="nav-section">Roles</div>
-    <a href="roles.html"><span class="nav-icon">&#9733;</span> All 17 Roles</a>
+    <a href="roles.html"><span class="nav-icon">&#9733;</span> All 18 Roles</a>
 
     <div class="nav-section">Lifecycle</div>
     <div class="nav-sub">
-      <a href="objectives.html" class="active"><span class="nav-icon">&#9654;</span> 7 Objectives</a>
+      <a href="objectives.html" class="active"><span class="nav-icon">&#9654;</span> 8 Objectives</a>
     </div>
 
     <div class="nav-section">Guides</div>
@@ -36,7 +36,7 @@
 
 <main class="content">
   <h1>Objectives</h1>
-  <p class="subtitle">7 SDLC lifecycle objectives — each with goal, squad, schedule, artifacts, and acceptance criteria.</p>
+  <p class="subtitle">8 lifecycle objectives (7 SDLC + Meeting) — each with goal, squad, schedule, artifacts, and acceptance criteria.</p>
 
   <div class="process-flow">
     <div class="process-step"><span class="step-num">1</span> Clarify Vision</div>
@@ -52,6 +52,8 @@
     <div class="process-step"><span class="step-num">6</span> Ship Release</div>
     <span class="process-arrow">&#8594;</span>
     <div class="process-step"><span class="step-num">7</span> Operate &amp; Learn</div>
+    <span class="process-arrow">&#8594;</span>
+    <div class="process-step"><span class="step-num">M</span> Meeting Mode</div>
   </div>
 
   <h2>Request &rarr; Objective Routing</h2>
@@ -64,6 +66,7 @@
     <tr><td><em>"Test this" / "QA sign-off"</em></td><td><a href="#05">5. Verify Quality</a></td><td>QA, Security</td></tr>
     <tr><td><em>"Deploy to prod" / "Release"</em></td><td><a href="#06">6. Ship Release</a></td><td>DevOps, PM</td></tr>
     <tr><td><em>"Set up monitoring" / "Hotfix"</em></td><td><a href="#07">7. Operate &amp; Learn</a></td><td>DevOps, EM, PM</td></tr>
+    <tr><td><em>"/meeting brainstorm" / "Meeting on [topic]"</em></td><td><a href="#08">8. Conduct Meeting</a></td><td>Meeting Facilitator + dynamic roles</td></tr>
   </table>
 
   <h2>Security Gates</h2>
@@ -202,6 +205,38 @@ Dev:                Unit Tests &rarr; Integration</code></pre>
         <li>EM: Retro reports, velocity metrics, process improvements</li>
         <li>PM: User feedback summary, feature requests</li>
       </ul>
+    </div>
+
+    <div class="timeline-item" id="08">
+      <div class="tl-step">Objective 8 (Cross-cutting)</div>
+      <h3>Conduct Meeting</h3>
+      <p><span class="badge badge-accent">Meeting Facilitator + Dynamic Roles</span> <span class="badge">Meeting mode</span></p>
+      <p>Run a structured real-time meeting with dynamically assembled roles to brainstorm, decide, and produce action items for a given topic.</p>
+      <h4>Schedule</h4>
+      <pre><code>Facilitator: Convene &rarr; Agenda &rarr; Brainstorm &rarr; Decisions &rarr; Action Items &rarr; Minutes
+Dynamic roles join based on topic relevance</code></pre>
+      <p><strong>Parallel:</strong> Brainstorming involves all spawned roles contributing simultaneously.</p>
+      <p><strong>Sequential:</strong> Agenda before brainstorm. Decisions after discussion. Action items after decisions.</p>
+      <h4>Role Selection</h4>
+      <p>Topic keywords determine which roles are spawned:</p>
+      <ul>
+        <li><strong>feature, product, roadmap</strong> &rarr; PM, BA, Architect</li>
+        <li><strong>architecture, design, tech-stack</strong> &rarr; Architect, Tech Lead, Security, DevOps</li>
+        <li><strong>sprint, planning, capacity</strong> &rarr; EM, PM, Tech Lead</li>
+        <li><strong>bug, defect, qa, quality</strong> &rarr; QA, Security, relevant Dev</li>
+        <li><strong>deploy, release, ci/cd</strong> &rarr; DevOps, PM, Tech Lead</li>
+        <li><strong>security, threat</strong> &rarr; Security, Architect, DevOps</li>
+        <li><strong>data, pipeline, etl, database</strong> &rarr; Data Engineer, Backend, Architect</li>
+        <li><strong>ui, ux, design, frontend</strong> &rarr; UX Designer, Frontend</li>
+        <li><strong>general, brainstorm, ideation</strong> &rarr; PM, Architect, Tech Lead</li>
+      </ul>
+      <h4>Artifacts</h4>
+      <ul>
+        <li>Meeting Facilitator: Agenda, discussion summary, decision log, action items, minutes</li>
+        <li>Dynamic roles: Ideas, opinions, perspectives, proposals</li>
+      </ul>
+      <h4>Integration</h4>
+      <p>Strong disagreements during decisions escalate to the <a href="debate.html">Debate Framework</a>. Meetings log to <code>.agentcrew/log/meeting/</code>.</p>
     </div>
 
   </div>
