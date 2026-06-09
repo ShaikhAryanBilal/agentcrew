@@ -48,6 +48,8 @@ Role contracts are in `.agentcrew/roles/<role>/contract.md`.
 | "Set up monitoring" / "Hotfix" | Objective: Operate & Learn (`.agentcrew/objectives/07-operate-learn.md`) |
 | "Review this code" | `.agentcrew/roles/architect/workflow.md` (Tech Lead hat) |
 | "Bug found" | `.agentcrew/roles/qa/workflow.md` + `.agentcrew/procedures/04-qa/06-bug-tracking.md` |
+| "Meeting mode" / "/meeting [topic]" / "brainstorm [topic]" | `.agentcrew/objectives/08-conduct-meeting.md` (spawns Meeting Facilitator + dynamic roles) |
+| "Retro" / "retrospective" | `.agentcrew/objectives/08-conduct-meeting.md` or `.agentcrew/objectives/07-operate-learn.md` |
 | Solo role: "[Role], do X" | `.agentcrew/roles/<role>/contract.md` + `.agentcrew/roles/<role>/workflow.md` |
 | Everything else | `.agentcrew/00-objectives.md` routing table |
 

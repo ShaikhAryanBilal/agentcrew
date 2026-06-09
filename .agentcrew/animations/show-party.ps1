@@ -40,7 +40,7 @@ param(
 # Emoji set (stored in vars to avoid PowerShell 5.1 parser issues with inline emoji)
 $ePM = '📋'; $eBA = '📊'; $eArch = '🏗️'; $eTL = '👨‍💻'; $eFE = '🎨'
 $eBE = '⚙️'; $eMB = '📱'; $eUX = '✏️'; $eDE = '🗄️'; $eML = '🧠'
-$eQA = '🔍'; $eSec = '🛡️'; $eDO = '🚀'; $eEM = '📅'; $eDB = '⚖️'; $eOrch = '🎯'
+$eQA = '🔍'; $eSec = '🛡️'; $eDO = '🚀'; $eEM = '📅'; $eDB = '⚖️'; $eMF = '🎤'; $eOrch = '🎯'
 
 $eFallback = '?'
 
@@ -59,8 +59,9 @@ $roleMap = @{
   'Security'     = @{ icon = $eSec; iconA = '[SE]'; name = 'Security Engineer'; actions = @('Threat modeling','Security review','Pentesting','SBOM','Security gates') }
   'DevOps'       = @{ icon = $eDO;  iconA = '[DO]'; name = 'DevOps Engineer';   actions = @('Setting up CI/CD','Infrastructure','Deployment','Monitoring','Release mgmt') }
   'EM'           = @{ icon = $eEM;  iconA = '[EM]'; name = 'Eng Manager';       actions = @('Sprint planning','Capacity allocation','Retrospective','Velocity tracking','Standups') }
-  'Debator'      = @{ icon = $eDB;  iconA = '[DB]'; name = 'Facilitator';       actions = @('Moderating debate','Structuring arguments','Scoring options','Documenting decisions','Timeboxing') }
-  'Orchestrator' = @{ icon = $eOrch;iconA = '[OR]'; name = 'Orchestrator';      actions = @('Decomposing request','Assigning squads','Tracking progress','Cross-obj coordination','Status reporting') }
+  'Debator'             = @{ icon = $eDB;  iconA = '[DB]'; name = 'Facilitator';          actions = @('Moderating debate','Structuring arguments','Scoring options','Documenting decisions','Timeboxing') }
+  'Meeting Facilitator' = @{ icon = $eMF;  iconA = '[MF]'; name = 'Meeting Facilitator';  actions = @('Setting agenda','Leading brainstorm','Capturing decisions','Assigning action items','Writing minutes') }
+  'Orchestrator'        = @{ icon = $eOrch;iconA = '[OR]'; name = 'Orchestrator';         actions = @('Decomposing request','Assigning squads','Tracking progress','Cross-obj coordination','Status reporting') }
 }
 
 $ESC = [char]27
@@ -141,6 +142,7 @@ $objectiveActions = @{
   'Verify Quality'      = @('Test execution','Quality gate review','Security scanning','Performance validation')
   'Ship Release'        = @('Release preparation','Deployment pipeline','Environment config','Rollback planning')
   'Operate & Learn'     = @('Monitoring review','Feedback analysis','Incident response','Improvement planning')
+  'Conduct Meeting'     = @('Setting the agenda','Brainstorming ideas','Making decisions','Capturing action items','Writing minutes')
 }
 
 function Get-ObjectiveAction {

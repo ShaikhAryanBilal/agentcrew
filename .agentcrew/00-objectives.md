@@ -67,8 +67,10 @@ User â†’ "Build this product" â†’ Orchestrator â†’ [Obj1, Obj2, .
 | "Deploy to prod" / "Release" | Ship Release | DevOps, PM, Technical Writer | Solo/Squad |
 | "Set up monitoring" / "Hotfix" / "Feedback" | Operate & Learn | DevOps, EM, PM | Solo/Squad |
 | "Model monitoring" / "Data quality alert" | Operate & Learn | ML Engineer, Data Engineer | Solo |
-| Single role call: "[Role], do X" | â†’ Load role's contract.md directly | That role only | Solo |
-| No match? | â†’ Ask "Which objective are we pursuing?" | â€” | â€” |
+| "Meeting mode" / "/meeting" / "brainstorm [topic]" | Conduct Meeting | Meeting Facilitator + dynamic roles | Meeting |
+| "Retro" / "retrospective" | Operate & Learn / Conduct Meeting | EM, PM, Meeting Facilitator | Meeting |
+| Single role call: "[Role], do X" | → Load role's contract.md directly | That role only | Solo |
+| No match? | → Ask "Which objective are we pursuing?" | — | — |
 
 ## Objectives Index
 
@@ -81,6 +83,7 @@ User â†’ "Build this product" â†’ Orchestrator â†’ [Obj1, Obj2, .
 | 5 | obj/verify-quality | objectives/05-verify-quality.md | QA, Security, Dev(s), ML Engineer | Squad |
 | 6 | obj/ship-release | objectives/06-ship-release.md | DevOps, PM, Technical Writer | Squad |
 | 7 | obj/operate-learn | objectives/07-operate-learn.md | DevOps, EM, PM, ML Engineer, Data Engineer | Solo/Squad |
+| 8 | obj/conduct-meeting | objectives/08-conduct-meeting.md | Meeting Facilitator + dynamic roles | Meeting |
 
 ## Phase â†’ Objective Mapping
 
@@ -95,6 +98,7 @@ Old step files become **procedure references** for roles:
 | procedures/05-deployment/ | Ship Release | DevOps, PM |
 | procedures/06-maintenance/ | Operate & Learn | DevOps, EM, PM |
 | debate/ | Cross-cutting (any objective) | Facilitator, Panelists |
+| meeting/ | Meeting mode (any topic) | Meeting Facilitator, dynamic roles |
 
 ## Security Gates
 
@@ -120,6 +124,7 @@ Debate remains cross-cutting. Activated at decision points within any objective.
 | Verify Quality | Test strategy, automation | QA, Dev, DevOps |
 | Ship Release | Rollout strategy, rollback | DevOps, PM, Tech Lead |
 | Operate & Learn | Refactor vs rewrite, tooling | Tech Lead, Architect, DevOps |
+| Conduct Meeting | Decision point, brainstorm topic, retro | Meeting Facilitator + dynamic roles |
 
 ## State Tracking
 

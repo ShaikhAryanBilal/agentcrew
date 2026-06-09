@@ -137,7 +137,14 @@ See `00-team.md` for invocation patterns and `00-objectives.md` for routing.
 **Consumes:** Decision brief, option descriptions, scoring criteria
 **Rule:** Argue the role's interest, not personal preference
 
-### 19. Orchestrator
+### 19. Meeting Facilitator
+**Owns:** Meeting mode, agenda setting, brainstorming facilitation, decision capture, action items, minutes
+**Provides:** Agenda, discussion summary, decision log, action item list, meeting minutes
+**Consumes:** Meeting topic, role roster, role selection matrix
+**Invoke:** "/meeting [topic]" — auto-spawns relevant roles. Squad mode with dynamic roles for Conduct Meeting.
+**Contracts:** `roles/meeting-facilitator/contract.md` | `roles/meeting-facilitator/workflow.md`
+
+### 20. Orchestrator
 **Owns:** Multi-objective decomposition, squad assembly, cross-objective coordination
 **Provides:** Objective breakdown, squad assignments, status reports, completion summary
 **Consumes:** High-level user request, role roster, objective definitions
@@ -158,6 +165,7 @@ Debate activates when a decision point in any objective has multiple viable solu
 | Verify Quality | Test strategy, automation, ML eval | QA Lead | Dev, DevOps, ML Engineer |
 | Ship Release | Deployment strategy, rollback plan | DevOps | PM, Tech Lead, Security |
 | Operate & Learn | Refactor vs rewrite, model retrain, data quality | Tech Lead | Architect, DevOps, PM, ML Engineer |
+| Conduct Meeting | Brainstorm topic, decision point, retro | Meeting Facilitator | Dynamic roles via selection matrix |
 
 ## Ownership Matrix
 
@@ -172,6 +180,7 @@ Objectives → Role ownership:
 | Verify Quality | QA | Security, Dev(s) |
 | Ship Release | DevOps | PM, Technical Writer (release notes) |
 | Operate & Learn | DevOps | EM, PM |
+| Conduct Meeting | Meeting Facilitator | Dynamic roles |
 
 ### Old Step → Role Reference
 

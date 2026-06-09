@@ -68,12 +68,12 @@ if $ASCII; then
   icon_PM='[PM]'; icon_BA='[BA]'; icon_Arch='[AR]'; icon_TL='[TL]'
   icon_FE='[FE]'; icon_BE='[BE]'; icon_MB='[MB]'; icon_UX='[UX]'
   icon_DE='[DE]'; icon_ML='[ML]'; icon_QA='[QA]'; icon_Sec='[SE]'
-  icon_DO='[DO]'; icon_EM='[EM]'; icon_DB='[DB]'; icon_Orch='[OR]'
+  icon_DO='[DO]'; icon_EM='[EM]'; icon_DB='[DB]'; icon_MF='[MF]'; icon_Orch='[OR]'
   icon_UNK='[?]'
 else
   icon_PM='📋'; icon_BA='📊'; icon_Arch='🏗️'; icon_TL='👨‍💻'; icon_FE='🎨'
   icon_BE='⚙️'; icon_MB='📱'; icon_UX='✏️'; icon_DE='🗄️'; icon_ML='🧠'
-  icon_QA='🔍'; icon_Sec='🛡️'; icon_DO='🚀'; icon_EM='📅'; icon_DB='⚖️'; icon_Orch='🎯'
+  icon_QA='🔍'; icon_Sec='🛡️';   icon_DO='🚀'; icon_EM='📅'; icon_DB='⚖️'; icon_MF='🎤'; icon_Orch='🎯'
   icon_UNK='?'
 fi
 
@@ -94,6 +94,7 @@ get_icon() {
     DevOps|devops)      echo "$icon_DO";;
     EM|em|Em)           echo "$icon_EM";;
     Debator|debator|Facilitator) echo "$icon_DB";;
+    Meeting*|meeting*) echo "$icon_MF";;
     Orchestrator|orchestrator) echo "$icon_Orch";;
     *)                  echo "$icon_UNK";;
   esac
@@ -117,6 +118,7 @@ ROLE_ACTIONS[Security]="Threat modeling,Security review,Pentesting,SBOM,Security
 ROLE_ACTIONS[DevOps]="Setting up CI/CD,Infrastructure,Deployment,Monitoring,Release mgmt"
 ROLE_ACTIONS[EM]="Sprint planning,Capacity allocation,Retrospective,Velocity tracking,Standups"
 ROLE_ACTIONS[Debator]="Moderating debate,Structuring arguments,Scoring options,Documenting decisions,Timeboxing"
+ROLE_ACTIONS[Meeting Facilitator]="Setting agenda,Leading brainstorm,Capturing decisions,Assigning action items,Writing minutes"
 ROLE_ACTIONS[Orchestrator]="Decomposing request,Assigning squads,Tracking progress,Cross-obj coordination,Status reporting"
 
 get_actions() {
@@ -134,6 +136,7 @@ OBJ_ACTIONS[Build Feature]="Feature implementation,Component building,Integratio
 OBJ_ACTIONS[Verify Quality]="Test execution,Quality gate review,Security scanning,Performance validation"
 OBJ_ACTIONS[Ship Release]="Release preparation,Deployment pipeline,Environment config,Rollback planning"
 OBJ_ACTIONS[Operate & Learn]="Monitoring review,Feedback analysis,Incident response,Improvement planning"
+OBJ_ACTIONS[Conduct Meeting]="Setting the agenda,Brainstorming ideas,Making decisions,Capturing action items,Writing minutes"
 
 get_obj_action() {
   local actions="${OBJ_ACTIONS[$1]:-Processing,Analyzing,Building,Reviewing}"

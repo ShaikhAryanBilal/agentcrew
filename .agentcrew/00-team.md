@@ -2,7 +2,7 @@
 
 ## Overview
 
-AgentCrew is a full software development crew of 17 AI roles, each invocable solo or in squads toward shared objectives.
+AgentCrew is a full software development crew of 18 AI roles, each invocable solo or in squads toward shared objectives.
 Each role is self-contained with a contract (inputs/outputs) and workflow (process).
 
 ## Role Roster
@@ -26,6 +26,7 @@ Each role is self-contained with a contract (inputs/outputs) and workflow (proce
 | Technical Writer | roles/technical-writer/contract.md | roles/technical-writer/workflow.md | API docs, user guides, release notes |
 | Debate Facilitator | roles/debator/contract.md | roles/debator/workflow.md | Neutral debate moderator |
 | Orchestrator | roles/orchestrator/contract.md | roles/orchestrator/workflow.md | Multi-objective coordinator |
+| Meeting Facilitator | roles/meeting-facilitator/contract.md | roles/meeting-facilitator/workflow.md | Meeting mode, agenda, brainstorm, decisions, action items |
 
 ## Invocation Patterns
 
@@ -151,8 +152,36 @@ This means:
 - "QA, run tests on build 42" works standalone
 - "Build the whole app" uses orchestrator to coordinate all roles
 
+### 4. Meeting Invocation
+
+Invoke meeting mode for structured brainstorming and decision-making.
+
+```
+Syntax: "/meeting [topic]" / "Meeting mode: [topic]" / "brainstorm [topic]"
+```
+
+Examples:
+- "/meeting brainstorm the new dashboard features"
+- "Meeting mode: decide on database technology for payments"
+- "brainstorm the authentication architecture"
+- "/meeting retro for sprint 5"
+- "meeting on API design approach"
+
+**Effect:**
+1. Load objective `objectives/08-conduct-meeting.md`
+2. Meeting Facilitator role loaded (roles/meeting-facilitator/)
+3. Topic parsed and roles selected via Role Selection Matrix
+4. Show RPG party screen with assembled meeting squad
+5. Facilitator runs: Convene → Agenda → Brainstorm → Decisions → Action Items → Minutes
+6. Each spawned role contributes from their perspective
+7. Decisions captured in ADR-style records
+8. Action items assigned with owner + deliverable + deadline
+9. Minutes logged to `.agentcrew/log/meeting/<topic>/<timestamp>.md`
+10. State updated with meeting outcomes
+
 ## State & Logging
 
 - **State**: `.agentcrew/state/workflow.json` tracks achieved objectives + artifacts
 - **Logs**: `.agentcrew/log/<objective-id>/<role>/<timestamp>.md`
 - **Debate logs**: `.agentcrew/log/debate/<decision-slug>.md`
+- **Meeting logs**: `.agentcrew/log/meeting/<topic-slug>/<timestamp>.md`
