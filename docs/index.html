@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgentCrew — Autonomous AI Squads</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <h2>AgentCrew</h2>
+    <span>Autonomous AI Squads</span>
+  </div>
+  <nav>
+    <a href="index.html" class="active">Home</a>
+
+    <div class="nav-section">Roles</div>
+    <a href="roles.html">All 16 Roles</a>
+
+    <div class="nav-section">Lifecycle</div>
+    <div class="nav-sub">
+      <a href="objectives.html">7 Objectives</a>
+    </div>
+
+    <div class="nav-section">Guides</div>
+    <a href="procedures.html">Procedures</a>
+    <a href="debate.html">Debate Framework</a>
+    <a href="configuration.html">Configuration</a>
+  </nav>
+</aside>
+
+<main class="content">
+  <h1>AgentCrew</h1>
+  <p>16 specialized AI roles &middot; 7 lifecycle objectives &middot; Solo &middot; Squad &middot; Orchestrated</p>
+
+  <p>
+    <span class="badge badge-accent">MIT License</span>
+    <span class="badge badge-green">Zero Dependencies</span>
+    <span class="badge badge-orange">AI Ready</span>
+  </p>
+
+  <h2>Why AgentCrew?</h2>
+  <p>
+    AI agents are great at writing code but <strong>terrible at software process</strong>.
+    Without structure, every prompt is a gamble &mdash; you might get code with no tests,
+    no threat model, no PRD, no deploy plan.
+  </p>
+  <p>
+    AgentCrew gives AI agents a <strong>repeatable SDLC brain</strong>. 16 roles with hardened
+    contracts, workflows, and quality gates. Drop it in any project, point your AI at it,
+    and get production-grade results.
+  </p>
+  <p><strong>No SaaS. No API keys. No vendor lock.</strong> Just markdown files any AI agent can read.</p>
+
+  <h2>How It Works</h2>
+  <table>
+    <tr><th>Mode</th><th>Example</th><th>What Happens</th></tr>
+    <tr><td><strong>Solo</strong></td><td><em>"Architect, design the DB"</em></td><td>Single role, 0 orchestration overhead</td></tr>
+    <tr><td><strong>Squad</strong></td><td><em>"Team, design the solution"</em></td><td>Multiple roles, one objective, parallel execution</td></tr>
+    <tr><td><strong>Orchestrated</strong></td><td><em>"Build the payment system"</em></td><td>Orchestrator &rarr; 7 objectives &rarr; squads &rarr; track &rarr; ship</td></tr>
+  </table>
+
+  <h2>The Crew (16 Roles)</h2>
+  <table>
+    <tr><th>Role</th><th>Superpower</th><th>Produces</th></tr>
+    <tr><td><strong>Orchestrator</strong></td><td>Coordinates full lifecycle</td><td>Decomposition, squads, status</td></tr>
+    <tr><td><strong>Product Manager</strong></td><td>Requirements, priorities</td><td>PRD, roadmap, acceptance criteria</td></tr>
+    <tr><td><strong>Business Analyst</strong></td><td>Analysis, user stories</td><td>Requirements spec, dependency map</td></tr>
+    <tr><td><strong>Solution Architect</strong></td><td>Architecture, tech stack</td><td>ADRs, system diagrams, tech decisions</td></tr>
+    <tr><td><strong>Tech Lead</strong></td><td>Standards, code quality</td><td>ADRs, code review, tech debt plan</td></tr>
+    <tr><td><strong>Frontend Dev</strong></td><td>UI, client logic</td><td>Components, integration, state</td></tr>
+    <tr><td><strong>Backend Dev</strong></td><td>API, data, services</td><td>APIs, DB schema, business logic</td></tr>
+    <tr><td><strong>Mobile Dev</strong></td><td>iOS/Android</td><td>Mobile UI, push, offline, store</td></tr>
+    <tr><td><strong>UX Designer</strong></td><td>Research, wireframes</td><td>Personas, prototypes, design system</td></tr>
+    <tr><td><strong>Data Engineer</strong></td><td>ETL, pipelines</td><td>Data models, lineage, quality checks</td></tr>
+    <tr><td><strong>ML Engineer</strong></td><td>Models, training, serving</td><td>Model card, eval report, drift monitor</td></tr>
+    <tr><td><strong>QA Engineer</strong></td><td>Testing, quality</td><td>Test plan, bug report, sign-off</td></tr>
+    <tr><td><strong>Security Engineer</strong></td><td>Threat model, pentest</td><td>Threat model, SBOM, scan results</td></tr>
+    <tr><td><strong>DevOps Engineer</strong></td><td>CI/CD, infra</td><td>Pipeline, deploy plan, runbook</td></tr>
+    <tr><td><strong>Engineering Manager</strong></td><td>Sprint planning, retro</td><td>Sprint plan, velocity report, retro</td></tr>
+    <tr><td><strong>Debate Facilitator</strong></td><td>Decision moderation</td><td>Structured debate, scored options</td></tr>
+  </table>
+
+  <h2>Quick Start</h2>
+  <pre><code># 1. Copy to your project
+cp -r .agentcrew ./your-project/
+
+# 2. Generate codebase map
+./.agentcrew/scripts/generate-codebase-map.ps1
+
+# 3. Configure AI agents
+./.agentcrew/config/setup.ps1        # Windows
+./.agentcrew/config/setup.sh --all   # Linux/macOS
+
+# 4. Make a request
+#    "PM, write a PRD for login"
+#    "Squad (QA, Security), verify quality"
+#    "Build the full e-commerce platform"</code></pre>
+
+  <div class="callout">
+    <strong>That's it.</strong> Your AI agent reads <code>.agentcrew/00-objectives.md</code>,
+    routes to the right objective, loads the squad, and executes.
+  </div>
+
+  <h2>Project Structure</h2>
+  <pre><code>.agentcrew/
+├── 00-objectives.md       # Routing table &mdash; start here
+├── 00-team.md             # Crew orchestration hub
+├── 00-roles.md            # 16 role definitions
+├── objectives/            # 7 lifecycle objectives
+├── roles/                 # 16 role contracts + workflows
+├── procedures/            # Step-by-step guides
+├── debate/                # Decision framework
+├── custom/                # Per-project overrides
+├── config/                # Agent config templates
+├── light/                 # 7-step compressed variant
+├── animations/            # Retro RPG party screen
+├── scripts/               # State dashboard + utils
+├── log/                   # Execution logs
+└── state/workflow.json    # Progress tracker</code></pre>
+
+  <h2>Variants</h2>
+  <table>
+    <tr><th>Variant</th><th>When</th></tr>
+    <tr><td><strong>Full</strong> (default)</td><td>7 objectives, full squads, all gates</td></tr>
+    <tr><td><strong>Light</strong></td><td>MVPs, prototypes, solo dev &mdash; compressed</td></tr>
+  </table>
+
+  <p style="margin-top:48px;color:var(--text-dim);font-size:13px;">
+    MIT Licensed &mdash; Built for AI-native development
+  </p>
+</main>
+
+</body>
+</html>

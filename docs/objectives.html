@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Objectives — AgentCrew</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <h2>AgentCrew</h2>
+    <span>Autonomous AI Squads</span>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+
+    <div class="nav-section">Roles</div>
+    <a href="roles.html">All 16 Roles</a>
+
+    <div class="nav-section">Lifecycle</div>
+    <div class="nav-sub">
+      <a href="objectives.html" class="active">7 Objectives</a>
+    </div>
+
+    <div class="nav-section">Guides</div>
+    <a href="procedures.html">Procedures</a>
+    <a href="debate.html">Debate Framework</a>
+    <a href="configuration.html">Configuration</a>
+  </nav>
+</aside>
+
+<main class="content">
+  <h1>Objectives</h1>
+  <p>7 SDLC lifecycle objectives &mdash; each with goal, squad, schedule, artifacts, and acceptance criteria.</p>
+
+  <h2>Request &rarr; Objective Routing</h2>
+  <table>
+    <tr><th>You Say</th><th>Objective</th><th>Squad</th></tr>
+    <tr><td><em>"Define requirements" / "Write PRD"</em></td><td><a href="#01">1. Clarify Vision</a></td><td>PM, BA</td></tr>
+    <tr><td><em>"Design the system" / "Architecture"</em></td><td><a href="#02">2. Design Solution</a></td><td>Architect, UX, Security</td></tr>
+    <tr><td><em>"Plan the sprint" / "Break down work"</em></td><td><a href="#03">3. Plan Work</a></td><td>EM, PM, Tech Lead</td></tr>
+    <tr><td><em>"Implement X" / "Write code for X"</em></td><td><a href="#04">4. Build Feature</a></td><td>Dev(s), Tech Lead</td></tr>
+    <tr><td><em>"Test this" / "QA sign-off"</em></td><td><a href="#05">5. Verify Quality</a></td><td>QA, Security</td></tr>
+    <tr><td><em>"Deploy to prod" / "Release"</em></td><td><a href="#06">6. Ship Release</a></td><td>DevOps, PM</td></tr>
+    <tr><td><em>"Set up monitoring" / "Hotfix"</em></td><td><a href="#07">7. Operate &amp; Learn</a></td><td>DevOps, EM, PM</td></tr>
+  </table>
+
+  <h2>Security Gates</h2>
+  <table>
+    <tr><th>Gate</th><th>Before</th><th>Must Pass</th></tr>
+    <tr><td><strong>SG1</strong></td><td>Design review</td><td>Threat model complete, high threats mitigated</td></tr>
+    <tr><td><strong>SG2</strong></td><td>Merge to main</td><td>SAST + secret scan + dependency scan clean</td></tr>
+    <tr><td><strong>SG3</strong></td><td>QA sign-off</td><td>DAST + pentest + supply chain scan &mdash; no Critical/High</td></tr>
+    <tr><td><strong>SG4</strong></td><td>Production deploy</td><td>All scans clean, SBOM verified</td></tr>
+  </table>
+
+  <h2 id="01">1. Clarify Vision</h2>
+  <p><span class="badge badge-accent">PM + BA</span> <span class="badge">Squad mode</span></p>
+  <p>Transform raw stakeholder input into a signed-off PRD with clear scope, priorities, and user stories.</p>
+
+  <h3>Schedule</h3>
+  <pre><code>PM:  Intake &rarr; PRD Draft &rarr; Review &rarr; Sign-off
+BA:  Analysis &rarr; User Stories</code></pre>
+  <p><strong>Parallel:</strong> PM gathers requirements while BA analyzes. <strong>Sequential:</strong> PRD needs analysis done.</p>
+
+  <h3>Artifacts</h3>
+  <ul>
+    <li>PM: Structured requirement list, PRD document, sign-off record</li>
+    <li>BA: Gap analysis, prioritized reqs, P0/P1 user stories</li>
+  </ul>
+
+  <h3>Acceptance</h3>
+  <ul>
+    <li>All requirements captured and classified ([F], [NF], [B], [T], [C])</li>
+    <li>MoSCoW priorities assigned (P0-P3), scope frozen</li>
+    <li>P0/P1 user stories written with 2-3 acceptance criteria each</li>
+    <li>PRD reviewed and signed off</li>
+  </ul>
+
+  <h2 id="02">2. Design Solution</h2>
+  <p><span class="badge badge-accent">Architect + UX + Security</span> <span class="badge">Squad mode</span></p>
+  <p>Design system architecture, UX, and security model to satisfy the signed-off PRD.</p>
+
+  <h3>Schedule</h3>
+  <pre><code>Architect: Options &rarr; ADRs &rarr; Tech Spec &rarr; Design Review
+UX:        Research &rarr; Wireframes &rarr; Prototype
+Security:  Threat Model &rarr; Security Reqs</code></pre>
+
+  <h3>Artifacts</h3>
+  <ul>
+    <li>Architect: ADRs, C4 diagrams, tech spec, DB design, API contracts</li>
+    <li>UX Designer: User flows, wireframes, prototypes, design assets</li>
+    <li>Security: Threat model with mitigations</li>
+  </ul>
+
+  <h3>Security Gate: SG1</h3>
+  <div class="callout callout-warning">
+    <strong>SG1:</strong> Threat model must be complete, all high-severity threats must have documented mitigations.
+  </div>
+
+  <h2 id="03">3. Plan Work</h2>
+  <p><span class="badge badge-accent">EM + PM + Tech Lead</span> <span class="badge">Squad mode</span></p>
+  <p>Break approved design into actionable tasks, assign capacity, create sprint plan.</p>
+
+  <h3>Artifacts</h3>
+  <ul>
+    <li>EM: Sprint plan with capacity allocation</li>
+    <li>PM: Prioritized backlog with sprint goal</li>
+    <li>Tech Lead: Technical task breakdown with estimates</li>
+  </ul>
+
+  <h3>Acceptance</h3>
+  <ul>
+    <li>All tasks estimated, capacity allocated, sprint goal defined</li>
+    <li>Dependencies mapped, team committed</li>
+  </ul>
+
+  <h2 id="04">4. Build Feature</h2>
+  <p><span class="badge badge-accent">Dev(s) + Tech Lead</span> <span class="badge">Solo/Squad mode</span></p>
+  <p>Implement, review, unit test, and integrate working code per approved design.</p>
+
+  <h3>Schedule</h3>
+  <pre><code>Dev:  Analysis &rarr; Implementation &rarr; PR
+Tech Lead:                    Code Review &rarr; Merge
+Dev:                Unit Tests &rarr; Integration</code></pre>
+
+  <h3>Artifacts</h3>
+  <ul>
+    <li>Dev: Implementation code, unit tests (&ge;80% coverage), integration tests</li>
+    <li>Tech Lead: Code review comments, merge commit</li>
+  </ul>
+
+  <h3>Security Gate: SG2</h3>
+  <div class="callout callout-warning">
+    <strong>SG2:</strong> Before merge to main &mdash; SAST, secret detection, dependency scan must pass.
+  </div>
+
+  <h2 id="05">5. Verify Quality</h2>
+  <p><span class="badge badge-accent">QA + Security</span> <span class="badge">Squad mode</span></p>
+  <p>Validate feature meets quality standards through testing, security validation, and acceptance.</p>
+
+  <h3>Artifacts</h3>
+  <ul>
+    <li>QA: Test plan, test cases, bug reports, execution report, QA sign-off</li>
+    <li>Security: Pentest report, supply chain scan, SG3 gate status</li>
+  </ul>
+
+  <h3>Security Gate: SG3</h3>
+  <div class="callout callout-warning">
+    <strong>SG3:</strong> DAST + pentest + supply chain scan &mdash; no Critical or High findings.
+  </div>
+
+  <h2 id="06">6. Ship Release</h2>
+  <p><span class="badge badge-accent">DevOps + PM</span> <span class="badge">Solo/Squad mode</span></p>
+  <p>Deploy verified build to production with rollout plan, monitoring, and rollback.</p>
+
+  <h3>Artifacts</h3>
+  <ul>
+    <li>PM: Release plan, release notes</li>
+    <li>DevOps: Deployment runbook, deployed build, monitoring dashboards</li>
+  </ul>
+
+  <h3>Security Gate: SG4</h3>
+  <div class="callout callout-warning">
+    <strong>SG4:</strong> All scans clean, no Critical/High bugs, SBOM verified before production traffic.
+  </div>
+
+  <h2 id="07">7. Operate &amp; Learn</h2>
+  <p><span class="badge badge-accent">DevOps + EM + PM</span> <span class="badge">Solo/Squad mode</span></p>
+  <p>Monitor production system, respond to incidents, gather feedback, plan improvements.</p>
+
+  <h3>Artifacts</h3>
+  <ul>
+    <li>DevOps: Monitoring dashboards, incident reports, runbooks</li>
+    <li>EM: Retro reports, velocity metrics, process improvements</li>
+    <li>PM: User feedback summary, feature requests</li>
+  </ul>
+
+</main>
+
+</body>
+</html>

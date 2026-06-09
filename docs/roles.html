@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roles — AgentCrew</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <h2>AgentCrew</h2>
+    <span>Autonomous AI Squads</span>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+
+    <div class="nav-section">Roles</div>
+    <a href="roles.html" class="active">All 16 Roles</a>
+
+    <div class="nav-section">Lifecycle</div>
+    <div class="nav-sub">
+      <a href="objectives.html">7 Objectives</a>
+    </div>
+
+    <div class="nav-section">Guides</div>
+    <a href="procedures.html">Procedures</a>
+    <a href="debate.html">Debate Framework</a>
+    <a href="configuration.html">Configuration</a>
+  </nav>
+</aside>
+
+<main class="content">
+  <h1>Roles</h1>
+  <p>16 invocable AI roles with contracts and workflows. Solo, squad, or orchestrated.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <h3><a href="#orchestrator">Orchestrator</a></h3>
+      <p>Coordinates full lifecycle &mdash; decomposes requests, assembles squads, tracks progress.</p>
+      <span class="tag tag-leadership">Leadership</span>
+    </div>
+    <div class="card">
+      <h3><a href="#product-manager">Product Manager</a></h3>
+      <p>Requirements, prioritization, stakeholder communication, sign-off.</p>
+      <span class="tag tag-leadership">Leadership</span>
+    </div>
+    <div class="card">
+      <h3><a href="#business-analyst">Business Analyst</a></h3>
+      <p>Requirements analysis, gap detection, user stories.</p>
+      <span class="tag tag-leadership">Leadership</span>
+    </div>
+    <div class="card">
+      <h3><a href="#solution-architect">Solution Architect</a></h3>
+      <p>System architecture, tech stack, high-level design, ADRs.</p>
+      <span class="tag tag-leadership">Leadership</span>
+    </div>
+    <div class="card">
+      <h3><a href="#tech-lead">Tech Lead</a></h3>
+      <p>Coding standards, code quality, technical decisions.</p>
+      <span class="tag tag-leadership">Leadership</span>
+    </div>
+    <div class="card">
+      <h3><a href="#frontend-dev">Frontend Developer</a></h3>
+      <p>UI implementation, client logic, component testing.</p>
+      <span class="tag tag-dev">Development</span>
+    </div>
+    <div class="card">
+      <h3><a href="#backend-dev">Backend Developer</a></h3>
+      <p>API, services, data layer, business logic.</p>
+      <span class="tag tag-dev">Development</span>
+    </div>
+    <div class="card">
+      <h3><a href="#mobile-dev">Mobile Developer</a></h3>
+      <p>iOS/Android, offline, push notifications, app store.</p>
+      <span class="tag tag-dev">Development</span>
+    </div>
+    <div class="card">
+      <h3><a href="#ux-designer">UX Designer</a></h3>
+      <p>Research, wireframes, visual design, prototyping.</p>
+      <span class="tag tag-dev">Development</span>
+    </div>
+    <div class="card">
+      <h3><a href="#data-engineer">Data Engineer</a></h3>
+      <p>ETL/ELT pipelines, data warehouse, data quality.</p>
+      <span class="tag tag-dev">Development</span>
+    </div>
+    <div class="card">
+      <h3><a href="#ml-engineer">ML Engineer</a></h3>
+      <p>Model training, evaluation, serving, drift monitoring.</p>
+      <span class="tag tag-dev">Development</span>
+    </div>
+    <div class="card">
+      <h3><a href="#qa-engineer">QA Engineer</a></h3>
+      <p>Test planning, execution, bug tracking, sign-off.</p>
+      <span class="tag tag-quality">Quality</span>
+    </div>
+    <div class="card">
+      <h3><a href="#security-engineer">Security Engineer</a></h3>
+      <p>Threat modeling, pentest, SBOM, security gates.</p>
+      <span class="tag tag-quality">Quality</span>
+    </div>
+    <div class="card">
+      <h3><a href="#devops-engineer">DevOps Engineer</a></h3>
+      <p>Infrastructure, CI/CD, deployment, monitoring.</p>
+      <span class="tag tag-ops">Operations</span>
+    </div>
+    <div class="card">
+      <h3><a href="#engineering-manager">Engineering Manager</a></h3>
+      <p>Sprint planning, team process, retrospectives, capacity.</p>
+      <span class="tag tag-leadership">Leadership</span>
+    </div>
+    <div class="card">
+      <h3><a href="#debate-facilitator">Debate Facilitator</a></h3>
+      <p>Neutral debate moderation, scoring, resolution.</p>
+      <span class="tag tag-cross">Cross-cutting</span>
+    </div>
+  </div>
+
+  <h2 id="orchestrator">Orchestrator</h2>
+  <p><span class="badge badge-accent">Meta-role</span> <span class="badge">Activates on multi-objective requests</span></p>
+  <p><strong>Owns:</strong> Multi-objective decomposition, squad assembly, cross-objective coordination</p>
+  <p><strong>Provides:</strong> Objective breakdown, squad assignments, status reports, risk register, completion report</p>
+  <p><strong>Consumes:</strong> High-level user request, role roster, objective definitions, previous state</p>
+  <p><strong>Invoke:</strong> Auto-activated on "build this feature" requests. Single-objective or solo requests bypass.</p>
+  <h3>Key Workflow</h3>
+  <pre><code>User Request &rarr; Parse &rarr; Map to objectives &rarr; Order by dependencies
+&rarr; For each objective: assign squad &rarr; track &rarr; resolve &rarr; verify
+&rarr; All complete &rarr; Report to user</code></pre>
+
+  <h2 id="product-manager">Product Manager</h2>
+  <p><strong>Owns:</strong> Requirements, prioritization, stakeholder communication, sign-off</p>
+  <p><strong>Provides:</strong> PRD, priorities, scope decisions, release plan, release notes, UAT sign-off</p>
+  <p><strong>Consumes:</strong> Stakeholder input, effort estimates (Tech Lead), UAT feedback (QA), team velocity (EM)</p>
+  <p><strong>Invoke:</strong> <em>"PM, write a PRD for user authentication"</em> &mdash; Solo or Squad with BA</p>
+  <h3>Key Skills</h3>
+  <p>Scrum/Kanban, MoSCoW prioritization, stakeholder management, user story mapping, PRD writing, release planning</p>
+
+  <h2 id="business-analyst">Business Analyst</h2>
+  <p><strong>Owns:</strong> Requirements analysis, gap detection, clarification</p>
+  <p><strong>Provides:</strong> Structured reqs, gap list, user stories, dependency graph</p>
+  <p><strong>Consumes:</strong> Raw input from stakeholders, domain context</p>
+  <p><strong>Invoke:</strong> <em>"BA, analyze these requirements"</em> &mdash; Solo or Squad with PM</p>
+  <h3>Key Skills</h3>
+  <p>Requirements elicitation, gap analysis, user story mapping, dependency mapping, requirement classification</p>
+
+  <h2 id="solution-architect">Solution Architect</h2>
+  <p><strong>Owns:</strong> System architecture, tech stack, high-level design</p>
+  <p><strong>Provides:</strong> Architecture diagram, ADRs, DB design, API contracts, tech spec, design review approval</p>
+  <p><strong>Consumes:</strong> Signed-off PRD, non-functional requirements, security requirements</p>
+  <p><strong>Invoke:</strong> <em>"Architect, design the database schema for the payment system"</em> &mdash; Solo or Squad with UX + Security</p>
+  <h3>Key Skills</h3>
+  <p>Architecture patterns (microservices, event-driven, CQRS), C4 modeling, ADR writing, NFR evaluation, security architecture</p>
+
+  <h2 id="tech-lead">Tech Lead</h2>
+  <p><strong>Owns:</strong> Coding standards, code quality, technical decisions, ADRs</p>
+  <p><strong>Provides:</strong> Standards, review approval, technical guidance, tech debt register</p>
+  <p><strong>Consumes:</strong> Architecture decisions, PRD</p>
+  <p><strong>Invoke:</strong> <em>"Tech Lead, review PR #42"</em> &mdash; Solo or Squad with Devs</p>
+
+  <h2 id="frontend-dev">Frontend Developer</h2>
+  <p><strong>Owns:</strong> UI implementation, client logic</p>
+  <p><strong>Provides:</strong> UI code, component tests, API integration</p>
+  <p><strong>Consumes:</strong> Designs/wireframes, API contracts, design tokens</p>
+  <p><strong>Invoke:</strong> <em>"Frontend Dev, implement the user profile component"</em> &mdash; Solo or Squad with Backend</p>
+
+  <h2 id="backend-dev">Backend Developer</h2>
+  <p><strong>Owns:</strong> API, services, data layer, business logic</p>
+  <p><strong>Provides:</strong> API endpoints, business logic, DB migrations, integration tests</p>
+  <p><strong>Consumes:</strong> API contracts, DB design, tech spec, coding standards</p>
+  <p><strong>Invoke:</strong> <em>"Backend Dev, implement the order API"</em> &mdash; Solo or Squad with Frontend</p>
+  <h3>Key Skills</h3>
+  <p>API design (REST, GraphQL, gRPC), database design, auth (JWT, OAuth2, RBAC), caching, error handling, security</p>
+
+  <h2 id="mobile-dev">Mobile Developer</h2>
+  <p><strong>Owns:</strong> iOS/Android apps, offline support, push notifications, app store submission</p>
+  <p><strong>Provides:</strong> Mobile app code, UI tests, app store build</p>
+  <p><strong>Consumes:</strong> Wireframes, API contracts, design tokens</p>
+  <p><strong>Invoke:</strong> <em>"Mobile Dev, implement the login screen"</em> &mdash; Solo or Squad with Backend</p>
+
+  <h2 id="ux-designer">UX Designer</h2>
+  <p><strong>Owns:</strong> User research, wireframes, visual design, prototyping</p>
+  <p><strong>Provides:</strong> Mockups, prototypes, design assets, design system</p>
+  <p><strong>Consumes:</strong> PRD with personas, brand guidelines</p>
+  <p><strong>Invoke:</strong> <em>"UX Designer, create wireframes for the dashboard"</em> &mdash; Solo or Squad with Architect</p>
+
+  <h2 id="data-engineer">Data Engineer</h2>
+  <p><strong>Owns:</strong> ETL/ELT pipelines, data warehouse/lake, data quality</p>
+  <p><strong>Provides:</strong> Pipelines, schemas, data catalog, lineage docs</p>
+  <p><strong>Consumes:</strong> Data requirements, source access, storage infrastructure</p>
+  <p><strong>Invoke:</strong> <em>"Data Engineer, build the customer analytics pipeline"</em></p>
+
+  <h2 id="ml-engineer">ML Engineer</h2>
+  <p><strong>Owns:</strong> Model training, evaluation, serving, monitoring</p>
+  <p><strong>Provides:</strong> Trained models, evaluation reports, serving endpoints, drift monitors</p>
+  <p><strong>Consumes:</strong> ML requirements, training data, compute resources</p>
+  <p><strong>Invoke:</strong> <em>"ML Engineer, train a fraud detection model"</em></p>
+
+  <h2 id="qa-engineer">QA Engineer</h2>
+  <p><strong>Owns:</strong> Test planning, execution, bug tracking, sign-off</p>
+  <p><strong>Provides:</strong> Test plan, test cases, bug reports, execution report, QA sign-off</p>
+  <p><strong>Consumes:</strong> Build artifact, PRD + acceptance criteria, API contracts</p>
+  <p><strong>Invoke:</strong> <em>"QA, create test cases for the checkout flow"</em> &mdash; Solo or Squad with Security</p>
+  <h3>Key Skills</h3>
+  <p>Test planning (risk-based), test design (equivalence partitioning), automation (Playwright, Cypress), performance testing</p>
+
+  <h2 id="security-engineer">Security Engineer</h2>
+  <p><strong>Owns:</strong> Threat modeling, security testing, pentest, SBOM</p>
+  <p><strong>Provides:</strong> Threat model, pentest report, security gate status, SBOM</p>
+  <p><strong>Consumes:</strong> Architecture diagrams, staging build, dependency list</p>
+  <p><strong>Invoke:</strong> <em>"Security, review the threat model for the portal"</em> &mdash; Solo or Squad with QA</p>
+  <h3>Security Gates</h3>
+  <ul>
+    <li><strong>SG1:</strong> Threat model complete, high threats mitigated</li>
+    <li><strong>SG2:</strong> SAST + secret scan + dep scan clean</li>
+    <li><strong>SG3:</strong> DAST + pentest + supply chain scan &mdash; no Critical/High</li>
+    <li><strong>SG4:</strong> All scans clean, SBOM verified</li>
+  </ul>
+
+  <h2 id="devops-engineer">DevOps Engineer</h2>
+  <p><strong>Owns:</strong> Infrastructure, CI/CD, deployment, monitoring</p>
+  <p><strong>Provides:</strong> Environments, CI/CD pipelines, deployed builds, monitoring dashboards</p>
+  <p><strong>Consumes:</strong> Tech stack decisions, build config, secrets, release plan</p>
+  <p><strong>Invoke:</strong> <em>"DevOps, set up the CI/CD pipeline for this project"</em> &mdash; Solo or Squad with PM</p>
+  <h3>Key Skills</h3>
+  <p>CI/CD (GitHub Actions, GitLab CI), Docker, Kubernetes, Terraform, cloud (AWS/Azure/GCP), monitoring (Prometheus/Grafana)</p>
+
+  <h2 id="engineering-manager">Engineering Manager</h2>
+  <p><strong>Owns:</strong> Sprint planning, team process, retrospectives, capacity</p>
+  <p><strong>Provides:</strong> Sprint plan, capacity allocation, task breakdown, retro report</p>
+  <p><strong>Consumes:</strong> Team capacity, velocity data, priorities from PM</p>
+  <p><strong>Invoke:</strong> <em>"EM, plan the sprint for these features"</em> &mdash; Solo or Squad with PM + Tech Lead</p>
+
+  <h2 id="debate-facilitator">Debate Facilitator</h2>
+  <p><strong>Owns:</strong> Debate process, neutrality, timebox enforcement, resolution</p>
+  <p><strong>Provides:</strong> Debate brief, panel assembly, scoring leadership, decision record</p>
+  <p><strong>Consumes:</strong> Decision question, viable options, role stances</p>
+  <p><strong>Invoke:</strong> <em>"Facilitator, run debate on tech stack choice"</em> &mdash; Cross-cutting, invoked from any objective</p>
+  <p><strong>Role:</strong> Neutral arbitrator &mdash; does NOT advocate for any option</p>
+  <h3>Key Process</h3>
+  <pre><code>Decision question &rarr; Panel assembly &rarr; Opening statements
+&rarr; Cross-examination rounds &rarr; Scoring &rarr; Resolution &rarr; Logging</code></pre>
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Procedures — AgentCrew</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <h2>AgentCrew</h2>
+    <span>Autonomous AI Squads</span>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+
+    <div class="nav-section">Roles</div>
+    <a href="roles.html">All 16 Roles</a>
+
+    <div class="nav-section">Lifecycle</div>
+    <div class="nav-sub">
+      <a href="objectives.html">7 Objectives</a>
+    </div>
+
+    <div class="nav-section">Guides</div>
+    <a href="procedures.html" class="active">Procedures</a>
+    <a href="debate.html">Debate Framework</a>
+    <a href="configuration.html">Configuration</a>
+  </nav>
+</aside>
+
+<main class="content">
+  <h1>Procedures</h1>
+  <p>Step-by-step guides organized by SDLC phase &mdash; the how-to references roles use during execution.</p>
+
+  <h2>Phase Mapping</h2>
+  <table>
+    <tr><th>Phase</th><th>Maps To Objective</th><th>Used By</th></tr>
+    <tr><td>Requirements</td><td>Clarify Vision</td><td>PM, BA</td></tr>
+    <tr><td>Design</td><td>Design Solution</td><td>Architect, UX, Security</td></tr>
+    <tr><td>Development</td><td>Plan Work + Build Feature</td><td>EM, Tech Lead, Dev(s)</td></tr>
+    <tr><td>QA</td><td>Verify Quality</td><td>QA, Security</td></tr>
+    <tr><td>Deployment</td><td>Ship Release</td><td>DevOps, PM</td></tr>
+    <tr><td>Maintenance</td><td>Operate &amp; Learn</td><td>DevOps, EM, PM</td></tr>
+  </table>
+
+  <h2>Requirements Phase</h2>
+  <p>4 steps guiding PM and BA through gathering, analyzing, documenting, and signing off requirements.</p>
+  <table>
+    <tr><th>Step</th><th>File</th><th>Owner</th></tr>
+    <tr><td>1. Requirements Gathering</td><td><code>01-requirements-gathering.md</code></td><td>PM</td></tr>
+    <tr><td>2. Requirements Analysis</td><td><code>02-requirements-analysis.md</code></td><td>BA</td></tr>
+    <tr><td>3. PRD Writing</td><td><code>03-prd.md</code></td><td>PM</td></tr>
+    <tr><td>4. Review &amp; Sign-off</td><td><code>04-requirements-review-and-signoff.md</code></td><td>PM</td></tr>
+  </table>
+
+  <h2>Design Phase</h2>
+  <p>6 steps guiding Architect, UX, and Security through system design.</p>
+  <table>
+    <tr><th>Step</th><th>File</th><th>Owner</th></tr>
+    <tr><td>1. System Architecture</td><td><code>01-system-architecture.md</code></td><td>Architect</td></tr>
+    <tr><td>2. Technical Specification</td><td><code>02-technical-specification.md</code></td><td>Tech Lead</td></tr>
+    <tr><td>3. Database Design</td><td><code>03-database-design.md</code></td><td>Backend</td></tr>
+    <tr><td>4. API Design</td><td><code>04-api-design.md</code></td><td>Backend</td></tr>
+    <tr><td>5. Design Review</td><td><code>05-design-review.md</code></td><td>Tech Lead</td></tr>
+    <tr><td>6. Threat Modeling</td><td><code>06-threat-modeling.md</code></td><td>Security</td></tr>
+  </table>
+
+  <h2>Development Phase</h2>
+  <p>7 steps guiding EM, Tech Lead, and Developers through implementation.</p>
+  <table>
+    <tr><th>Step</th><th>File</th><th>Owner</th></tr>
+    <tr><td>1. Sprint Planning</td><td><code>01-sprint-planning.md</code></td><td>EM</td></tr>
+    <tr><td>2. Codebase Analysis</td><td><code>02-codebase-analysis.md</code></td><td>Tech Lead / Dev</td></tr>
+    <tr><td>3. Coding Standards</td><td><code>03-coding-standards.md</code></td><td>Tech Lead</td></tr>
+    <tr><td>4. Implementation</td><td><code>04-implementation.md</code></td><td>Dev</td></tr>
+    <tr><td>5. Code Review</td><td><code>05-code-review.md</code></td><td>Tech Lead</td></tr>
+    <tr><td>6. Unit Testing</td><td><code>06-unit-testing.md</code></td><td>Dev</td></tr>
+    <tr><td>7. Integration</td><td><code>07-integration.md</code></td><td>Backend/DevOps</td></tr>
+  </table>
+
+  <h2>QA Phase</h2>
+  <p>9 steps guiding QA and Security through validation.</p>
+  <table>
+    <tr><th>Step</th><th>File</th><th>Owner</th></tr>
+    <tr><td>1. Test Planning</td><td><code>01-test-planning.md</code></td><td>QA</td></tr>
+    <tr><td>2. Test Case Development</td><td><code>02-test-case-development.md</code></td><td>QA</td></tr>
+    <tr><td>3. Functional Testing</td><td><code>03-functional-testing.md</code></td><td>QA</td></tr>
+    <tr><td>4. Non-Functional Testing</td><td><code>04-non-functional-testing.md</code></td><td>QA</td></tr>
+    <tr><td>5. Regression Testing</td><td><code>05-regression-testing.md</code></td><td>QA</td></tr>
+    <tr><td>6. Bug Tracking</td><td><code>06-bug-tracking.md</code></td><td>QA</td></tr>
+    <tr><td>7. UAT</td><td><code>07-uat.md</code></td><td>PM</td></tr>
+    <tr><td>8. QA Sign-off</td><td><code>08-qa-signoff.md</code></td><td>QA</td></tr>
+    <tr><td>9. Security Pentest</td><td><code>09-security-pentest.md</code></td><td>Security</td></tr>
+  </table>
+
+  <h2>Deployment Phase</h2>
+  <p>4 steps guiding DevOps and PM through release.</p>
+  <table>
+    <tr><th>Step</th><th>File</th><th>Owner</th></tr>
+    <tr><td>1. Release Planning</td><td><code>01-release-planning.md</code></td><td>PM</td></tr>
+    <tr><td>2. Staging Deployment</td><td><code>02-staging-deployment.md</code></td><td>DevOps</td></tr>
+    <tr><td>3. Production Deployment</td><td><code>03-production-deployment.md</code></td><td>DevOps</td></tr>
+    <tr><td>4. Post-Deployment</td><td><code>04-post-deployment.md</code></td><td>DevOps</td></tr>
+  </table>
+
+  <h2>Maintenance Phase</h2>
+  <p>3 steps + cross-cutting guides for production operations.</p>
+  <table>
+    <tr><th>Step</th><th>File</th><th>Owner</th></tr>
+    <tr><td>1. Monitoring &amp; Observability</td><td><code>01-monitoring-and-observability.md</code></td><td>DevOps</td></tr>
+    <tr><td>2. Hotfix Process</td><td><code>02-hotfix-process.md</code></td><td>Dev</td></tr>
+    <tr><td>3. Feedback Loop</td><td><code>03-feedback-loop.md</code></td><td>EM / PM</td></tr>
+  </table>
+
+  <h2>Cross-Cutting Procedures</h2>
+  <table>
+    <tr><th>Procedure</th><th>File</th><th>Used By</th></tr>
+    <tr><td>ADR Template</td><td><code>procedures/adr/01-adr-template.md</code></td><td>Everyone</td></tr>
+    <tr><td>ADR Workflow</td><td><code>procedures/adr/02-adr-workflow.md</code></td><td>Tech Lead, Architect</td></tr>
+    <tr><td>Postmortem Template</td><td><code>procedures/postmortem/01-postmortem-template.md</code></td><td>Everyone</td></tr>
+    <tr><td>Postmortem Workflow</td><td><code>procedures/postmortem/02-postmortem-workflow.md</code></td><td>Facilitator</td></tr>
+    <tr><td>Supply Chain Security</td><td><code>procedures/supply-chain-security.md</code></td><td>Security, DevOps</td></tr>
+  </table>
+
+  <p><em>All 33 procedures are in <code>.agentcrew/procedures/</code> organized by SDLC phase.</em></p>
+
+</main>
+
+</body>
+</html>

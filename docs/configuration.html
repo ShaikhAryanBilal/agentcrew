@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Configuration — AgentCrew</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <h2>AgentCrew</h2>
+    <span>Autonomous AI Squads</span>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+
+    <div class="nav-section">Roles</div>
+    <a href="roles.html">All 16 Roles</a>
+
+    <div class="nav-section">Lifecycle</div>
+    <div class="nav-sub">
+      <a href="objectives.html">7 Objectives</a>
+    </div>
+
+    <div class="nav-section">Guides</div>
+    <a href="procedures.html">Procedures</a>
+    <a href="debate.html">Debate Framework</a>
+    <a href="configuration.html" class="active">Configuration</a>
+  </nav>
+</aside>
+
+<main class="content">
+  <h1>Configuration</h1>
+  <p>Ready-made configuration files for popular AI coding tools, all in <code>.agentcrew/config/</code>.</p>
+
+  <h2>Setup Script</h2>
+  <p>The easiest way to configure AI agents for your project:</p>
+  <pre><code># Windows (PowerShell)
+./.agentcrew/config/setup.ps1
+
+# Linux/macOS
+./.agentcrew/config/setup.sh --all</code></pre>
+
+  <h2>Supported Tools</h2>
+  <table>
+    <tr><th>Tool</th><th>Config File</th><th>Location</th></tr>
+    <tr><td><strong>opencode</strong></td><td><code>opencode.jsonc</code> + <code>AGENTS.md</code> + <code>SKILL.md</code></td><td>Project root</td></tr>
+    <tr><td><strong>Cursor</strong></td><td><code>.cursor/rules</code></td><td>Project root</td></tr>
+    <tr><td><strong>Claude Code</strong></td><td><code>CLAUDE.md</code></td><td>Project root</td></tr>
+    <tr><td><strong>GitHub Copilot</strong></td><td><code>.github/copilot-instructions.md</code></td><td><code>.github/</code></td></tr>
+  </table>
+
+  <h2>Manual Setup</h2>
+
+  <h3>opencode</h3>
+  <pre><code>{
+  "skills": [".agentcrew/skills"],
+  "commands": [
+    {
+      "name": "agentcrew",
+      "description": "Run AgentCrew SDLC workflow",
+      "command": "opencode --agent .agentcrew/roles/orchestrator/contract.md"
+    }
+  ]
+}</code></pre>
+
+  <h3>Other Tools</h3>
+  <ul>
+    <li><strong>Cursor:</strong> Copy <code>.agentcrew/config/cursor.rules</code> to <code>.cursor/rules</code></li>
+    <li><strong>Claude Code:</strong> Copy <code>.agentcrew/config/claude.MD</code> to <code>CLAUDE.md</code></li>
+    <li><strong>GitHub Copilot:</strong> Copy <code>.agentcrew/config/copilot.instructions</code> to <code>.github/copilot-instructions.md</code></li>
+  </ul>
+
+  <h2>Light Variant</h2>
+  <p>A compressed 7-step variant for MVPs, prototypes, and solo development.</p>
+
+  <table>
+    <tr><th></th><th>Full</th><th>Light</th></tr>
+    <tr><td><strong>When</strong></td><td>Production systems, teams</td><td>MVPs, solo dev, rapid experiments</td></tr>
+    <tr><td><strong>Objectives</strong></td><td>7 with full squads</td><td>7 compressed steps</td></tr>
+    <tr><td><strong>Roles</strong></td><td>16 specialized roles</td><td>Reduced role set</td></tr>
+    <tr><td><strong>Ceremony</strong></td><td>Security gates, ADRs, debate</td><td>Minimal documentation</td></tr>
+    <tr><td><strong>Location</strong></td><td><code>.agentcrew/</code> (default)</td><td><code>.agentcrew/light/</code></td></tr>
+  </table>
+
+  <p>Switch any time. Start with Light &rarr; move to Full as complexity grows.</p>
+
+</main>
+
+</body>
+</html>

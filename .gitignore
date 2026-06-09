@@ -3,12 +3,6 @@ codebase-map.md
 .agentcrew/log/
 .agentcrew/state/
 
-# Jekyll build output
-docs/_site/
-docs/.sass-cache/
-docs/.jekyll-cache/
-docs/Gemfile.lock
-
 # OS files
 .DS_Store
 Thumbs.db
