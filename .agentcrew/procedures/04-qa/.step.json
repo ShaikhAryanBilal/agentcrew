@@ -1,0 +1,14 @@
+{
+  "phase": "qa",
+  "steps": [
+    { "id": "qa/plan", "file": "01-test-planning.md", "next": "qa/cases" },
+    { "id": "qa/cases", "file": "02-test-case-development.md", "next": "qa/functional" },
+    { "id": "qa/functional", "file": "03-functional-testing.md", "next": "qa/nonfunctional" },
+    { "id": "qa/nonfunctional", "file": "04-non-functional-testing.md", "next": "qa/pentest" },
+    { "id": "qa/pentest", "file": "09-security-pentest.md", "next": "qa/regression" },
+    { "id": "qa/regression", "file": "05-regression-testing.md", "next": "qa/bugs" },
+    { "id": "qa/bugs", "file": "06-bug-tracking.md", "next": "qa/uat" },
+    { "id": "qa/uat", "file": "07-uat.md", "next": "qa/signoff" },
+    { "id": "qa/signoff", "file": "08-qa-signoff.md", "next": "deploy/plan" }
+  ]
+}

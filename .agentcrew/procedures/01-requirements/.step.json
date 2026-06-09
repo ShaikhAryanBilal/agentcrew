@@ -1,0 +1,9 @@
+{
+  "phase": "requirements",
+  "steps": [
+    { "id": "req/gather", "file": "01-requirements-gathering.md", "next": "req/analysis" },
+    { "id": "req/analysis", "file": "02-requirements-analysis.md", "next": "req/prd" },
+    { "id": "req/prd", "file": "03-prd.md", "next": "req/signoff" },
+    { "id": "req/signoff", "file": "04-requirements-review-and-signoff.md", "next": "design/arch" }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "phase": "development",
+  "steps": [
+    { "id": "dev/planning", "file": "01-sprint-planning.md", "next": "dev/analysis" },
+    { "id": "dev/analysis", "file": "02-codebase-analysis.md", "next": "dev/impl" },
+    { "id": "dev/standards", "file": "03-coding-standards.md", "next": null },
+    { "id": "dev/impl", "file": "04-implementation.md", "next": "dev/review" },
+    { "id": "dev/review", "file": "05-code-review.md", "next": "dev/unit" },
+    { "id": "dev/unit", "file": "06-unit-testing.md", "next": "dev/integration" },
+    { "id": "dev/integration", "file": "07-integration.md", "next": "qa/plan" }
+  ]
+}

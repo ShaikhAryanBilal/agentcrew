@@ -1,0 +1,19 @@
+name: Light Variant Sync
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.agentcrew/light/**'
+
+jobs:
+  check-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate light router references
+        run: |
+          if [ ! -f .agentcrew/light/00-router.md ]; then
+            echo "Missing light router!"; exit 1
+          fi
+          echo "Light variant is valid"

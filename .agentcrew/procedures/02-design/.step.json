@@ -1,0 +1,11 @@
+{
+  "phase": "design",
+  "steps": [
+    { "id": "design/arch", "file": "01-system-architecture.md", "next": "design/spec" },
+    { "id": "design/spec", "file": "02-technical-specification.md", "next": "design/db" },
+    { "id": "design/db", "file": "03-database-design.md", "next": "design/api" },
+    { "id": "design/api", "file": "04-api-design.md", "next": "design/threat" },
+    { "id": "design/threat", "file": "06-threat-modeling.md", "next": "design/review" },
+    { "id": "design/review", "file": "05-design-review.md", "next": "dev/planning" }
+  ]
+}

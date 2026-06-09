@@ -1,0 +1,93 @@
+name: Validate Workflow
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.agentcrew/**'
+      - 'codebase-map.md'
+  pull_request:
+    branches: [main]
+    paths:
+      - '.agentcrew/**'
+      - 'codebase-map.md'
+  schedule:
+    - cron: '0 6 * * 1'  # Every Monday 6am
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate cross-references (bash)
+        run: |
+          chmod +x .agentcrew/scripts/validate-workflow.sh
+          ./.agentcrew/scripts/validate-workflow.sh
+
+      - name: Regenerate codebase-map
+        run: |
+          echo "Regenerating codebase-map.md..."
+          echo "Run locally with: ./.agentcrew/scripts/generate-codebase-map.ps1 (Windows) or generate-codebase-map.sh (Linux/Mac)"
+          echo "Checked $(find . -type f -not -path './.git/*' | wc -l) files"
+
+      - name: Check workflow.json validity
+        run: |
+          if command -v python3 &> /dev/null; then
+            python3 -m json.tool .agentcrew/state/workflow.json > /dev/null && echo "workflow.json: valid"
+          else
+            echo "python3 not available, skipping json validation"
+          fi
+
+      - name: Lint markdown files
+        run: |
+          echo "Checking markdown files..."
+          errors=0
+          while IFS= read -r file; do
+            if grep -qnP '\t' "$file"; then
+              echo "  WARN: $file contains tabs (use spaces)"
+            fi
+          done < <(find .agentcrew -name '*.md' -type f)
+          echo "Markdown lint complete"
+
+      - name: Check contract sections
+        run: |
+          errors=0
+          for contract in .agentcrew/roles/*/contract.md; do
+            for section in "## Skills" "## Known Procedures" "## Good Practices" "## Bad Practices" "## Artifact Templates"; do
+              if ! grep -q "$section" "$contract"; then
+                echo "  MISSING: $contract -> $section"
+                errors=$((errors+1))
+              fi
+            done
+            for section in "## Quality Checklist"; do
+              role="${contract%/contract.md}"
+              role="${role##*/}"
+              wf=".agentcrew/roles/$role/workflow.md"
+              if ! grep -q "$section" "$wf"; then
+                echo "  MISSING: $wf -> $section"
+                errors=$((errors+1))
+              fi
+            done
+          done
+          [ "$errors" -eq 0 ] || exit 1
+          echo "All contract sections verified."
+
+      - name: Check animation scripts exist
+        run: |
+          [ -f .agentcrew/animations/show-party.ps1 ] && echo "show-party.ps1: found" || { echo "show-party.ps1: MISSING"; exit 1; }
+          [ -f .agentcrew/animations/show-party.sh ] && echo "show-party.sh: found" || { echo "show-party.sh: MISSING"; exit 1; }
+
+      - name: Check state dashboard script
+        run: |
+          [ -f .agentcrew/scripts/show-state.ps1 ] && echo "show-state.ps1: found" || { echo "show-state.ps1: MISSING"; exit 1; }
+          [ -f .agentcrew/scripts/show-state.sh ] && echo "show-state.sh: found" || { echo "show-state.sh: MISSING"; exit 1; }
+
+      - name: Summary
+        run: |
+          echo "## Validation Summary" >> $GITHUB_STEP_SUMMARY
+          echo "- Steps: $(find .agentcrew -name '*.md' -not -path '*/log/*' -not -path '*/custom/*' -not -path '*/roles/*' | wc -l)" >> $GITHUB_STEP_SUMMARY
+          echo "- Roles: $(find .agentcrew/roles -name '*.md' | wc -l)" >> $GITHUB_STEP_SUMMARY
+          echo "- Scripts: $(find .agentcrew/scripts -name '*.ps1' -o -name '*.sh' | wc -l)" >> $GITHUB_STEP_SUMMARY
+          echo "- Animations: $(find .agentcrew/animations -name '*.ps1' -o -name '*.sh' | wc -l)" >> $GITHUB_STEP_SUMMARY

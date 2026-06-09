@@ -1,0 +1,9 @@
+{
+  "phase": "deployment",
+  "steps": [
+    { "id": "deploy/plan", "file": "01-release-planning.md", "next": "deploy/staging" },
+    { "id": "deploy/staging", "file": "02-staging-deployment.md", "next": "deploy/prod" },
+    { "id": "deploy/prod", "file": "03-production-deployment.md", "next": "deploy/post" },
+    { "id": "deploy/post", "file": "04-post-deployment.md", "next": "ops/monitor" }
+  ]
+}

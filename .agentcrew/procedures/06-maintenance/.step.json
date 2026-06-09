@@ -1,0 +1,8 @@
+{
+  "phase": "maintenance",
+  "steps": [
+    { "id": "ops/monitor", "file": "01-monitoring-and-observability.md", "next": "ops/hotfix" },
+    { "id": "ops/hotfix", "file": "02-hotfix-process.md", "next": "ops/feedback" },
+    { "id": "ops/feedback", "file": "03-feedback-loop.md", "next": "req/gather" }
+  ]
+}

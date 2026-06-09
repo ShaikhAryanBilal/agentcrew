@@ -1,0 +1,13 @@
+# AgentCrew — generated/state artifacts
+codebase-map.md
+.agentcrew/log/
+.agentcrew/state/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+*.swp
+*.swo
