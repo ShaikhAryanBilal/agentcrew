@@ -62,27 +62,41 @@
     <span class="badge badge-orange">Markdown Only</span>
   </div>
 
-  <h2>Why AgentCrew?</h2>
+  <h2>The Problem</h2>
   <p>
-    AI agents are great at writing code but <strong>terrible at software process</strong>.
-    Without structure, every prompt is a gamble — you might get code with no tests,
-    no threat model, no PRD, no deploy plan.
+    AI agents write great code. But software engineering isn't just code — it's <strong>process</strong>.
   </p>
   <p>
-    AgentCrew gives AI agents a <strong>repeatable SDLC brain</strong>. 16 roles with hardened
-    contracts, workflows, and quality gates. Drop it in any project, point your AI at it,
-    and get production-grade results.
+    Without structure, every prompt is a gamble. You might get a feature, but almost never with:
   </p>
-  <p><strong>No SaaS. No API keys. No vendor lock.</strong> Just markdown files any AI agent can read.</p>
+  <ul>
+    <li>A PRD that defines what success looks like</li>
+    <li>A threat model that catches vulnerabilities early</li>
+    <li>A test plan that validates correctness</li>
+    <li>A deploy plan that ensures safe rollout</li>
+    <li>An architecture decision record that explains <em>why</em></li>
+  </ul>
+  <p>You end up debugging chaos instead of building.</p>
+
+  <h2>The Solution</h2>
+  <p>
+    AgentCrew gives any AI agent a <strong>repeatable SDLC brain</strong> — 16 specialized roles
+    with hardened contracts, workflows, and quality gates that form squads on demand.
+  </p>
+
+  <div class="callout callout-success">
+    <strong>Zero dependencies. Zero SaaS. Zero vendor lock.</strong>
+    Just markdown files — every AI agent can read them.
+  </div>
 
   <h2>How It Works</h2>
 
   <div class="process-flow">
     <div class="process-step"><span class="step-num">1</span> User Request</div>
     <span class="process-arrow">&#8594;</span>
-    <div class="process-step"><span class="step-num">2</span> Objective Match</div>
+    <div class="process-step"><span class="step-num">2</span> Objective Routed</div>
     <span class="process-arrow">&#8594;</span>
-    <div class="process-step"><span class="step-num">3</span> Squad Assembly</div>
+    <div class="process-step"><span class="step-num">3</span> Squad Assembled</div>
     <span class="process-arrow">&#8594;</span>
     <div class="process-step"><span class="step-num">4</span> Execute &amp; Verify</div>
     <span class="process-arrow">&#8594;</span>
@@ -91,31 +105,49 @@
 
   <table>
     <tr><th>Mode</th><th>Example</th><th>What Happens</th></tr>
-    <tr><td><strong>Solo</strong></td><td><em>"Architect, design the DB"</em></td><td>Single role, zero orchestration overhead</td></tr>
-    <tr><td><strong>Squad</strong></td><td><em>"Team, design the solution"</em></td><td>Multiple roles, one objective, parallel execution</td></tr>
-    <tr><td><strong>Orchestrated</strong></td><td><em>"Build the payment system"</em></td><td>Orchestrator &rarr; 7 objectives &rarr; squads &rarr; track &rarr; ship</td></tr>
+    <tr><td><strong>Solo</strong></td><td><em>"Architect, design the database schema"</em></td><td>Single role executes. Zero overhead.</td></tr>
+    <tr><td><strong>Squad</strong></td><td><em>"Team, design the authentication system"</em></td><td>Multiple roles, one objective, parallel execution.</td></tr>
+    <tr><td><strong>Orchestrated</strong></td><td><em>"Build the e-commerce platform"</em></td><td>Orchestrator decomposes &rarr; 7 objectives &rarr; squads &rarr; track &rarr; ship.</td></tr>
   </table>
 
-  <h2>The Crew (16 Roles)</h2>
+  <h2>What AgentCrew Ships</h2>
+  <p>Every role produces standardized, production-grade artifacts:</p>
 
   <table>
-    <tr><th>Role</th><th>Superpower</th><th>Produces</th></tr>
-    <tr><td><strong>Orchestrator</strong></td><td>Coordinates full lifecycle</td><td>Decomposition, squads, status</td></tr>
-    <tr><td><strong>Product Manager</strong></td><td>Requirements, priorities</td><td>PRD, roadmap, acceptance criteria</td></tr>
-    <tr><td><strong>Business Analyst</strong></td><td>Analysis, user stories</td><td>Requirements spec, dependency map</td></tr>
-    <tr><td><strong>Solution Architect</strong></td><td>Architecture, tech stack</td><td>ADRs, system diagrams, tech decisions</td></tr>
-    <tr><td><strong>Tech Lead</strong></td><td>Standards, code quality</td><td>ADRs, code review, tech debt plan</td></tr>
-    <tr><td><strong>Frontend Dev</strong></td><td>UI, client logic</td><td>Components, integration, state</td></tr>
-    <tr><td><strong>Backend Dev</strong></td><td>API, data, services</td><td>APIs, DB schema, business logic</td></tr>
-    <tr><td><strong>Mobile Dev</strong></td><td>iOS/Android</td><td>Mobile UI, push, offline, store</td></tr>
-    <tr><td><strong>UX Designer</strong></td><td>Research, wireframes</td><td>Personas, prototypes, design system</td></tr>
-    <tr><td><strong>Data Engineer</strong></td><td>ETL, pipelines</td><td>Data models, lineage, quality checks</td></tr>
-    <tr><td><strong>ML Engineer</strong></td><td>Models, training, serving</td><td>Model card, eval report, drift monitor</td></tr>
-    <tr><td><strong>QA Engineer</strong></td><td>Testing, quality</td><td>Test plan, bug report, sign-off</td></tr>
-    <tr><td><strong>Security Engineer</strong></td><td>Threat model, pentest</td><td>Threat model, SBOM, scan results</td></tr>
-    <tr><td><strong>DevOps Engineer</strong></td><td>CI/CD, infra</td><td>Pipeline, deploy plan, runbook</td></tr>
-    <tr><td><strong>Engineering Manager</strong></td><td>Sprint planning, retro</td><td>Sprint plan, velocity report, retro</td></tr>
-    <tr><td><strong>Debate Facilitator</strong></td><td>Decision moderation</td><td>Structured debate, scored options</td></tr>
+    <tr><th>Artifact</th><th>Role</th><th>What It Contains</th></tr>
+    <tr><td><strong>PRD</strong></td><td>Product Manager</td><td>Requirements, scope, acceptance criteria, roadmap</td></tr>
+    <tr><td><strong>ADR</strong></td><td>Architect / Tech Lead</td><td>Architecture decisions, trade-offs, rationale</td></tr>
+    <tr><td><strong>Threat Model</strong></td><td>Security Engineer</td><td>Attack vectors, mitigations, risk assessment</td></tr>
+    <tr><td><strong>Test Plan</strong></td><td>QA Engineer</td><td>Test strategy, coverage, edge cases, sign-off criteria</td></tr>
+    <tr><td><strong>SBOM</strong></td><td>Security Engineer</td><td>Software bill of materials, dependency vulnerabilities</td></tr>
+    <tr><td><strong>Deploy Plan</strong></td><td>DevOps Engineer</td><td>Rollout strategy, rollback, monitoring, runbook</td></tr>
+    <tr><td><strong>Model Card</strong></td><td>ML Engineer</td><td>Model intent, eval results, bias analysis, drift monitoring</td></tr>
+    <tr><td><strong>Quality Checklist</strong></td><td>Every role</td><td>Gate criteria before moving to next phase</td></tr>
+  </table>
+
+  <p>No more chasing your AI agent for missing pieces. Everything is defined, templated, and verified.</p>
+
+  <h2>The Crew</h2>
+  <p>16 roles. Each with a contract, workflow, quality checklist, and artifact templates.</p>
+
+  <table>
+    <tr><th></th><th>Role</th><th>Superpower</th><th>Produces</th></tr>
+    <tr><td>🎯</td><td><strong>Orchestrator</strong></td><td>Coordinates full lifecycle</td><td>Decomposition, squad assignments, status</td></tr>
+    <tr><td>📋</td><td><strong>Product Manager</strong></td><td>Requirements &amp; priorities</td><td>PRD, roadmap, acceptance criteria</td></tr>
+    <tr><td>📊</td><td><strong>Business Analyst</strong></td><td>Analysis &amp; user stories</td><td>Requirements spec, dependency map</td></tr>
+    <tr><td>🏗️</td><td><strong>Solution Architect</strong></td><td>Architecture &amp; tech stack</td><td>ADRs, system diagrams, tech decisions</td></tr>
+    <tr><td>👨‍💻</td><td><strong>Tech Lead</strong></td><td>Standards &amp; code quality</td><td>ADRs, code review, tech debt plan</td></tr>
+    <tr><td>🎨</td><td><strong>Frontend Dev</strong></td><td>UI &amp; client logic</td><td>Components, integration, state management</td></tr>
+    <tr><td>⚙️</td><td><strong>Backend Dev</strong></td><td>API, data, services</td><td>APIs, DB schema, business logic</td></tr>
+    <tr><td>📱</td><td><strong>Mobile Dev</strong></td><td>iOS &amp; Android</td><td>Mobile UI, push notifications, offline, store</td></tr>
+    <tr><td>✏️</td><td><strong>UX Designer</strong></td><td>Research &amp; wireframes</td><td>Personas, prototypes, design system</td></tr>
+    <tr><td>🗄️</td><td><strong>Data Engineer</strong></td><td>ETL &amp; pipelines</td><td>Data models, lineage, quality checks</td></tr>
+    <tr><td>🧠</td><td><strong>ML Engineer</strong></td><td>Models &amp; training</td><td>Model card, eval report, drift monitor</td></tr>
+    <tr><td>🔍</td><td><strong>QA Engineer</strong></td><td>Testing &amp; quality</td><td>Test plan, bug report, sign-off</td></tr>
+    <tr><td>🛡️</td><td><strong>Security Engineer</strong></td><td>Threat model &amp; pentest</td><td>Threat model, SBOM, scan results</td></tr>
+    <tr><td>🚀</td><td><strong>DevOps Engineer</strong></td><td>CI/CD &amp; infra</td><td>Pipeline, deploy plan, runbook</td></tr>
+    <tr><td>📅</td><td><strong>Engineering Manager</strong></td><td>Sprint planning &amp; retro</td><td>Sprint plan, velocity report, retro</td></tr>
+    <tr><td>⚖️</td><td><strong>Debate Facilitator</strong></td><td>Decision moderation</td><td>Structured debate, scored options</td></tr>
   </table>
 
   <h2>Quick Start</h2>
@@ -165,7 +197,7 @@ cp -r .agentcrew ./your-project/
 
   <div class="site-footer">
     <span>MIT Licensed &mdash; Built for AI-native development</span>
-    <span><a href="https://github.com/anomalyco/AgentCrew">GitHub</a></span>
+    <span><a href="https://github.com/ShaikhAryanBilal/agentcrew">GitHub</a> &middot; <a href="https://shaikaryanbilal.github.io/agentcrew">Docs</a></span>
   </div>
 
 </main>
