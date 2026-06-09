@@ -160,8 +160,8 @@ a:hover { color: #93c5fd; text-decoration: none; }
 .content {
   flex: 1;
   padding: 48px 72px;
-  max-width: 100%;
   min-width: 0;
+  width: 0;
 }
 
 .content h1 {
