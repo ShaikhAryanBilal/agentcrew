@@ -2,6 +2,7 @@
 codebase-map.md
 .agentcrew/log/
 .agentcrew/state/
+.vscode/
 
 # OS files
 .DS_Store
@@ -11,3 +12,4 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+.tmp*
