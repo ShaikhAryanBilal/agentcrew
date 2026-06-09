@@ -180,40 +180,9 @@ Done. Your AI agent reads `.agentcrew/00-objectives.md`, routes to the matching 
 ├── meeting/               # Meeting mode workflow (5 steps)
 ├── custom/                # Project-specific overrides per phase
 ├── config/                # AI agent configs (opencode, Cursor, Claude Code, Copilot)
-├── animations/            # 🎮 Retro RPG party screen
 ├── scripts/               # State dashboard, validation, workflow log
 ├── log/                   # Execution logs by objective/role/timestamp
 └── state/workflow.json    # 📊 Real-time progress tracker
-```
-
----
-
-## The Demo
-
-When AgentCrew assembles a squad, it fires up a **Retro RPG party screen** — right in your terminal.
-
-```
- ╔══════════════════════════════════════════╗
- ║          ⚔️ SQUAD ASSEMBLED ⚔️           ║
- ║                                          ║
- ║  🏗️ Architect     [████████░░] HP  80%  ║
- ║  ⚙️ Backend        [██████████] HP 100%  ║
- ║  🔍 QA             [██████░░░░] HP  60%  ║
- ║  🚀 DevOps         [████████░░] HP  75%  ║
- ║                                          ║
- ║  ► Objective: Build Feature              ║
- ║  ► Status: In Progress                   ║
- ╚══════════════════════════════════════════╝
-```
-
-Animated terminal TUI with role icons, HP-style progress bars, and live status messages.
-
-```bash
-# PowerShell
-.\.agentcrew\animations\show-party.ps1 -Objective "Build Feature" -Squad Frontend,Backend,QA -Timeout 5
-
-# Bash
-./.agentcrew/animations/show-party.sh -o "Build Feature" -s "Frontend,Backend,QA" -t 5
 ```
 
 ---
