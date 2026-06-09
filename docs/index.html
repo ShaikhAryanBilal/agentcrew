@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AgentCrew — Autonomous AI Squads</title>
+<title>AgentCrew — Autonomous AI Squads That Ship</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,37 +17,55 @@
     <span>Autonomous AI Squads</span>
   </div>
   <nav>
-    <a href="index.html" class="active">Home</a>
+    <a href="index.html" class="active"><span class="nav-icon">&#9679;</span> Home</a>
 
     <div class="nav-section">Roles</div>
-    <a href="roles.html">All 16 Roles</a>
+    <a href="roles.html"><span class="nav-icon">&#9733;</span> All 16 Roles</a>
 
     <div class="nav-section">Lifecycle</div>
     <div class="nav-sub">
-      <a href="objectives.html">7 Objectives</a>
+      <a href="objectives.html"><span class="nav-icon">&#9654;</span> 7 Objectives</a>
     </div>
 
     <div class="nav-section">Guides</div>
-    <a href="procedures.html">Procedures</a>
-    <a href="debate.html">Debate Framework</a>
-    <a href="configuration.html">Configuration</a>
+    <a href="procedures.html"><span class="nav-icon">&#9881;</span> Procedures</a>
+    <a href="debate.html"><span class="nav-icon">&#9878;</span> Debate Framework</a>
+    <a href="configuration.html"><span class="nav-icon">&#9881;</span> Configuration</a>
   </nav>
 </aside>
 
 <main class="content">
-  <h1>AgentCrew</h1>
-  <p>16 specialized AI roles &middot; 7 lifecycle objectives &middot; Solo &middot; Squad &middot; Orchestrated</p>
 
-  <p>
+  <div class="hero">
+    <h1>Build Software, <br><span class="gradient-text">Not Prompts</span></h1>
+    <p>16 specialized AI roles with hardened contracts, workflows, and quality gates. Drop it in any project, point your AI agent at it, and ship production-grade software.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-num">16</span>
+        <span class="hero-stat-label">AI Roles</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">7</span>
+        <span class="hero-stat-label">Lifecycle Objectives</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">3</span>
+        <span class="hero-stat-label">Modes: Solo &middot; Squad &middot; Orchestrated</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tag-list">
     <span class="badge badge-accent">MIT License</span>
     <span class="badge badge-green">Zero Dependencies</span>
-    <span class="badge badge-orange">AI Ready</span>
-  </p>
+    <span class="badge badge-purple">AI Native</span>
+    <span class="badge badge-orange">Markdown Only</span>
+  </div>
 
   <h2>Why AgentCrew?</h2>
   <p>
     AI agents are great at writing code but <strong>terrible at software process</strong>.
-    Without structure, every prompt is a gamble &mdash; you might get code with no tests,
+    Without structure, every prompt is a gamble — you might get code with no tests,
     no threat model, no PRD, no deploy plan.
   </p>
   <p>
@@ -55,14 +76,28 @@
   <p><strong>No SaaS. No API keys. No vendor lock.</strong> Just markdown files any AI agent can read.</p>
 
   <h2>How It Works</h2>
+
+  <div class="process-flow">
+    <div class="process-step"><span class="step-num">1</span> User Request</div>
+    <span class="process-arrow">&#8594;</span>
+    <div class="process-step"><span class="step-num">2</span> Objective Match</div>
+    <span class="process-arrow">&#8594;</span>
+    <div class="process-step"><span class="step-num">3</span> Squad Assembly</div>
+    <span class="process-arrow">&#8594;</span>
+    <div class="process-step"><span class="step-num">4</span> Execute &amp; Verify</div>
+    <span class="process-arrow">&#8594;</span>
+    <div class="process-step"><span class="step-num">5</span> Ship &#10003;</div>
+  </div>
+
   <table>
     <tr><th>Mode</th><th>Example</th><th>What Happens</th></tr>
-    <tr><td><strong>Solo</strong></td><td><em>"Architect, design the DB"</em></td><td>Single role, 0 orchestration overhead</td></tr>
+    <tr><td><strong>Solo</strong></td><td><em>"Architect, design the DB"</em></td><td>Single role, zero orchestration overhead</td></tr>
     <tr><td><strong>Squad</strong></td><td><em>"Team, design the solution"</em></td><td>Multiple roles, one objective, parallel execution</td></tr>
     <tr><td><strong>Orchestrated</strong></td><td><em>"Build the payment system"</em></td><td>Orchestrator &rarr; 7 objectives &rarr; squads &rarr; track &rarr; ship</td></tr>
   </table>
 
   <h2>The Crew (16 Roles)</h2>
+
   <table>
     <tr><th>Role</th><th>Superpower</th><th>Produces</th></tr>
     <tr><td><strong>Orchestrator</strong></td><td>Coordinates full lifecycle</td><td>Decomposition, squads, status</td></tr>
@@ -99,38 +134,40 @@ cp -r .agentcrew ./your-project/
 #    "Squad (QA, Security), verify quality"
 #    "Build the full e-commerce platform"</code></pre>
 
-  <div class="callout">
+  <div class="callout callout-success">
     <strong>That's it.</strong> Your AI agent reads <code>.agentcrew/00-objectives.md</code>,
     routes to the right objective, loads the squad, and executes.
   </div>
 
   <h2>Project Structure</h2>
   <pre><code>.agentcrew/
-├── 00-objectives.md       # Routing table &mdash; start here
-├── 00-team.md             # Crew orchestration hub
-├── 00-roles.md            # 16 role definitions
-├── objectives/            # 7 lifecycle objectives
-├── roles/                 # 16 role contracts + workflows
-├── procedures/            # Step-by-step guides
-├── debate/                # Decision framework
-├── custom/                # Per-project overrides
-├── config/                # Agent config templates
-├── light/                 # 7-step compressed variant
-├── animations/            # Retro RPG party screen
-├── scripts/               # State dashboard + utils
-├── log/                   # Execution logs
-└── state/workflow.json    # Progress tracker</code></pre>
+&#9500;&#9472;&#9472; 00-objectives.md       # Routing table — start here
+&#9500;&#9472;&#9472; 00-team.md             # Crew orchestration hub
+&#9500;&#9472;&#9472; 00-roles.md            # 16 role definitions
+&#9500;&#9472;&#9472; objectives/            # 7 lifecycle objectives
+&#9500;&#9472;&#9472; roles/                 # 16 role contracts + workflows
+&#9500;&#9472;&#9472; procedures/            # Step-by-step guides
+&#9500;&#9472;&#9472; debate/                # Decision framework
+&#9500;&#9472;&#9472; custom/                # Per-project overrides
+&#9500;&#9472;&#9472; config/                # Agent config templates
+&#9500;&#9472;&#9472; light/                 # 7-step compressed variant
+&#9500;&#9472;&#9472; animations/            # Retro RPG party screen
+&#9500;&#9472;&#9472; scripts/               # State dashboard + utils
+&#9500;&#9472;&#9472; log/                   # Execution logs
+&#9492;&#9472;&#9472; state/workflow.json    # Progress tracker</code></pre>
 
   <h2>Variants</h2>
   <table>
-    <tr><th>Variant</th><th>When</th></tr>
-    <tr><td><strong>Full</strong> (default)</td><td>7 objectives, full squads, all gates</td></tr>
-    <tr><td><strong>Light</strong></td><td>MVPs, prototypes, solo dev &mdash; compressed</td></tr>
+    <tr><th>Variant</th><th>When</th><th>Ceremony</th></tr>
+    <tr><td><strong>Full</strong> (default)</td><td>Production systems, teams</td><td>Security gates, ADRs, debates, all artifacts</td></tr>
+    <tr><td><strong>Light</strong></td><td>MVPs, prototypes, solo dev</td><td>7 compressed steps, minimal documentation</td></tr>
   </table>
 
-  <p style="margin-top:48px;color:var(--text-dim);font-size:13px;">
-    MIT Licensed &mdash; Built for AI-native development
-  </p>
+  <div class="site-footer">
+    <span>MIT Licensed &mdash; Built for AI-native development</span>
+    <span><a href="https://github.com/anomalyco/AgentCrew">GitHub</a></span>
+  </div>
+
 </main>
 
 </body>

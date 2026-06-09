@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Debate Framework — AgentCrew</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,45 +17,59 @@
     <span>Autonomous AI Squads</span>
   </div>
   <nav>
-    <a href="index.html">Home</a>
+    <a href="index.html"><span class="nav-icon">&#9679;</span> Home</a>
 
     <div class="nav-section">Roles</div>
-    <a href="roles.html">All 16 Roles</a>
+    <a href="roles.html"><span class="nav-icon">&#9733;</span> All 16 Roles</a>
 
     <div class="nav-section">Lifecycle</div>
     <div class="nav-sub">
-      <a href="objectives.html">7 Objectives</a>
+      <a href="objectives.html"><span class="nav-icon">&#9654;</span> 7 Objectives</a>
     </div>
 
     <div class="nav-section">Guides</div>
-    <a href="procedures.html">Procedures</a>
-    <a href="debate.html" class="active">Debate Framework</a>
-    <a href="configuration.html">Configuration</a>
+    <a href="procedures.html"><span class="nav-icon">&#9881;</span> Procedures</a>
+    <a href="debate.html" class="active"><span class="nav-icon">&#9878;</span> Debate Framework</a>
+    <a href="configuration.html"><span class="nav-icon">&#9881;</span> Configuration</a>
   </nav>
 </aside>
 
 <main class="content">
   <h1>Debate Framework</h1>
-  <p>Structured decision-making for resolving disagreements with multiple viable options.</p>
+  <p class="subtitle">Structured decision-making for resolving disagreements with multiple viable options.</p>
 
   <div class="callout callout-success">
     <strong>Cross-cutting:</strong> Activated at decision points within <em>any</em> objective.
   </div>
 
   <h2>Purpose</h2>
-  <p>When there are multiple valid approaches, the debate framework ensures all perspectives are heard, decisions are documented with rationale, and the best option wins on merit.</p>
+  <p>When there are multiple valid approaches, the debate framework ensures all perspectives are heard, decisions are documented with rationale, and the best option wins on merit — not recency bias or谁的嗓门大.</p>
+
+  <div class="process-flow">
+    <div class="process-step"><span class="step-num">1</span> Decision Question</div>
+    <span class="process-arrow">&#8594;</span>
+    <div class="process-step"><span class="step-num">2</span> Panel Assembly</div>
+    <span class="process-arrow">&#8594;</span>
+    <div class="process-step"><span class="step-num">3</span> Opening Statements</div>
+    <span class="process-arrow">&#8594;</span>
+    <div class="process-step"><span class="step-num">4</span> Cross-Examination</div>
+    <span class="process-arrow">&#8594;</span>
+    <div class="process-step"><span class="step-num">5</span> Scoring</div>
+    <span class="process-arrow">&#8594;</span>
+    <div class="process-step"><span class="step-num">6</span> Resolution</div>
+  </div>
 
   <h2>The Process</h2>
   <pre><code>Decision Question &rarr; Panel Assembly &rarr; Opening Statements
 &rarr; Cross-Examination Rounds &rarr; Scoring &rarr; Resolution &rarr; Log</code></pre>
 
   <ol>
-    <li><strong>Debate Trigger</strong> &mdash; A decision point arises with multiple viable options. The objective lead calls for a debate.</li>
-    <li><strong>Panel Assembly</strong> &mdash; Facilitator assembles roles with stake in the decision. Each represents their role's perspective.</li>
-    <li><strong>Opening Statements</strong> &mdash; Each panelist presents their stance with evidence.</li>
-    <li><strong>Cross-Examination</strong> &mdash; Structured rounds of rebuttal, questioning, and evidence.</li>
-    <li><strong>Scoring</strong> &mdash; Panelists score options against agreed criteria. Highest score wins.</li>
-    <li><strong>Resolution</strong> &mdash; Decision recorded with rationale, rejected options, and consequences.</li>
+    <li><strong>Debate Trigger</strong> — A decision point arises with multiple viable options. The objective lead calls for a debate.</li>
+    <li><strong>Panel Assembly</strong> — Facilitator assembles roles with stake in the decision. Each represents their role's perspective.</li>
+    <li><strong>Opening Statements</strong> — Each panelist presents their stance with evidence.</li>
+    <li><strong>Cross-Examination</strong> — Structured rounds of rebuttal, questioning, and evidence.</li>
+    <li><strong>Scoring</strong> — Panelists score options against agreed criteria. Highest score wins.</li>
+    <li><strong>Resolution</strong> — Decision recorded with rationale, rejected options, and consequences.</li>
   </ol>
 
   <h2>Typical Debate Triggers</h2>
@@ -76,6 +93,11 @@
     <tr><td><code>.agentcrew/debate/04-debate-resolution.md</code></td><td>Scoring criteria and resolution process</td></tr>
     <tr><td><code>.agentcrew/debate/05-debate-log.md</code></td><td>Logging format for debate records</td></tr>
   </table>
+
+  <div class="site-footer">
+    <span>MIT Licensed &mdash; Built for AI-native development</span>
+    <span><a href="https://github.com/anomalyco/AgentCrew">GitHub</a></span>
+  </div>
 
 </main>
 

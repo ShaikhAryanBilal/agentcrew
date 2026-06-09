@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Roles — AgentCrew</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,31 +17,31 @@
     <span>Autonomous AI Squads</span>
   </div>
   <nav>
-    <a href="index.html">Home</a>
+    <a href="index.html"><span class="nav-icon">&#9679;</span> Home</a>
 
     <div class="nav-section">Roles</div>
-    <a href="roles.html" class="active">All 16 Roles</a>
+    <a href="roles.html" class="active"><span class="nav-icon">&#9733;</span> All 16 Roles</a>
 
     <div class="nav-section">Lifecycle</div>
     <div class="nav-sub">
-      <a href="objectives.html">7 Objectives</a>
+      <a href="objectives.html"><span class="nav-icon">&#9654;</span> 7 Objectives</a>
     </div>
 
     <div class="nav-section">Guides</div>
-    <a href="procedures.html">Procedures</a>
-    <a href="debate.html">Debate Framework</a>
-    <a href="configuration.html">Configuration</a>
+    <a href="procedures.html"><span class="nav-icon">&#9881;</span> Procedures</a>
+    <a href="debate.html"><span class="nav-icon">&#9878;</span> Debate Framework</a>
+    <a href="configuration.html"><span class="nav-icon">&#9881;</span> Configuration</a>
   </nav>
 </aside>
 
 <main class="content">
   <h1>Roles</h1>
-  <p>16 invocable AI roles with contracts and workflows. Solo, squad, or orchestrated.</p>
+  <p class="subtitle">16 invocable AI roles with contracts and workflows. Solo, squad, or orchestrated.</p>
 
   <div class="card-grid">
     <div class="card">
       <h3><a href="#orchestrator">Orchestrator</a></h3>
-      <p>Coordinates full lifecycle &mdash; decomposes requests, assembles squads, tracks progress.</p>
+      <p>Coordinates full lifecycle — decomposes requests, assembles squads, tracks progress.</p>
       <span class="tag tag-leadership">Leadership</span>
     </div>
     <div class="card">
@@ -133,7 +136,7 @@
   <p><strong>Owns:</strong> Requirements, prioritization, stakeholder communication, sign-off</p>
   <p><strong>Provides:</strong> PRD, priorities, scope decisions, release plan, release notes, UAT sign-off</p>
   <p><strong>Consumes:</strong> Stakeholder input, effort estimates (Tech Lead), UAT feedback (QA), team velocity (EM)</p>
-  <p><strong>Invoke:</strong> <em>"PM, write a PRD for user authentication"</em> &mdash; Solo or Squad with BA</p>
+  <p><strong>Invoke:</strong> <em>"PM, write a PRD for user authentication"</em> — Solo or Squad with BA</p>
   <h3>Key Skills</h3>
   <p>Scrum/Kanban, MoSCoW prioritization, stakeholder management, user story mapping, PRD writing, release planning</p>
 
@@ -141,7 +144,7 @@
   <p><strong>Owns:</strong> Requirements analysis, gap detection, clarification</p>
   <p><strong>Provides:</strong> Structured reqs, gap list, user stories, dependency graph</p>
   <p><strong>Consumes:</strong> Raw input from stakeholders, domain context</p>
-  <p><strong>Invoke:</strong> <em>"BA, analyze these requirements"</em> &mdash; Solo or Squad with PM</p>
+  <p><strong>Invoke:</strong> <em>"BA, analyze these requirements"</em> — Solo or Squad with PM</p>
   <h3>Key Skills</h3>
   <p>Requirements elicitation, gap analysis, user story mapping, dependency mapping, requirement classification</p>
 
@@ -149,7 +152,7 @@
   <p><strong>Owns:</strong> System architecture, tech stack, high-level design</p>
   <p><strong>Provides:</strong> Architecture diagram, ADRs, DB design, API contracts, tech spec, design review approval</p>
   <p><strong>Consumes:</strong> Signed-off PRD, non-functional requirements, security requirements</p>
-  <p><strong>Invoke:</strong> <em>"Architect, design the database schema for the payment system"</em> &mdash; Solo or Squad with UX + Security</p>
+  <p><strong>Invoke:</strong> <em>"Architect, design the database schema for the payment system"</em> — Solo or Squad with UX + Security</p>
   <h3>Key Skills</h3>
   <p>Architecture patterns (microservices, event-driven, CQRS), C4 modeling, ADR writing, NFR evaluation, security architecture</p>
 
@@ -157,19 +160,19 @@
   <p><strong>Owns:</strong> Coding standards, code quality, technical decisions, ADRs</p>
   <p><strong>Provides:</strong> Standards, review approval, technical guidance, tech debt register</p>
   <p><strong>Consumes:</strong> Architecture decisions, PRD</p>
-  <p><strong>Invoke:</strong> <em>"Tech Lead, review PR #42"</em> &mdash; Solo or Squad with Devs</p>
+  <p><strong>Invoke:</strong> <em>"Tech Lead, review PR #42"</em> — Solo or Squad with Devs</p>
 
   <h2 id="frontend-dev">Frontend Developer</h2>
   <p><strong>Owns:</strong> UI implementation, client logic</p>
   <p><strong>Provides:</strong> UI code, component tests, API integration</p>
   <p><strong>Consumes:</strong> Designs/wireframes, API contracts, design tokens</p>
-  <p><strong>Invoke:</strong> <em>"Frontend Dev, implement the user profile component"</em> &mdash; Solo or Squad with Backend</p>
+  <p><strong>Invoke:</strong> <em>"Frontend Dev, implement the user profile component"</em> — Solo or Squad with Backend</p>
 
   <h2 id="backend-dev">Backend Developer</h2>
   <p><strong>Owns:</strong> API, services, data layer, business logic</p>
   <p><strong>Provides:</strong> API endpoints, business logic, DB migrations, integration tests</p>
   <p><strong>Consumes:</strong> API contracts, DB design, tech spec, coding standards</p>
-  <p><strong>Invoke:</strong> <em>"Backend Dev, implement the order API"</em> &mdash; Solo or Squad with Frontend</p>
+  <p><strong>Invoke:</strong> <em>"Backend Dev, implement the order API"</em> — Solo or Squad with Frontend</p>
   <h3>Key Skills</h3>
   <p>API design (REST, GraphQL, gRPC), database design, auth (JWT, OAuth2, RBAC), caching, error handling, security</p>
 
@@ -177,13 +180,13 @@
   <p><strong>Owns:</strong> iOS/Android apps, offline support, push notifications, app store submission</p>
   <p><strong>Provides:</strong> Mobile app code, UI tests, app store build</p>
   <p><strong>Consumes:</strong> Wireframes, API contracts, design tokens</p>
-  <p><strong>Invoke:</strong> <em>"Mobile Dev, implement the login screen"</em> &mdash; Solo or Squad with Backend</p>
+  <p><strong>Invoke:</strong> <em>"Mobile Dev, implement the login screen"</em> — Solo or Squad with Backend</p>
 
   <h2 id="ux-designer">UX Designer</h2>
   <p><strong>Owns:</strong> User research, wireframes, visual design, prototyping</p>
   <p><strong>Provides:</strong> Mockups, prototypes, design assets, design system</p>
   <p><strong>Consumes:</strong> PRD with personas, brand guidelines</p>
-  <p><strong>Invoke:</strong> <em>"UX Designer, create wireframes for the dashboard"</em> &mdash; Solo or Squad with Architect</p>
+  <p><strong>Invoke:</strong> <em>"UX Designer, create wireframes for the dashboard"</em> — Solo or Squad with Architect</p>
 
   <h2 id="data-engineer">Data Engineer</h2>
   <p><strong>Owns:</strong> ETL/ELT pipelines, data warehouse/lake, data quality</p>
@@ -201,7 +204,7 @@
   <p><strong>Owns:</strong> Test planning, execution, bug tracking, sign-off</p>
   <p><strong>Provides:</strong> Test plan, test cases, bug reports, execution report, QA sign-off</p>
   <p><strong>Consumes:</strong> Build artifact, PRD + acceptance criteria, API contracts</p>
-  <p><strong>Invoke:</strong> <em>"QA, create test cases for the checkout flow"</em> &mdash; Solo or Squad with Security</p>
+  <p><strong>Invoke:</strong> <em>"QA, create test cases for the checkout flow"</em> — Solo or Squad with Security</p>
   <h3>Key Skills</h3>
   <p>Test planning (risk-based), test design (equivalence partitioning), automation (Playwright, Cypress), performance testing</p>
 
@@ -209,12 +212,12 @@
   <p><strong>Owns:</strong> Threat modeling, security testing, pentest, SBOM</p>
   <p><strong>Provides:</strong> Threat model, pentest report, security gate status, SBOM</p>
   <p><strong>Consumes:</strong> Architecture diagrams, staging build, dependency list</p>
-  <p><strong>Invoke:</strong> <em>"Security, review the threat model for the portal"</em> &mdash; Solo or Squad with QA</p>
+  <p><strong>Invoke:</strong> <em>"Security, review the threat model for the portal"</em> — Solo or Squad with QA</p>
   <h3>Security Gates</h3>
   <ul>
     <li><strong>SG1:</strong> Threat model complete, high threats mitigated</li>
     <li><strong>SG2:</strong> SAST + secret scan + dep scan clean</li>
-    <li><strong>SG3:</strong> DAST + pentest + supply chain scan &mdash; no Critical/High</li>
+    <li><strong>SG3:</strong> DAST + pentest + supply chain scan — no Critical/High</li>
     <li><strong>SG4:</strong> All scans clean, SBOM verified</li>
   </ul>
 
@@ -222,7 +225,7 @@
   <p><strong>Owns:</strong> Infrastructure, CI/CD, deployment, monitoring</p>
   <p><strong>Provides:</strong> Environments, CI/CD pipelines, deployed builds, monitoring dashboards</p>
   <p><strong>Consumes:</strong> Tech stack decisions, build config, secrets, release plan</p>
-  <p><strong>Invoke:</strong> <em>"DevOps, set up the CI/CD pipeline for this project"</em> &mdash; Solo or Squad with PM</p>
+  <p><strong>Invoke:</strong> <em>"DevOps, set up the CI/CD pipeline for this project"</em> — Solo or Squad with PM</p>
   <h3>Key Skills</h3>
   <p>CI/CD (GitHub Actions, GitLab CI), Docker, Kubernetes, Terraform, cloud (AWS/Azure/GCP), monitoring (Prometheus/Grafana)</p>
 
@@ -230,17 +233,22 @@
   <p><strong>Owns:</strong> Sprint planning, team process, retrospectives, capacity</p>
   <p><strong>Provides:</strong> Sprint plan, capacity allocation, task breakdown, retro report</p>
   <p><strong>Consumes:</strong> Team capacity, velocity data, priorities from PM</p>
-  <p><strong>Invoke:</strong> <em>"EM, plan the sprint for these features"</em> &mdash; Solo or Squad with PM + Tech Lead</p>
+  <p><strong>Invoke:</strong> <em>"EM, plan the sprint for these features"</em> — Solo or Squad with PM + Tech Lead</p>
 
   <h2 id="debate-facilitator">Debate Facilitator</h2>
   <p><strong>Owns:</strong> Debate process, neutrality, timebox enforcement, resolution</p>
   <p><strong>Provides:</strong> Debate brief, panel assembly, scoring leadership, decision record</p>
   <p><strong>Consumes:</strong> Decision question, viable options, role stances</p>
-  <p><strong>Invoke:</strong> <em>"Facilitator, run debate on tech stack choice"</em> &mdash; Cross-cutting, invoked from any objective</p>
-  <p><strong>Role:</strong> Neutral arbitrator &mdash; does NOT advocate for any option</p>
+  <p><strong>Invoke:</strong> <em>"Facilitator, run debate on tech stack choice"</em> — Cross-cutting, invoked from any objective</p>
+  <p><strong>Role:</strong> Neutral arbitrator — does NOT advocate for any option</p>
   <h3>Key Process</h3>
   <pre><code>Decision question &rarr; Panel assembly &rarr; Opening statements
 &rarr; Cross-examination rounds &rarr; Scoring &rarr; Resolution &rarr; Logging</code></pre>
+
+  <div class="site-footer">
+    <span>MIT Licensed &mdash; Built for AI-native development</span>
+    <span><a href="https://github.com/anomalyco/AgentCrew">GitHub</a></span>
+  </div>
 
 </main>
 
