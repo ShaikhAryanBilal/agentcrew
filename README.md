@@ -11,13 +11,13 @@
 
 ### Autonomous AI Squads That Ship Production Software
 
-**16 specialized roles · 7 lifecycle objectives · Solo · Squad · Orchestrated**
+**18 specialized roles · 8 lifecycle objectives · Solo · Squad · Orchestrate · Meeting**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![AI Ready](https://img.shields.io/badge/AI-Ready-8A2BE2)](#)
 [![No Dependencies](https://img.shields.io/badge/Dependencies-Zero-success)](#)
-[![GitHub Pages](https://img.shields.io/badge/GitHub-Pages-181717?logo=github)](https://shaikaryanbilal.github.io/agentcrew)
+[![Docs](https://img.shields.io/badge/Docs-Markdown-8A2BE2)](docs/index.md)
 [![Made with ❤️](https://img.shields.io/badge/Made%20with-%E2%9D%A4%EF%B8%8F-red)](#)
 
 ```
@@ -46,7 +46,7 @@ You end up debugging chaos instead of building.
 
 ## The Solution
 
-AgentCrew gives any AI agent a **repeatable SDLC brain** — 16 specialized roles with hardened contracts, workflows, and quality gates that form squads on demand.
+AgentCrew gives any AI agent a **repeatable SDLC brain** — 18 specialized roles with hardened contracts, workflows, and quality gates that form squads on demand.
 
 > **Zero dependencies. Zero SaaS. Zero vendor lock.**
 > Just markdown files — every AI agent can read them.
@@ -66,8 +66,9 @@ Three execution modes, one framework:
 | Mode | Example | What Happens |
 |------|---------|-------------|
 | 🎯 **Solo** | *"Architect, design the database schema"* | Single role executes. Zero overhead. |
-| 👥 **Squad** | *"Team, design the authentication system"* | Multiple roles, one objective, parallel execution. |
-| 🏗️ **Orchestrated** | *"Build the e-commerce platform"* | Orchestrator decomposes → 7 objectives → squads → track → ship. |
+| 👥 **Squad** | *"Squad (QA, Security), verify quality"* | Multiple roles, one objective, parallel execution. |
+| 🏗️ **Orchestrate** | *"Build the e-commerce platform"* | Orchestrator decomposes → 8 objectives → squads → track → ship. |
+| 🗣️ **Meeting** | *"/meeting brainstorm [topic]"* | Dynamic roles assembled, structured brainstorm, decisions, action items. |
 
 ---
 
@@ -92,7 +93,7 @@ No more chasing your AI agent for missing pieces. Everything is defined, templat
 
 ## The Crew
 
-16 roles. Each with a contract, workflow, quality checklist, and artifact templates.
+18 roles. Each with a contract, workflow, quality checklist, and artifact templates.
 
 | | Role | Superpower | Produces |
 |--|------|-----------|----------|
@@ -111,6 +112,8 @@ No more chasing your AI agent for missing pieces. Everything is defined, templat
 | 🛡️ | **Security Engineer** | Threat model & pentest | Threat model, SBOM, scan results |
 | 🚀 | **DevOps Engineer** | CI/CD & infra | Pipeline, deploy plan, runbook |
 | 📅 | **Engineering Manager** | Sprint planning & retro | Sprint plan, velocity report, retro |
+| 📝 | **Technical Writer** | Docs & guides | API docs, user guides, release notes |
+| 🗣️ | **Meeting Facilitator** | Meeting mode & brainstorming | Agenda, decisions, action items, minutes |
 | ⚖️ | **Debate Facilitator** | Decision moderation | Structured debate, scored options |
 
 ---
@@ -144,35 +147,42 @@ Done. Your AI agent reads `.agentcrew/00-objectives.md`, routes to the matching 
 
 ```
 .agentcrew/
-├── 00-objectives.md       # 🧭 Start here — the routing table
-├── 00-team.md             # 👥 Crew orchestration hub
-├── 00-roles.md            # 📖 All 16 roles at a glance
-├── objectives/            # 7 lifecycle objectives
+├── 00-objectives.md       # 🧭 YAML routing table — match request → objective
+├── 00-roles.md            # 📖 All 18 roles at a glance
+├── 00-team.md             # 👥 Invocation patterns (solo/squad/orchestrate/meeting)
+├── objectives/            # 8 lifecycle objectives
 │   ├── 01-clarify-vision.md
 │   ├── 02-design-solution.md
 │   ├── 03-plan-work.md
 │   ├── 04-build-feature.md
 │   ├── 05-verify-quality.md
 │   ├── 06-ship-release.md
-│   └── 07-operate-learn.md
-├── roles/                 # 16 role contracts + workflows
+│   ├── 07-operate-learn.md
+│   └── 08-conduct-meeting.md
+├── roles/                 # 18 role contracts + workflows
+│   ├── orchestrator/
 │   ├── product-manager/
 │   ├── architect/
 │   ├── backend/
 │   ├── qa/
 │   ├── security/
-│   └── ...               # All 16 roles
-├── procedures/            # Step-by-step guides
-│   ├── 01-pm/
-│   ├── 02-architect/
-│   └── ...               # Per-role procedures
-├── debate/                # Structured decision framework
-├── custom/                # Project-specific overrides
-├── config/                # AI agent configuration templates
-├── light/                 # Compressed 7-step variant for MVPs
+│   └── ...               # All 18 roles
+├── procedures/            # How-to guides by SDLC phase
+│   ├── 01-requirements/
+│   ├── 02-design/
+│   ├── 03-development/
+│   ├── 04-qa/
+│   ├── 05-deployment/
+│   ├── 06-maintenance/
+│   ├── adr/
+│   └── postmortem/
+├── debate/                # Structured decision framework (5 steps)
+├── meeting/               # Meeting mode workflow (5 steps)
+├── custom/                # Project-specific overrides per phase
+├── config/                # AI agent configs (opencode, Cursor, Claude Code, Copilot)
 ├── animations/            # 🎮 Retro RPG party screen
-├── scripts/               # State dashboard + utilities
-├── log/                   # Execution logs
+├── scripts/               # State dashboard, validation, workflow log
+├── log/                   # Execution logs by objective/role/timestamp
 └── state/workflow.json    # 📊 Real-time progress tracker
 ```
 
@@ -212,10 +222,9 @@ Animated terminal TUI with role icons, HP-style progress bars, and live status m
 
 | Variant | When to Use |
 |---------|------------|
-| **Full** (`.agentcrew/`) | Production — 7 objectives, full squads, all quality gates |
+| **Full** (`.agentcrew/`) | Production — 8 objectives, full squads, all quality gates |
 | **Light** (`.agentcrew/light/`) | MVPs, prototypes, solo dev — compressed workflow, fewer gates |
-
-Switch anytime. Need rigor? Use full. Moving fast? Use light.
+| **Meeting** (`.agentcrew/meeting/`) | Brainstorming, retro, decision-making — dynamic role assembly |
 
 ---
 
