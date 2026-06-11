@@ -36,7 +36,7 @@
 
 <main class="content">
   <h1>Objectives</h1>
-  <p class="page-subtitle">11 lifecycle objectives &mdash; each with goal, squad, schedule, artifacts, and acceptance criteria.</p>
+  <p class="page-subtitle">11 lifecycle objectives covering the full software delivery lifecycle &mdash; each with defined goal, squad composition, execution schedule, deliverable artifacts, and acceptance criteria.</p>
 
   <div class="process-flow">
     <span class="process-step active">0. Select SDLC</span>
@@ -56,7 +56,7 @@
     <span class="process-step">7. Operate &amp; Learn</span>
   </div>
 
-  <p>Plus cross-cutting: <strong>Conduct Meeting</strong>, <strong>Execute Campaign</strong>, <strong>Execute People Ops</strong>.</p>
+  <p>Plus cross-cutting objectives: <strong>Conduct Meeting</strong>, <strong>Execute Campaign</strong>, and <strong>Execute People Ops</strong> enable collaboration, go-to-market, and team growth within the same framework.</p>
 
   <div class="role-grid">
     <a href="#routing" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
@@ -127,11 +127,12 @@
   </div>
 
   <h2 id="routing">Request &rarr; Objective Routing</h2>
+  <p>The routing engine matches user requests against a YAML-defined routing table using semantic keyword matching with confidence scoring. Each route maps to a lifecycle objective with a predefined squad composition. Additional mechanisms include routing cache (last 50 mappings), feedback loop for continuous improvement, and sub-spec resolution for per-request role refinement.</p>
   <div class="table-wrap">
     <table>
       <thead>
         <tr>
-          <th>You Say</th>
+          <th>User Request</th>
           <th>Objective</th>
           <th>Squad</th>
         </tr>
@@ -220,25 +221,25 @@
   <!-- Objective 1 -->
   <h2 id="obj-1">Objective 1: Clarify Vision</h2>
   <p><span class="tag tag-purple">Squad: PM + BA</span></p>
-  <p>Transform raw stakeholder input into a signed-off PRD with clear scope, priorities, and user stories.</p>
+  <p>Transform raw stakeholder input into a signed-off PRD with clear scope, priorities, and user stories. The PM drives intake to sign-off while the BA performs structured analysis and gap detection in parallel.</p>
 
-  <h3>Schedule</h3>
+  <h3>Execution Schedule</h3>
   <pre><code>PM:  Intake &rarr; PRD Draft &rarr; Review &rarr; Sign-off
 BA:  Analysis &rarr; User Stories</code></pre>
-  <p class="text-muted text-sm"><strong>Parallel:</strong> PM gathers requirements while BA analyzes.<br><strong>Sequential:</strong> PRD needs analysis done.</p>
+  <p class="text-muted text-sm"><strong>Parallel:</strong> PM gathers requirements while BA analyzes.<br><strong>Sequential:</strong> PRD requires analysis completion.</p>
 
-  <h3>Artifacts</h3>
+  <h3>Deliverable Artifacts</h3>
   <ul>
-    <li><strong>PM:</strong> Structured requirement list, PRD document, sign-off record</li>
-    <li><strong>BA:</strong> Gap analysis, prioritized reqs, P0/P1 user stories</li>
+    <li><strong>PM:</strong> Structured requirement list, comprehensive PRD document, formal sign-off record</li>
+    <li><strong>BA:</strong> Gap analysis, prioritized requirements, P0/P1 user stories with acceptance criteria</li>
   </ul>
 
-  <h3>Acceptance</h3>
+  <h3>Acceptance Criteria</h3>
   <ul>
-    <li>All requirements captured and classified ([F], [NF], [B], [T], [C])</li>
-    <li>MoSCoW priorities assigned (P0-P3), scope frozen</li>
+    <li>All requirements captured and classified ([F] Functional, [NF] Non-Functional, [B] Business, [T] Technical, [C] Constraint)</li>
+    <li>MoSCoW priorities assigned (P0-P3), scope formally frozen</li>
     <li>P0/P1 user stories written with 2-3 acceptance criteria each</li>
-    <li>PRD reviewed and signed off</li>
+    <li>PRD reviewed by stakeholders and signed off</li>
   </ul>
 
   <hr class="section-divider">
@@ -246,22 +247,22 @@ BA:  Analysis &rarr; User Stories</code></pre>
   <!-- Objective 2 -->
   <h2 id="obj-2">Objective 2: Design Solution</h2>
   <p><span class="tag tag-cyan">Squad: Architect + UX + Security + Data Engineer</span></p>
-  <p>Design system architecture, UX, and security model to satisfy the signed-off PRD.</p>
+  <p>Design system architecture, user experience, and security model to satisfy the signed-off PRD. The squad operates in parallel with synchronization at design review.</p>
 
-  <h3>Schedule</h3>
+  <h3>Execution Schedule</h3>
   <pre><code>Architect: Options &rarr; ADRs &rarr; Tech Spec &rarr; Design Review
 UX:        Research &rarr; Wireframes &rarr; Prototype
 Security:  Threat Model &rarr; Security Reqs</code></pre>
 
-  <h3>Artifacts</h3>
+  <h3>Deliverable Artifacts</h3>
   <ul>
-    <li><strong>Architect:</strong> ADRs, C4 diagrams, tech spec, DB design, API contracts</li>
-    <li><strong>UX Designer:</strong> User flows, wireframes, prototypes, design assets</li>
-    <li><strong>Security:</strong> Threat model with mitigations</li>
+    <li><strong>Architect:</strong> ADRs, C4 architecture diagrams, technical specification, DB design, API contracts</li>
+    <li><strong>UX Designer:</strong> User flows, wireframes, interactive prototypes, design assets</li>
+    <li><strong>Security:</strong> Threat model with documented mitigations for all identified risks</li>
   </ul>
 
   <div class="highlight-box">
-    <strong>Security Gate: SG1</strong> &mdash; Threat model must be complete, all high-severity threats must have documented mitigations.
+    <strong>Security Gate: SG1</strong> &mdash; Threat model must be complete with all high-severity threats having documented mitigations before design review can pass.
   </div>
 
   <hr class="section-divider">
@@ -269,19 +270,19 @@ Security:  Threat Model &rarr; Security Reqs</code></pre>
   <!-- Objective 3 -->
   <h2 id="obj-3">Objective 3: Plan Work</h2>
   <p><span class="tag tag-amber">Squad: EM + PM + Tech Lead + Finance + HR + General Management</span></p>
-  <p>Break approved design into actionable tasks, assign capacity, create sprint plan.</p>
+  <p>Break approved design into actionable tasks, allocate capacity, and create a deliverable sprint plan with organizational alignment.</p>
 
-  <h3>Artifacts</h3>
+  <h3>Deliverable Artifacts</h3>
   <ul>
-    <li><strong>EM:</strong> Sprint plan with capacity allocation</li>
-    <li><strong>PM:</strong> Prioritized backlog with sprint goal</li>
-    <li><strong>Tech Lead:</strong> Technical task breakdown with estimates</li>
+    <li><strong>EM:</strong> Sprint plan with capacity allocation, velocity projections, and team commitments</li>
+    <li><strong>PM:</strong> Prioritized backlog aligned with sprint goals and release milestones</li>
+    <li><strong>Tech Lead:</strong> Technical task breakdown with estimates, dependency mapping, and risk assessment</li>
   </ul>
 
-  <h3>Acceptance</h3>
+  <h3>Acceptance Criteria</h3>
   <ul>
     <li>All tasks estimated, capacity allocated, sprint goal defined</li>
-    <li>Dependencies mapped, team committed</li>
+    <li>Dependencies mapped, team committed, stakeholders informed</li>
   </ul>
 
   <hr class="section-divider">
@@ -289,21 +290,21 @@ Security:  Threat Model &rarr; Security Reqs</code></pre>
   <!-- Objective 4 -->
   <h2 id="obj-4">Objective 4: Build Feature</h2>
   <p><span class="tag tag-green">Squad: Dev(s) + Mobile Dev + Data Engineer + ML Engineer + Tech Lead + Technical Writer + Marketing + Sales</span></p>
-  <p>Implement, review, unit test, and integrate working code per approved design.</p>
+  <p>Implement, review, unit test, and integrate working code per the approved design specification. The broadest squad ensures engineering, documentation, and go-to-market alignment.</p>
 
-  <h3>Schedule</h3>
+  <h3>Execution Schedule</h3>
   <pre><code>Dev:  Analysis &rarr; Implementation &rarr; PR
 Tech Lead:                    Code Review &rarr; Merge
 Dev:                Unit Tests &rarr; Integration</code></pre>
 
-  <h3>Artifacts</h3>
+  <h3>Deliverable Artifacts</h3>
   <ul>
-    <li><strong>Dev:</strong> Implementation code, unit tests (&ge;80% coverage), integration tests</li>
-    <li><strong>Tech Lead:</strong> Code review comments, merge commit</li>
+    <li><strong>Dev:</strong> Production implementation code, unit tests (&ge;80% coverage), integration tests</li>
+    <li><strong>Tech Lead:</strong> Code review approvals, merge commits, tech debt register</li>
   </ul>
 
   <div class="highlight-box">
-    <strong>Security Gate: SG2</strong> &mdash; Before merge to main: SAST, secret detection, dependency scan must pass.
+    <strong>Security Gate: SG2</strong> &mdash; Before any merge to main: SAST scan, secret detection, and dependency vulnerability scan must pass with zero critical findings.
   </div>
 
   <hr class="section-divider">
@@ -311,16 +312,16 @@ Dev:                Unit Tests &rarr; Integration</code></pre>
   <!-- Objective 5 -->
   <h2 id="obj-5">Objective 5: Verify Quality</h2>
   <p><span class="tag tag-red">Squad: QA + Security + Dev(s) + ML Engineer</span></p>
-  <p>Validate feature meets quality standards through testing, security validation, and acceptance.</p>
+  <p>Validate that the built feature meets organizational quality standards through comprehensive testing, security validation, and formal acceptance.</p>
 
-  <h3>Artifacts</h3>
+  <h3>Deliverable Artifacts</h3>
   <ul>
-    <li><strong>QA:</strong> Test plan, test cases, bug reports, execution report, QA sign-off</li>
-    <li><strong>Security:</strong> Pentest report, supply chain scan, SG3 gate status</li>
+    <li><strong>QA:</strong> Test plan, test cases, bug reports, execution report, formal QA sign-off</li>
+    <li><strong>Security:</strong> Pentest report, supply chain vulnerability scan, SG3 gate status</li>
   </ul>
 
   <div class="highlight-box">
-    <strong>Security Gate: SG3</strong> &mdash; DAST + pentest + supply chain scan: no Critical or High findings.
+    <strong>Security Gate: SG3</strong> &mdash; DAST scan, penetration test, and supply chain scan must report zero Critical or High findings before QA sign-off.
   </div>
 
   <hr class="section-divider">
@@ -328,16 +329,17 @@ Dev:                Unit Tests &rarr; Integration</code></pre>
   <!-- Objective 6 -->
   <h2 id="obj-6">Objective 6: Ship Release</h2>
   <p><span class="tag tag-pink">Squad: DevOps + PM + Technical Writer</span></p>
-  <p>Deploy verified build to production with rollout plan, monitoring, and rollback.</p>
+  <p>Deploy verified build to production with a documented rollout plan, monitoring configuration, and rollback procedures.</p>
 
-  <h3>Artifacts</h3>
+  <h3>Deliverable Artifacts</h3>
   <ul>
-    <li><strong>PM:</strong> Release plan, release notes</li>
-    <li><strong>DevOps:</strong> Deployment runbook, deployed build, monitoring dashboards</li>
+    <li><strong>PM:</strong> Release plan, release notes, stakeholder communication</li>
+    <li><strong>DevOps:</strong> Deployment runbook, deployed build artifacts, monitoring dashboards, rollback procedures</li>
+    <li><strong>Technical Writer:</strong> User-facing release documentation, changelog</li>
   </ul>
 
   <div class="highlight-box">
-    <strong>Security Gate: SG4</strong> &mdash; All scans clean, no Critical/High bugs, SBOM verified before production traffic.
+    <strong>Security Gate: SG4</strong> &mdash; All scans clean, no Critical/High bugs, SBOM verified and signed before production traffic is enabled.
   </div>
 
   <hr class="section-divider">
@@ -345,13 +347,13 @@ Dev:                Unit Tests &rarr; Integration</code></pre>
   <!-- Objective 7 -->
   <h2 id="obj-7">Objective 7: Operate &amp; Learn</h2>
   <p>Squad: DevOps + EM + PM + ML Engineer + Data Engineer</p>
-  <p>Monitor production system, respond to incidents, gather feedback, plan improvements.</p>
+  <p>Monitor production systems, respond to incidents, gather user feedback, and feed learnings back into the lifecycle for continuous improvement.</p>
 
-  <h3>Artifacts</h3>
+  <h3>Deliverable Artifacts</h3>
   <ul>
-    <li><strong>DevOps:</strong> Monitoring dashboards, incident reports, runbooks</li>
-    <li><strong>EM:</strong> Retro reports, velocity metrics, process improvements</li>
-    <li><strong>PM:</strong> User feedback summary, feature requests</li>
+    <li><strong>DevOps:</strong> Monitoring dashboards, incident reports, operational runbooks</li>
+    <li><strong>EM:</strong> Retrospective reports, velocity metrics, process improvement recommendations</li>
+    <li><strong>PM:</strong> User feedback summary, feature requests, impact analysis</li>
   </ul>
 
   <hr class="section-divider">
@@ -359,13 +361,13 @@ Dev:                Unit Tests &rarr; Integration</code></pre>
   <!-- Objective 8 -->
   <h2 id="obj-8">Objective 8: Conduct Meeting</h2>
   <p><span class="tag tag-amber">Squad: Meeting Facilitator + Dynamic Roles</span></p>
-  <p>Run a structured real-time meeting with dynamically assembled roles to brainstorm, decide, and produce action items for a given topic.</p>
+  <p>Run structured real-time meetings with dynamically assembled roles to brainstorm, make decisions, and produce actionable outcomes for any given topic.</p>
 
-  <h3>Schedule</h3>
+  <h3>Execution Schedule</h3>
   <pre><code>Facilitator: Convene &rarr; Agenda &rarr; Brainstorm &rarr; Decisions &rarr; Action Items &rarr; Minutes</code></pre>
 
-  <h3>Role Selection</h3>
-  <p>Topic keywords determine spawned roles:</p>
+  <h3>Dynamic Role Selection</h3>
+  <p>Topic keywords determine which roles are assembled for the meeting:</p>
   <div class="table-wrap">
     <table>
       <thead>
@@ -415,10 +417,10 @@ Dev:                Unit Tests &rarr; Integration</code></pre>
     </table>
   </div>
 
-  <h3>Artifacts</h3>
+  <h3>Deliverable Artifacts</h3>
   <ul>
-    <li><strong>Meeting Facilitator:</strong> Agenda, discussion summary, decision log, action items, minutes</li>
-    <li><strong>Dynamic roles:</strong> Ideas, opinions, perspectives, proposals</li>
+    <li><strong>Meeting Facilitator:</strong> Agenda, discussion summary, decision log, action item list, meeting minutes</li>
+    <li><strong>Dynamic roles:</strong> Ideas, opinions, domain perspectives, proposals, and assessments</li>
   </ul>
 
   <hr class="section-divider">
@@ -426,7 +428,7 @@ Dev:                Unit Tests &rarr; Integration</code></pre>
   <!-- Objective 0 -->
   <h2 id="obj-0">Objective 0: Select SDLC Model</h2>
   <p><span class="tag tag-purple">Squad: PM + Architect + EM</span></p>
-  <p>Choose the right software development lifecycle model based on project complexity, risk, and team structure.</p>
+  <p>Select the optimal software development lifecycle model based on project complexity, risk profile, team structure, and organizational constraints. The chosen model determines phase ordering and quality gate configuration for subsequent objectives.</p>
 
   <h3>Supported Models</h3>
   <div class="table-wrap">
@@ -439,42 +441,42 @@ Dev:                Unit Tests &rarr; Integration</code></pre>
         </tr>
       </thead>
       <tbody>
-        <tr><td>Waterfall</td><td>Linear-sequential</td><td>Stable requirements</td></tr>
-        <tr><td>V-Model</td><td>Verification &amp; Validation parallel</td><td>Safety-critical systems</td></tr>
-        <tr><td>Spiral</td><td>Risk-driven iterative</td><td>High-risk projects</td></tr>
-        <tr><td>Agile (Scrum)</td><td>Iterative-incremental</td><td>Cross-functional teams</td></tr>
-        <tr><td>Iterative</td><td>Repeated refinement</td><td>Evolving requirements</td></tr>
-        <tr><td>Incremental</td><td>Piecewise delivery</td><td>Phased feature delivery</td></tr>
-        <tr><td>Big Bang</td><td>Monolithic delivery</td><td>Very small projects/prototypes</td></tr>
-        <tr><td>RAD</td><td>Rapid prototyping</td><td>Fast user feedback cycles</td></tr>
+        <tr><td>Waterfall</td><td>Linear-sequential</td><td>Stable, well-understood requirements</td></tr>
+        <tr><td>V-Model</td><td>Verification &amp; Validation parallel</td><td>Safety-critical and regulated systems</td></tr>
+        <tr><td>Spiral</td><td>Risk-driven iterative</td><td>High-risk, complex projects</td></tr>
+        <tr><td>Agile (Scrum)</td><td>Iterative-incremental</td><td>Cross-functional, self-organizing teams</td></tr>
+        <tr><td>Iterative</td><td>Repeated refinement</td><td>Evolving or unclear requirements</td></tr>
+        <tr><td>Incremental</td><td>Piecewise delivery</td><td>Phased feature delivery to market</td></tr>
+        <tr><td>Big Bang</td><td>Monolithic delivery</td><td>Very small projects and prototypes</td></tr>
+        <tr><td>RAD</td><td>Rapid prototyping</td><td>Fast user feedback cycles, time-to-market critical</td></tr>
       </tbody>
     </table>
   </div>
 
-  <p class="text-muted text-sm">Config: <code>.crewmarkdown/config/sdlc-models.md</code></p>
+  <p class="text-muted text-sm">Configuration reference: <code>.crewmarkdown/config/sdlc-models.md</code></p>
 
   <hr class="section-divider">
 
   <!-- Objective 9 -->
   <h2 id="obj-9">Objective 9: Execute Campaign</h2>
   <p><span class="tag tag-pink">Squad: Marketing + Sales + PM</span></p>
-  <p>Plan and execute go-to-market campaigns, generate leads, and drive adoption for product releases.</p>
+  <p>Plan and execute go-to-market campaigns, generate qualified leads, and drive product adoption for feature releases and product launches.</p>
 
-  <h3>Schedule</h3>
+  <h3>Execution Schedule</h3>
   <pre><code>Marketing: Research &rarr; Campaign Plan &rarr; Content &rarr; Launch &rarr; Analyze
 Sales:    Pipeline Review &rarr; Outreach &rarr; Close</code></pre>
 
-  <h3>Artifacts</h3>
+  <h3>Deliverable Artifacts</h3>
   <ul>
-    <li><strong>Marketing:</strong> Campaign plan, content assets, GTM strategy, analytics report</li>
-    <li><strong>Sales:</strong> Pipeline report, outreach sequence, closed deals</li>
-    <li><strong>PM:</strong> Feature messaging, customer insights</li>
+    <li><strong>Marketing:</strong> Campaign plan, content assets, GTM strategy, analytics and performance report</li>
+    <li><strong>Sales:</strong> Pipeline report, outreach sequences, closed deals, account assignments</li>
+    <li><strong>PM:</strong> Feature messaging framework, customer insights, competitive positioning</li>
   </ul>
 
-  <h3>Acceptance</h3>
+  <h3>Acceptance Criteria</h3>
   <ul>
-    <li>Campaign launched with all assets delivered</li>
-    <li>Pipeline targets met, leads generated</li>
+    <li>Campaign launched with all assets delivered on schedule</li>
+    <li>Pipeline targets met, qualified leads generated</li>
   </ul>
 
   <hr class="section-divider">
@@ -482,23 +484,23 @@ Sales:    Pipeline Review &rarr; Outreach &rarr; Close</code></pre>
   <!-- Objective 10 -->
   <h2 id="obj-10">Objective 10: Execute People Ops</h2>
   <p><span class="tag tag-green">Squad: HR + Management + EM</span></p>
-  <p>Manage hiring, onboarding, performance reviews, and culture initiatives to build and retain a strong team.</p>
+  <p>Manage the full employee lifecycle from hiring and onboarding through performance management and culture initiatives to build and retain a high-performing team.</p>
 
-  <h3>Schedule</h3>
+  <h3>Execution Schedule</h3>
   <pre><code>HR:    Requirements &rarr; Sourcing &rarr; Screening &rarr; Offer &rarr; Onboarding
 EM:    Role Definition &rarr; Interviewing &rarr; Ramp Plan</code></pre>
 
-  <h3>Artifacts</h3>
+  <h3>Deliverable Artifacts</h3>
   <ul>
-    <li><strong>HR:</strong> Hiring plans, job descriptions, onboarding docs, performance review cycle</li>
-    <li><strong>Management:</strong> Headcount plans, org charts, culture initiatives</li>
-    <li><strong>EM:</strong> Ramp plans, team health assessments</li>
+    <li><strong>HR:</strong> Hiring plans, job descriptions, onboarding documentation, performance review cycle</li>
+    <li><strong>Management:</strong> Headcount plans, org charts, culture initiatives, team health metrics</li>
+    <li><strong>EM:</strong> Ramp plans, team health assessments, growth plans</li>
   </ul>
 
-  <h3>Acceptance</h3>
+  <h3>Acceptance Criteria</h3>
   <ul>
-    <li>All open roles filled or in active pipeline</li>
-    <li>Onboarding complete, team health green</li>
+    <li>All open roles filled or in active recruitment pipeline</li>
+    <li>Onboarding complete for all new hires, team health assessed as green</li>
   </ul>
 
   <hr class="section-divider">

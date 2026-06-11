@@ -111,8 +111,8 @@
     </table>
   </div>
 
-  <h2 id="setup-script">Setup Script</h2>
-  <p>The easiest way to configure AI agents for your project:</p>
+  <h2 id="setup-script">Setup Script (Recommended)</h2>
+  <p>The fastest way to configure AI agents for your project. Run once and all supported tools are configured automatically:</p>
 
   <div class="highlight-box">
     <strong>PowerShell</strong> (Windows)
@@ -120,11 +120,13 @@
   </div>
 
   <div class="highlight-box">
-    <strong>Bash</strong> (Linux/macOS)
+    <strong>Bash</strong> (Linux / macOS)
     <pre style="margin-top:0.5rem;margin-bottom:0;"><code>./.crewmarkdown/config/setup.sh --all</code></pre>
   </div>
 
-  <h2 id="manual-setup">Manual Setup</h2>
+  <h2 id="manual-setup">Manual Setup by Tool</h2>
+
+  <p>If you prefer to configure each tool individually, copy the appropriate configuration files from <code>.crewmarkdown/config/</code> to the locations expected by each tool.</p>
 
   <h3>opencode</h3>
   <pre><code>{
@@ -148,37 +150,37 @@
   <hr class="section-divider">
 
   <h2 id="light-variant">Light Variant</h2>
-  <p>A compressed 7-step variant for MVPs, prototypes, and solo development.</p>
+  <p>A compressed 7-step variant optimized for MVPs, prototypes, and solo development scenarios where full process ceremony would be counterproductive.</p>
 
   <div class="table-wrap">
     <table class="compact-table">
       <thead>
         <tr>
           <th></th>
-          <th>Full</th>
+          <th>Full (Default)</th>
           <th>Light</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td><strong>When</strong></td>
-          <td>Production systems, teams</td>
-          <td>MVPs, solo dev, rapid experiments</td>
+          <td>Production systems, team environments</td>
+          <td>MVPs, solo development, rapid experiments</td>
         </tr>
         <tr>
           <td><strong>Objectives</strong></td>
-          <td>11 with full squads</td>
-          <td>7 compressed steps</td>
+          <td>11 with full squad composition</td>
+          <td>7 compressed steps, reduced scope</td>
         </tr>
         <tr>
           <td><strong>Roles</strong></td>
-          <td>33 specialized roles</td>
-          <td>Reduced role set</td>
+          <td>33 specialized roles across all domains</td>
+          <td>Reduced core role set</td>
         </tr>
         <tr>
           <td><strong>Ceremony</strong></td>
-          <td>Security gates, ADRs, debate</td>
-          <td>Minimal documentation</td>
+          <td>Security gates (SG1-SG4), ADRs, debate framework</td>
+          <td>Minimal documentation, streamlined gates</td>
         </tr>
         <tr>
           <td><strong>Location</strong></td>
@@ -189,7 +191,7 @@
     </table>
   </div>
 
-  <p>Switch any time. Start with Light &rarr; move to Full as complexity grows.</p>
+  <p>Projects can switch between variants at any time. Start with Light for rapid iteration and transition to Full as complexity and team size grow.</p>
 
   <hr class="section-divider">
 
@@ -248,7 +250,7 @@
   <hr class="section-divider">
 
   <h2 id="state-logging">State &amp; Logging System</h2>
-  <p>Real-time progress tracking and structured execution logs.</p>
+  <p>Comprehensive execution tracking with real-time progress state, structured per-role execution logs, and cross-session continuity. Enables audit trails, recovery from interruptions, and process metrics.</p>
 
   <div class="table-wrap">
     <table class="compact-table">

@@ -71,7 +71,7 @@
 
     <div class="demo-box">
       <span class="line"><span class="prompt">You:</span>       <span class="response">"Build the payment system"</span></span>
-      <span class="line"><span class="arrow">CrewMarkdown:</span> Orchestrator &rarr; 11 objectives &rarr; squad assembles &rarr; artifacts ship &#10003;</span>
+      <span class="line"><span class="arrow">CrewMarkdown:</span> Orchestrator decomposes &rarr; 11 objectives &rarr; squads assemble &rarr; artifacts verified &rarr; ship &#10003;</span>
     </div>
   </section>
 
@@ -116,38 +116,39 @@
   <hr class="section-divider">
 
   <h2 id="why">Why CrewMarkdown?</h2>
-  <p>AI agents are great at writing code but <strong>terrible at software process</strong>. Without structure, every prompt is a gamble &mdash; you might get code with no tests, no threat model, no PRD, no deploy plan.</p>
-  <p>CrewMarkdown gives AI agents a <strong>repeatable software engineering brain</strong>. 33 roles + 58 sub-specializations with hardened contracts, workflows, and quality gates. Drop it in any project, point your AI at it, and get production-grade results.</p>
-  <p><strong>No SaaS. No API keys. No vendor lock.</strong> Just markdown files any AI agent can read.</p>
+  <p>AI agents are exceptionally capable at writing code, but they lack <strong>structured software engineering process</strong>. Without a defined framework, every prompt produces inconsistent results &mdash; code arrives without tests, threat models, PRDs, or deployment plans. The result is unpredictable quality and costly rework.</p>
+  <p>CrewMarkdown solves this by providing any AI agent with a <strong>repeatable, production-grade engineering framework</strong>. 33 specialized roles + 58 sub-specializations, each with hardened contracts, structured workflows, and quality gates. Drop it into any project, point your AI at it, and get consistent, professional results.</p>
+  <p><strong>No SaaS. No API keys. No vendor lock.</strong> Just plain markdown files that any AI agent can read and execute against.</p>
 
   <h2 id="how-it-works">How It Works</h2>
   <p><strong>User Request</strong> &rarr; <strong>Objective Match</strong> &rarr; <strong>Squad Assembly</strong> &rarr; <strong>Execute &amp; Verify</strong> &rarr; <strong>Ship &#10003;</strong></p>
+  <p>When you make a request, the routing engine matches your intent against a YAML-defined routing table, identifies the correct lifecycle objective, assembles the appropriate squad of roles, and executes the workflow with built-in quality gates at every phase transition.</p>
 
   <div class="mode-table">
     <div class="mode-row">
       <div class="mode-label">Solo</div>
       <div class="mode-example">"Architect, design the DB"</div>
-      <div class="mode-desc">Single role, zero orchestration overhead</div>
+      <div class="mode-desc">Single role executes independently with zero orchestration overhead</div>
     </div>
     <div class="mode-row">
       <div class="mode-label">Squad</div>
-      <div class="mode-example">"Team, design the solution"</div>
-      <div class="mode-desc">Multiple roles, one objective, parallel execution</div>
+      <div class="mode-example">"Squad (PM, BA), clarify requirements"</div>
+      <div class="mode-desc">Multiple roles collaborate on one objective with parallel execution paths</div>
     </div>
     <div class="mode-row">
       <div class="mode-label">Orchestrate</div>
       <div class="mode-example">"Build the payment system"</div>
-      <div class="mode-desc">Orchestrator &rarr; 7 objectives &rarr; squads &rarr; track &rarr; ship</div>
+      <div class="mode-desc">Orchestrator decomposes into objectives, assigns squads, tracks progress, coordinates delivery</div>
     </div>
     <div class="mode-row">
       <div class="mode-label">Meeting</div>
       <div class="mode-example">"/meeting brainstorm [topic]"</div>
-      <div class="mode-desc">Dynamic roles assembled, structured brainstorm, decisions, action items</div>
+      <div class="mode-desc">Dynamic role assembly with structured deliberation, decisions, and actionable outcomes</div>
     </div>
   </div>
 
   <h2 id="agent-format">Agent-Centric Format</h2>
-  <p>Every file is a <strong>system prompt for an AI agent</strong> &mdash; YAML metadata + structured instructions, no prose fluff.</p>
+  <p>Every file in CrewMarkdown is designed as a <strong>system prompt for an AI agent</strong> &mdash; YAML metadata for rapid parsing, structured markdown for direct reasoning, and code-block templates for drop-in artifact generation.</p>
 
   <div class="table-wrap">
     <table>
@@ -178,177 +179,10 @@
     </table>
   </div>
 
-  <p class="text-muted text-sm"><strong>Zero dependencies.</strong> Every file reads as a prompt.</p>
+  <p class="text-muted text-sm"><strong>Zero dependencies.</strong> Every file is a self-contained prompt.</p>
 
   <h2 id="the-crew">The Crew <span class="tag tag-purple">33 Roles</span> <span class="tag tag-cyan">58 Sub-Specs</span></h2>
-
-  <div class="role-grid">
-    <div class="role-card">
-      <div class="role-title">Orchestrator <span class="tag tag-cyan">Meta</span></div>
-      <div class="role-superpower">Coordinates full lifecycle</div>
-      <div class="role-produces"><strong>Produces:</strong> Decomposition, squads, status</div>
-    </div>
-    <div class="role-card">
-      <div class="role-title">Product Manager</div>
-      <div class="role-superpower">Requirements, priorities</div>
-      <div class="role-produces"><strong>Produces:</strong> PRD, roadmap, acceptance criteria</div>
-    </div>
-    <div class="role-card">
-      <div class="role-title">Business Analyst</div>
-      <div class="role-superpower">Analysis, user stories</div>
-      <div class="role-produces"><strong>Produces:</strong> Requirements spec, dependency map</div>
-    </div>
-    <div class="role-card">
-      <div class="role-title">Solution Architect</div>
-      <div class="role-superpower">Architecture, tech stack</div>
-      <div class="role-produces"><strong>Produces:</strong> ADRs, system diagrams, tech decisions</div>
-    </div>
-    <div class="role-card">
-      <div class="role-title">Tech Lead</div>
-      <div class="role-superpower">Standards, code quality</div>
-      <div class="role-produces"><strong>Produces:</strong> ADRs, code review, tech debt plan</div>
-    </div>
-    <div class="role-card">
-      <div class="role-title">Frontend Dev</div>
-      <div class="role-superpower">UI, client logic</div>
-      <div class="role-produces"><strong>Produces:</strong> Components, integration, state</div>
-    </div>
-    <div class="role-card">
-      <div class="role-title">Backend Dev</div>
-      <div class="role-superpower">API, data, services</div>
-      <div class="role-produces"><strong>Produces:</strong> APIs, DB schema, business logic</div>
-    </div>
-    <div class="role-card">
-      <div class="role-title">Mobile Dev</div>
-      <div class="role-superpower">iOS/Android</div>
-      <div class="role-produces"><strong>Produces:</strong> Mobile UI, push, offline, store</div>
-    </div>
-    <div class="role-card">
-      <div class="role-title">UX Designer</div>
-      <div class="role-superpower">Research, wireframes</div>
-      <div class="role-produces"><strong>Produces:</strong> Personas, prototypes, design system</div>
-    </div>
-    <div class="role-card">
-      <div class="role-title">UX Researcher</div>
-      <div class="role-superpower">User research, usability testing</div>
-      <div class="role-produces"><strong>Produces:</strong> Research reports, personas, journey maps</div>
-    </div>
-    <div class="role-card">
-      <div class="role-title">Data Engineer</div>
-      <div class="role-superpower">ETL, pipelines</div>
-      <div class="role-produces"><strong>Produces:</strong> Data models, lineage, quality checks</div>
-    </div>
-    <div class="role-card">
-      <div class="role-title">Data Scientist</div>
-      <div class="role-superpower">Stats, ML, A/B testing</div>
-      <div class="role-produces"><strong>Produces:</strong> Analysis, experiment results, dashboards</div>
-    </div>
-    <div class="role-card">
-      <div class="role-title">ML Engineer</div>
-      <div class="role-superpower">Models, training, serving</div>
-      <div class="role-produces"><strong>Produces:</strong> Model card, eval report, drift monitor</div>
-    </div>
-    <div class="role-card">
-      <div class="role-title">QA Engineer</div>
-      <div class="role-superpower">Testing, quality</div>
-      <div class="role-produces"><strong>Produces:</strong> Test plan, bug report, sign-off</div>
-    </div>
-    <div class="role-card">
-      <div class="role-title">Security Engineer</div>
-      <div class="role-superpower">Threat model, pentest</div>
-      <div class="role-produces"><strong>Produces:</strong> Threat model, SBOM, scan results</div>
-    </div>
-    <div class="role-card">
-      <div class="role-title">SRE</div>
-      <div class="role-superpower">SLOs, incidents, capacity</div>
-      <div class="role-produces"><strong>Produces:</strong> Runbooks, SLI dashboards, postmortems</div>
-    </div>
-    <div class="role-card">
-      <div class="role-title">DevOps Engineer</div>
-      <div class="role-superpower">CI/CD, infra</div>
-      <div class="role-produces"><strong>Produces:</strong> Pipeline, deploy plan, runbook</div>
-    </div>
-    <div class="role-card">
-      <div class="role-title">Engineering Manager</div>
-      <div class="role-superpower">Sprint planning, retro</div>
-      <div class="role-produces"><strong>Produces:</strong> Sprint plan, velocity report, retro</div>
-    </div>
-    <div class="role-card">
-      <div class="role-title">Technical Writer</div>
-      <div class="role-superpower">API docs, user guides, release notes</div>
-      <div class="role-produces"><strong>Produces:</strong> Doc-as-code, changelog, onboarding</div>
-    </div>
-    <div class="role-card">
-      <div class="role-title">Solutions Architect</div>
-      <div class="role-superpower">Pre-sales, solution design, POC</div>
-      <div class="role-produces"><strong>Produces:</strong> Solution designs, proposals, POC</div>
-    </div>
-    <div class="role-card">
-      <div class="role-title">Marketing</div>
-      <div class="role-superpower">Campaigns, content, brand, GTM</div>
-      <div class="role-produces"><strong>Produces:</strong> Campaign plans, content, GTM strategy</div>
-    </div>
-    <div class="role-card">
-      <div class="role-title">Growth Marketing</div>
-      <div class="role-superpower">Growth experiments, funnel</div>
-      <div class="role-produces"><strong>Produces:</strong> Experiment plans, funnel analysis</div>
-    </div>
-    <div class="role-card">
-      <div class="role-title">Sales</div>
-      <div class="role-superpower">Pipeline, forecasts, proposals</div>
-      <div class="role-produces"><strong>Produces:</strong> Sales pipeline, forecasts, proposals</div>
-    </div>
-    <div class="role-card">
-      <div class="role-title">BizDev</div>
-      <div class="role-superpower">Partnerships, deals, alliances</div>
-      <div class="role-produces"><strong>Produces:</strong> Partner agreements, deal memos</div>
-    </div>
-    <div class="role-card">
-      <div class="role-title">Customer Success</div>
-      <div class="role-superpower">Onboarding, retention, QBRs</div>
-      <div class="role-produces"><strong>Produces:</strong> Success plans, health scores, QBRs</div>
-    </div>
-    <div class="role-card">
-      <div class="role-title">SEO Specialist</div>
-      <div class="role-superpower">Technical SEO, keywords</div>
-      <div class="role-produces"><strong>Produces:</strong> SEO audits, keyword strategy</div>
-    </div>
-    <div class="role-card">
-      <div class="role-title">Content Strategist</div>
-      <div class="role-superpower">Content strategy, editorial</div>
-      <div class="role-produces"><strong>Produces:</strong> Content calendar, editorial guidelines</div>
-    </div>
-    <div class="role-card">
-      <div class="role-title">HR / People</div>
-      <div class="role-superpower">Hiring, onboarding, culture</div>
-      <div class="role-produces"><strong>Produces:</strong> Hiring plans, onboarding docs</div>
-    </div>
-    <div class="role-card">
-      <div class="role-title">Finance / Ops</div>
-      <div class="role-superpower">Budgets, reporting, compliance</div>
-      <div class="role-produces"><strong>Produces:</strong> Budgets, financial reports</div>
-    </div>
-    <div class="role-card">
-      <div class="role-title">Legal / Compliance</div>
-      <div class="role-superpower">Contracts, privacy, compliance</div>
-      <div class="role-produces"><strong>Produces:</strong> Contract reviews, compliance reports</div>
-    </div>
-    <div class="role-card">
-      <div class="role-title">General Management</div>
-      <div class="role-superpower">OKRs, strategy, resource allocation</div>
-      <div class="role-produces"><strong>Produces:</strong> OKRs, strategy docs, resource plans</div>
-    </div>
-    <div class="role-card">
-      <div class="role-title">Meeting Facilitator</div>
-      <div class="role-superpower">Meeting mode, brainstorming</div>
-      <div class="role-produces"><strong>Produces:</strong> Agenda, decisions, action items, minutes</div>
-    </div>
-    <div class="role-card">
-      <div class="role-title">Debate Facilitator</div>
-      <div class="role-superpower">Decision moderation</div>
-      <div class="role-produces"><strong>Produces:</strong> Structured debate, scored options</div>
-    </div>
-  </div>
+  <p>33 invocable AI roles spanning engineering, product, design, data, ML, quality, security, operations, business, governance, and collaboration. Each role ships with a YAML-frontmatter contract, structured workflow, quality checklist, and artifact templates. 17 role families offer 58 sub-specializations for framework-specific prompt refinement.</p>
 
   <hr class="section-divider">
 
@@ -368,7 +202,7 @@ cp -r .crewmarkdown ./your-project/
 <span style="color:var(--accent-green);">#    "Squad (QA, Security), verify quality"</span>
 <span style="color:var(--accent-green);">#    "Build the full e-commerce platform"</span></code></pre>
 
-  <p>Your AI agent reads <code>.crewmarkdown/00-objectives.md</code>, routes to the right objective, loads the squad, and executes.</p>
+  <p>Your AI agent reads <code>.crewmarkdown/00-objectives.md</code>, routes your request to the correct objective using the YAML-defined routing table, loads the appropriate squad contracts and workflows, and executes with built-in quality gates.</p>
 
   <h2 id="project-structure">Project Structure</h2>
   <pre><code>.crewmarkdown/

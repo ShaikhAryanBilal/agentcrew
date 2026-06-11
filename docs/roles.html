@@ -243,7 +243,7 @@
   <hr class="section-divider">
 
   <h2>Sub-Specializations</h2>
-  <p>17 role families offer 58 sub-specializations for framework/layer-specific prompts. The agent matches request keywords against sub-spec <code>keywords:</code> fields and loads the most specific contract. No match = generic parent.</p>
+  <p>17 role families offer 58 sub-specializations for framework-specific and layer-specific prompt refinement. The routing engine performs hybrid keyword resolution &mdash; scanning request text against sub-spec <code>keywords:</code> fields, applying layer &times; framework matching, and falling back to the generic parent contract when no sub-spec match is found. This ensures zero execution flow interruption while delivering precisely tailored role prompts.</p>
 
   <div class="table-wrap">
     <table>
