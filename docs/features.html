@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CrewMarkdown Docs — Special Features</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="features">
+
+<button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</button>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<nav class="sidebar">
+  <div class="sidebar-header">
+    <div class="logo">CrewMarkdown</div>
+    <span class="version">v1.0</span>
+  </div>
+  <div class="nav-section">Docs</div>
+  <ul class="nav-list">
+    <li><a href="index.html"><span class="nav-icon">&#9679;</span> Home</a></li>
+    <li><a href="configuration.html"><span class="nav-icon">&#9881;</span> Configuration</a></li>
+    <li><a href="objectives.html"><span class="nav-icon">&#9673;</span> Objectives</a></li>
+    <li><a href="roles.html"><span class="nav-icon">&#9733;</span> Roles</a></li>
+    <li><a href="procedures.html"><span class="nav-icon">&#9776;</span> Procedures</a></li>
+    <li class="active"><a href="features.html"><span class="nav-icon">&#9878;</span> Features</a></li>
+  </ul>
+  <div class="sidebar-footer">
+    <a href="https://github.com/ShaikhAryanBilal/CrewMarkdown" target="_blank">&#128279; GitHub</a>
+    &middot; MIT
+  </div>
+</nav>
+
+<main class="content">
+
+  <h1>Special Features</h1>
+  <p class="page-subtitle">Cross-cutting capabilities that enhance any objective — structured debate, dynamic meeting mode, and sub-specialization.</p>
+
+  <div class="role-grid">
+    <a href="#debate" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
+      <div class="role-title">Debate Framework <span class="tag tag-amber">Cross-cutting</span></div>
+      <div class="role-superpower">Structured decision-making for resolving disagreements</div>
+      <div class="role-produces"><strong>Use when:</strong> Multiple valid approaches, need documented trade-offs</div>
+    </a>
+    <a href="#meeting" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
+      <div class="role-title">Meeting Mode <span class="tag tag-cyan">Cross-cutting</span></div>
+      <div class="role-superpower">Dynamic real-time meetings with role assembly</div>
+      <div class="role-produces"><strong>Use when:</strong> Brainstorming, retro, decision-making, sync</div>
+    </a>
+    <a href="#subspec" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
+      <div class="role-title">Sub-Specialization <span class="tag tag-purple">New</span></div>
+      <div class="role-superpower">Per-request role refinement by framework + layer</div>
+      <div class="role-produces"><strong>58 sub-specs</strong> across 17 role families</div>
+    </a>
+  </div>
+
+  <!-- Sub-Spec -->
+  <hr class="section-divider">
+
+  <h2 id="subspec">Sub-Specialization <span class="tag tag-purple">New</span></h2>
+  <p class="page-subtitle">58 sub-specializations across 17 role families — per-request role refinement via hybrid keyword resolution.</p>
+
+  <div class="highlight-box">
+    <strong>Why:</strong> A "Frontend Developer" doing React vs Svelte needs different system prompts. Sub-specs load the right contract per request without bloating the parent role.
+  </div>
+
+  <h3>How It Works</h3>
+  <ol>
+    <li><strong>Keywords match</strong> &mdash; Agent scans request against <code>keywords:</code> in each sub-spec's YAML frontmatter</li>
+    <li><strong>Load sub-spec</strong> &mdash; Exact match loads sub-spec <code>contract.md</code> + <code>workflow.md</code>; parent cached as fallback</li>
+    <li><strong>Fallback</strong> &mdash; No match &rarr; generic parent loaded (never breaks flow)</li>
+  </ol>
+
+  <h3>Sub-Specs by Family</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Family</th><th>Sub-Specializations</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Legal</td><td>contracts, privacy, ip, employment, corporate</td></tr>
+        <tr><td>Marketing</td><td>brand, performance, content, social, product-marketing</td></tr>
+        <tr><td>HR</td><td>recruiting, learning-dev, comp-benefits, employee-relations, hr-ops</td></tr>
+        <tr><td>Finance</td><td>fpa, accounting, audit, procurement</td></tr>
+        <tr><td>ML Engineer</td><td>nlp, cv, recsys, mlops</td></tr>
+        <tr><td>Data Engineer</td><td>batch-etl, streaming, warehouse, data-lake</td></tr>
+        <tr><td>Product Manager</td><td>b2b, b2c, growth, platform</td></tr>
+        <tr><td>SEO Specialist</td><td>technical, on-page, off-page, local</td></tr>
+        <tr><td>Sales</td><td>enterprise, smb, channel</td></tr>
+        <tr><td>Mobile Dev</td><td>ios-swift, android-kotlin, cross-platform-rn</td></tr>
+        <tr><td>Customer Success</td><td>enterprise, smb, technical</td></tr>
+        <tr><td>Content Strategist</td><td>seo-content, brand-content, technical-content</td></tr>
+        <tr><td>BizDev</td><td>strategic-partnerships, channel, ma</td></tr>
+        <tr><td>Solutions Architect</td><td>aws, azure, gcp</td></tr>
+        <tr><td>DevOps</td><td>aws, azure, gcp</td></tr>
+        <tr><td>Frontend</td><td>ui-react</td></tr>
+        <tr><td>Backend</td><td>api-express</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Request Examples</h3>
+  <pre><code><span style="color:var(--text-muted);"># Routes to Frontend/UI-React sub-spec</span>
+"Build a React dashboard"
+
+<span style="color:var(--text-muted);"># Routes to DevOps/AWS sub-spec</span>
+"Deploy to AWS"
+
+<span style="color:var(--text-muted);"># Routes to ML Engineer/NLP sub-spec</span>
+"Train an NLP model"
+
+<span style="color:var(--text-muted);"># Generic — loads parent (no sub-spec match)</span>
+"Build a feature"</code></pre>
+
+  <h3>Key Files</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>File</th><th>Purpose</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>.crewmarkdown/procedures/role-subspec.md</code></td><td>Sub-spec schema, inheritance, resolution algorithm</td></tr>
+        <tr><td><code>.crewmarkdown/procedures/role-subspec-security.md</code></td><td>Threat model, session isolation, access control matrix</td></tr>
+        <tr><td><code>.crewmarkdown/roles/&lt;family&gt;/&lt;subspec&gt;/contract.md</code></td><td>Sub-spec contract with extends + keywords</td></tr>
+        <tr><td><code>.crewmarkdown/roles/&lt;family&gt;/&lt;subspec&gt;/workflow.md</code></td><td>Sub-spec workflow with specialization focus</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- Debate -->
+  <h2 id="debate">Debate Framework</h2>
+  <p class="page-subtitle">Structured decision-making for resolving disagreements with multiple viable options.</p>
+
+  <div class="highlight-box">
+    <strong>Cross-cutting:</strong> Activated at decision points within <em>any</em> objective.
+  </div>
+
+  <h3>Purpose</h3>
+  <p>When there are multiple valid approaches, the debate framework ensures all perspectives are heard, decisions are documented with rationale, and the best option wins on merit.</p>
+
+  <h3>The Process</h3>
+
+  <div class="process-flow">
+    <span class="process-step active">1. Debate Trigger</span>
+    <span class="process-arrow">&rarr;</span>
+    <span class="process-step">2. Panel Assembly</span>
+    <span class="process-arrow">&rarr;</span>
+    <span class="process-step">3. Opening Statements</span>
+    <span class="process-arrow">&rarr;</span>
+    <span class="process-step">4. Cross-Examination</span>
+    <span class="process-arrow">&rarr;</span>
+    <span class="process-step">5. Scoring</span>
+    <span class="process-arrow">&rarr;</span>
+    <span class="process-step">6. Resolution</span>
+  </div>
+
+  <ol>
+    <li><strong>Debate Trigger</strong> &mdash; A decision point arises with multiple viable options. The objective lead calls for a debate.</li>
+    <li><strong>Panel Assembly</strong> &mdash; Facilitator assembles roles with stake in the decision. Each represents their role's perspective.</li>
+    <li><strong>Opening Statements</strong> &mdash; Each panelist presents their stance with evidence.</li>
+    <li><strong>Cross-Examination</strong> &mdash; Structured rounds of rebuttal, questioning, and evidence.</li>
+    <li><strong>Scoring</strong> &mdash; Panelists score options against agreed criteria. Highest score wins.</li>
+    <li><strong>Resolution</strong> &mdash; Decision recorded with rationale, rejected options, and consequences.</li>
+  </ol>
+
+  <h3>Typical Debate Triggers</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>In Objective</th>
+          <th>Typical Debate</th>
+          <th>Panel</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Clarify Vision</td>
+          <td>Scope trade-off, priority</td>
+          <td>PM, BA, Architect</td>
+        </tr>
+        <tr>
+          <td>Design Solution</td>
+          <td>Tech stack, architecture fork</td>
+          <td>Architect, Backend, Frontend, Security</td>
+        </tr>
+        <tr>
+          <td>Plan Work</td>
+          <td>Sprint scope, capacity</td>
+          <td>EM, PM, Tech Lead</td>
+        </tr>
+        <tr>
+          <td>Build Feature</td>
+          <td>Implementation approach, library</td>
+          <td>Tech Lead, Dev, QA</td>
+        </tr>
+        <tr>
+          <td>Verify Quality</td>
+          <td>Test strategy, automation</td>
+          <td>QA, Dev, DevOps</td>
+        </tr>
+        <tr>
+          <td>Ship Release</td>
+          <td>Rollout strategy, rollback</td>
+          <td>DevOps, PM, Tech Lead</td>
+        </tr>
+        <tr>
+          <td>Operate &amp; Learn</td>
+          <td>Refactor vs rewrite, tooling</td>
+          <td>Tech Lead, Architect, DevOps</td>
+        </tr>
+        <tr>
+          <td>Conduct Meeting</td>
+          <td>Decision point, brainstorm topic, retro</td>
+          <td>Meeting Facilitator + dynamic roles</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Key Files</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>File</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>.crewmarkdown/debate/01-debate-trigger.md</code></td>
+          <td>When and how to trigger a debate</td>
+        </tr>
+        <tr>
+          <td><code>.crewmarkdown/debate/02-debate-panel.md</code></td>
+          <td>Panel composition rules</td>
+        </tr>
+        <tr>
+          <td><code>.crewmarkdown/debate/03-debate-rounds.md</code></td>
+          <td>Debate round structure and timing</td>
+        </tr>
+        <tr>
+          <td><code>.crewmarkdown/debate/04-debate-resolution.md</code></td>
+          <td>Scoring criteria and resolution process</td>
+        </tr>
+        <tr>
+          <td><code>.crewmarkdown/debate/05-debate-log.md</code></td>
+          <td>Logging format for debate records</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- Meeting -->
+  <h2 id="meeting">Meeting Mode</h2>
+  <p class="page-subtitle">Dynamic real-time meetings with role assembly, brainstorming, decisions, and action items.</p>
+
+  <div class="highlight-box">
+    <strong>Cross-cutting:</strong> Activated via <code>/meeting [topic]</code> at any point in the lifecycle.
+  </div>
+
+  <h3>Schedule</h3>
+  <pre><code>Facilitator: Convene &rarr; Agenda &rarr; Brainstorm &rarr; Decisions &rarr; Action Items &rarr; Minutes</code></pre>
+
+  <h3>Role Selection</h3>
+  <p>Topic keywords determine spawned roles:</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Topic Keywords</th>
+          <th>Roles</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>feature, product, roadmap</td>
+          <td>PM, BA, Architect</td>
+        </tr>
+        <tr>
+          <td>architecture, design, tech-stack</td>
+          <td>Architect, Tech Lead, Security, DevOps</td>
+        </tr>
+        <tr>
+          <td>sprint, planning, capacity</td>
+          <td>EM, PM, Tech Lead</td>
+        </tr>
+        <tr>
+          <td>bug, defect, qa, quality</td>
+          <td>QA, Security, relevant Dev</td>
+        </tr>
+        <tr>
+          <td>deploy, release, ci/cd</td>
+          <td>DevOps, PM, Tech Lead</td>
+        </tr>
+        <tr>
+          <td>security, threat</td>
+          <td>Security, Architect, DevOps</td>
+        </tr>
+        <tr>
+          <td>data, pipeline, etl, database</td>
+          <td>Data Engineer, Backend, Architect</td>
+        </tr>
+        <tr>
+          <td>ui, ux, design, frontend</td>
+          <td>UX Designer, Frontend</td>
+        </tr>
+        <tr>
+          <td>general, brainstorm, ideation</td>
+          <td>PM, Architect, Tech Lead</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Artifacts</h3>
+  <ul>
+    <li><strong>Meeting Facilitator:</strong> Agenda, discussion summary, decision log, action items, minutes</li>
+    <li><strong>Dynamic roles:</strong> Ideas, opinions, perspectives, proposals</li>
+  </ul>
+
+  <hr class="section-divider">
+
+  <p class="text-muted text-sm"><em>MIT Licensed &mdash; Built for AI-native development</em></p>
+
+</main>
+
+<script src="js/main.js"></script>
+</body>
+</html>

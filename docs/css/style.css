@@ -1,4 +1,4 @@
-/* ── AgentCrew Docs — Dark Aesthetic ── */
+/* ── CrewMarkdown Docs — Dark Aesthetic ── */
 :root {
   --bg-primary: #09090b;
   --bg-secondary: #111115;
@@ -195,12 +195,14 @@ body {
   backdrop-filter: blur(2px);
 }
 
+html { scroll-behavior: smooth; }
+
 /* ── Content ── */
 .content {
   flex: 1;
   margin-left: var(--sidebar-width);
   padding: 3rem 4rem;
-  max-width: 960px;
+  /* max-width: 1200px; */
   min-width: 0;
 }
 

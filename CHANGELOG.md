@@ -1,6 +1,26 @@
-# Changelog — AgentCrew
+# Changelog — CrewMarkdown
 
-> Day-by-day progress of the AgentCrew project.
+> Day-by-day progress of the CrewMarkdown project.
+
+---
+
+## Day 4 — 2026-06-11
+
+### Added
+- **Semantic matching** — `synonyms:` field in all 22 routing entries (`00-objectives.md`), enabling synonym-based (not just keyword) request→objective matching
+- **Confidence scoring** — each routing entry now has `confidence:` level (high/medium/low) guiding agent when to route silently vs. ask user
+- **Routing Strategy** documentation (5-tier match priority: exact → synonym → partial → fuzzy → none)
+- **Routing Cache** (`state/routing-cache.json`) — stores last 50 request→objective mappings; agent checks cache before scanning routing table
+- **Feedback Loop** (`state/reroute-feedback.json`) — logs user corrections so routing improves over time
+- **`/reroute` command** (`00-team.md`) — abandon current objective, load correct one, log correction to cache + feedback
+
+### Changed
+- `00-objectives.md` — routing table: every entry got `synonyms:` + `confidence:`; body: added full Routing Strategy section covering semantic match, confidence scoring, cache, feedback loop, `/reroute`
+- `00-team.md` — added invocation pattern #5 for `/reroute`
+
+### Infrastructure
+- `state/routing-cache.json` seeded with session routing decisions
+- `state/reroute-feedback.json` created with schema (empty, ready for corrections)
 
 ---
 
@@ -12,18 +32,18 @@
 - **New objectives**: `obj/select-sdlc` (optional model selection), `09-execute-campaign.md`, `10-people-ops.md`
 - **Routing** for campaigns, people ops, SDLC selection in `00-objectives.md`
 - **New scripts**: adr-gen, changelog-gen, ci-gen, health-check, issue-sync, markdown-lint, release-prep, scaffold-init, state-diff, step-integrity, template-check, validate-contracts, xref-validator (PS1 + SH)
-- **New config**: `agentcrew.ps1`, `tone.json`, `humor-data.ps1`
-- AgentCrew step index script (`.agentcrew/agentcrew.ps1`) with humor/please/yell modes
+- **New config**: `CrewMarkdown.ps1`, `tone.json`, `humor-data.ps1`
+- CrewMarkdown step index script (`.crewmarkdown/CrewMarkdown.ps1`) with humor/please/yell modes
 
 ### Changed
-- Log path restructured: `.agentcrew/log/` → `.agentcrew/logs/<yyyy>/<MM>/<dd>/<HHmmss>/<chat-slug>/<role>.md`
+- Log path restructured: `.crewmarkdown/log/` → `.crewmarkdown/logs/<yyyy>/<MM>/<dd>/<HHmmss>/<chat-slug>/<role>.md`
 - Orchestrator contract & workflow overhaul — multi-objective coordination, phase gate tracking
 - Squad expanded for Plan Work (Finance, HR, Management) and Build Feature (Marketing, Sales)
 - All 18 existing role workflows updated for consistency
 - `validate-workflow.ps1` greatly enhanced (140 lines, comprehensive checks)
 - `write-workflow-log.ps1` / `.sh` updated for new log path
 - `show-party.ps1` enhanced with more animation patterns
-- `opencode.jsonc` agentcrew command updated
+- `opencode.jsonc` CrewMarkdown command updated
 - AGENTS.md, SKILL.md, README.md updated to reflect 33 roles
 
 ### Infrastructure
@@ -45,7 +65,7 @@
 ## Day 1 — 2026-06-09
 
 ### Added
-- Initial AgentCrew setup: 16 AI roles with contracts, workflows, and procedures
+- Initial CrewMarkdown setup: 16 AI roles with contracts, workflows, and procedures
 - Objective-based workflow routing (7 objectives)
 - Retro RPG party screen animation (`show-party.ps1` / `show-party.sh`)
 - `AGENTS.md` entry point for AI agents

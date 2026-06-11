@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - '.agentcrew/light/**'
+      - '.crewmarkdown/light/**'
 
 jobs:
   check-sync:
@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Validate light router references
         run: |
-          if [ ! -f .agentcrew/light/00-router.md ]; then
+          if [ ! -f .crewmarkdown/light/00-router.md ]; then
             echo "Missing light router!"; exit 1
           fi
           echo "Light variant is valid"

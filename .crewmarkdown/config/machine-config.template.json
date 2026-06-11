@@ -1,0 +1,24 @@
+{
+  "$schema": "../config/CrewMarkdown.schema.json",
+  "user": {
+    "name": "",
+    "defaultRole": "Architect",
+    "preferredModel": ""
+  },
+  "tools": {
+    "opencode": {
+      "configPath": "",
+      "skillPaths": ["~/.agents/skills"]
+    },
+    "cursor": { "rulesPath": "" },
+    "claude": { "configPath": "" }
+  },
+  "defaults": {
+    "sdlcModel": "agile",
+    "logging": { "level": "normal" }
+  },
+  "tone": {
+    "mode": "full",
+    "compression": false
+  }
+}

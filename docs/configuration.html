@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AgentCrew Docs — Configuration</title>
+<title>CrewMarkdown Docs — Configuration</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
 
 <nav class="sidebar">
   <div class="sidebar-header">
-    <div class="logo">AgentCrew</div>
+    <div class="logo">CrewMarkdown</div>
     <span class="version">v1.0</span>
   </div>
   <div class="nav-section">Docs</div>
@@ -26,19 +26,57 @@
     <li><a href="objectives.html"><span class="nav-icon">&#9673;</span> Objectives</a></li>
     <li><a href="roles.html"><span class="nav-icon">&#9733;</span> Roles</a></li>
     <li><a href="procedures.html"><span class="nav-icon">&#9776;</span> Procedures</a></li>
-    <li><a href="debate.html"><span class="nav-icon">&#9878;</span> Debate</a></li>
+    <li><a href="features.html"><span class="nav-icon">&#9878;</span> Features</a></li>
   </ul>
   <div class="sidebar-footer">
-    <a href="https://github.com/ShaikhAryanBilal/agentcrew" target="_blank">&#128279; GitHub</a>
+    <a href="https://github.com/ShaikhAryanBilal/CrewMarkdown" target="_blank">&#128279; GitHub</a>
     &middot; MIT
   </div>
 </nav>
 
 <main class="content">
   <h1>Configuration</h1>
-  <p class="page-subtitle">Ready-made configuration files for popular AI coding tools, all in <code>.agentcrew/config/</code>.</p>
+  <p class="page-subtitle">Ready-made configuration files for popular AI coding tools, all in <code>.crewmarkdown/config/</code>.</p>
 
-  <h2>Supported Tools</h2>
+  <div class="role-grid">
+    <a href="#supported-tools" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
+      <div class="role-title">Supported Tools</div>
+      <div class="role-superpower">Which AI agents work</div>
+      <div class="role-produces"><strong>opencode, Claude Code, Cline, Copilot, Cursor</strong></div>
+    </a>
+    <a href="#setup-script" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
+      <div class="role-title">Setup Script</div>
+      <div class="role-superpower">One-command bootstrap</div>
+      <div class="role-produces"><strong>setup.ps1 / setup.sh</strong></div>
+    </a>
+    <a href="#manual-setup" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
+      <div class="role-title">Manual Setup</div>
+      <div class="role-superpower">Copy-paste per tool</div>
+      <div class="role-produces"><strong>opencode, Cline, Copilot, Cursor</strong></div>
+    </a>
+    <a href="#light-variant" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
+      <div class="role-title">Light Variant</div>
+      <div class="role-superpower">Minimal .crewmarkdown</div>
+      <div class="role-produces"><strong>7 roles, essential structure</strong></div>
+    </a>
+    <a href="#sdlc-models" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
+      <div class="role-title">SDLC Models</div>
+      <div class="role-superpower">8 lifecycle frameworks</div>
+      <div class="role-produces"><strong>Waterfall, Agile, Lean, DevOps &amp; more</strong></div>
+    </a>
+    <a href="#tone-humor" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
+      <div class="role-title">Tone &amp; Humor</div>
+      <div class="role-superpower">Personality engine</div>
+      <div class="role-produces"><strong>Eras, humor levels, context anchoring</strong></div>
+    </a>
+    <a href="#state-logging" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
+      <div class="role-title">State &amp; Logging</div>
+      <div class="role-superpower">Audit trail &amp; recovery</div>
+      <div class="role-produces"><strong>Logs, workflow state, CLAUDE.md</strong></div>
+    </a>
+  </div>
+
+  <h2 id="supported-tools">Supported Tools</h2>
   <div class="table-wrap">
     <table>
       <thead>
@@ -73,43 +111,43 @@
     </table>
   </div>
 
-  <h2>Setup Script</h2>
+  <h2 id="setup-script">Setup Script</h2>
   <p>The easiest way to configure AI agents for your project:</p>
 
   <div class="highlight-box">
     <strong>PowerShell</strong> (Windows)
-    <pre style="margin-top:0.5rem;margin-bottom:0;"><code>./.agentcrew/config/setup.ps1</code></pre>
+    <pre style="margin-top:0.5rem;margin-bottom:0;"><code>./.crewmarkdown/config/setup.ps1</code></pre>
   </div>
 
   <div class="highlight-box">
     <strong>Bash</strong> (Linux/macOS)
-    <pre style="margin-top:0.5rem;margin-bottom:0;"><code>./.agentcrew/config/setup.sh --all</code></pre>
+    <pre style="margin-top:0.5rem;margin-bottom:0;"><code>./.crewmarkdown/config/setup.sh --all</code></pre>
   </div>
 
-  <h2>Manual Setup</h2>
+  <h2 id="manual-setup">Manual Setup</h2>
 
   <h3>opencode</h3>
   <pre><code>{
-  <span style="color:var(--accent-cyan);">"skills"</span>: [<span style="color:var(--accent-green);">".agentcrew/skills"</span>],
+  <span style="color:var(--accent-cyan);">"skills"</span>: [<span style="color:var(--accent-green);">".crewmarkdown/skills"</span>],
   <span style="color:var(--accent-cyan);">"commands"</span>: [
     {
-      <span style="color:var(--accent-cyan);">"name"</span>: <span style="color:var(--accent-green);">"agentcrew"</span>,
-      <span style="color:var(--accent-cyan);">"description"</span>: <span style="color:var(--accent-green);">"Run AgentCrew workflow"</span>,
-      <span style="color:var(--accent-cyan);">"command"</span>: <span style="color:var(--accent-green);">"opencode --agent .agentcrew/roles/orchestrator/contract.md"</span>
+      <span style="color:var(--accent-cyan);">"name"</span>: <span style="color:var(--accent-green);">"CrewMarkdown"</span>,
+      <span style="color:var(--accent-cyan);">"description"</span>: <span style="color:var(--accent-green);">"Run CrewMarkdown workflow"</span>,
+      <span style="color:var(--accent-cyan);">"command"</span>: <span style="color:var(--accent-green);">"opencode --agent .crewmarkdown/roles/orchestrator/contract.md"</span>
     }
   ]
 }</code></pre>
 
   <h3>Other Tools</h3>
   <ul>
-    <li><strong>Cursor:</strong> Copy <code>.agentcrew/config/cursor.rules</code> to <code>.cursor/rules</code></li>
-    <li><strong>Claude Code:</strong> Copy <code>.agentcrew/config/claude.MD</code> to <code>CLAUDE.md</code></li>
-    <li><strong>GitHub Copilot:</strong> Copy <code>.agentcrew/config/copilot.instructions</code> to <code>.github/copilot-instructions.md</code></li>
+    <li><strong>Cursor:</strong> Copy <code>.crewmarkdown/config/cursor.rules</code> to <code>.cursor/rules</code></li>
+    <li><strong>Claude Code:</strong> Copy <code>.crewmarkdown/config/claude.MD</code> to <code>CLAUDE.md</code></li>
+    <li><strong>GitHub Copilot:</strong> Copy <code>.crewmarkdown/config/copilot.instructions</code> to <code>.github/copilot-instructions.md</code></li>
   </ul>
 
   <hr class="section-divider">
 
-  <h2>Light Variant</h2>
+  <h2 id="light-variant">Light Variant</h2>
   <p>A compressed 7-step variant for MVPs, prototypes, and solo development.</p>
 
   <div class="table-wrap">
@@ -144,8 +182,8 @@
         </tr>
         <tr>
           <td><strong>Location</strong></td>
-          <td><code>.agentcrew/</code> (default)</td>
-          <td><code>.agentcrew/light/</code></td>
+          <td><code>.crewmarkdown/</code> (default)</td>
+          <td><code>.crewmarkdown/light/</code></td>
         </tr>
       </tbody>
     </table>
@@ -155,8 +193,8 @@
 
   <hr class="section-divider">
 
-  <h2>SDLC Models</h2>
-  <p>8 supported SDLC models defined in <code>.agentcrew/config/sdlc-models.md</code>.</p>
+  <h2 id="sdlc-models">SDLC Models</h2>
+  <p>8 supported SDLC models defined in <code>.crewmarkdown/config/sdlc-models.md</code>.</p>
 
   <div class="table-wrap">
     <table class="compact-table">
@@ -180,8 +218,8 @@
     </table>
   </div>
 
-  <h2>Tone &amp; Humor Engine</h2>
-  <p>AgentCrew ships with a configurable tone system and humor engine for personality control.</p>
+  <h2 id="tone-humor">Tone &amp; Humor Engine</h2>
+  <p>CrewMarkdown ships with a configurable tone system and humor engine for personality control.</p>
 
   <div class="table-wrap">
     <table class="compact-table">
@@ -195,12 +233,12 @@
       <tbody>
         <tr>
           <td><code>tone.json</code></td>
-          <td><code>.agentcrew/config/tone.json</code></td>
+          <td><code>.crewmarkdown/config/tone.json</code></td>
           <td>Tone control: <span class="tag tag-purple">professional</span> <span class="tag tag-cyan">casual</span> <span class="tag tag-amber">chaotic</span></td>
         </tr>
         <tr>
           <td><code>humor-data.ps1</code></td>
-          <td><code>.agentcrew/config/humor-data.ps1</code></td>
+          <td><code>.crewmarkdown/config/humor-data.ps1</code></td>
           <td>Easter eggs, quotes, progress flavors, retry messages</td>
         </tr>
       </tbody>
@@ -209,7 +247,7 @@
 
   <hr class="section-divider">
 
-  <h2>State &amp; Logging System</h2>
+  <h2 id="state-logging">State &amp; Logging System</h2>
   <p>Real-time progress tracking and structured execution logs.</p>
 
   <div class="table-wrap">
@@ -224,22 +262,22 @@
       <tbody>
         <tr>
           <td><strong>Workflow State</strong></td>
-          <td><code>.agentcrew/state/workflow.json</code></td>
+          <td><code>.crewmarkdown/state/workflow.json</code></td>
           <td>JSON (objectives, steps, artifacts, gates)</td>
         </tr>
         <tr>
           <td><strong>State Schema</strong></td>
-          <td><code>.agentcrew/state/schema-workflow.json</code></td>
+          <td><code>.crewmarkdown/state/schema-workflow.json</code></td>
           <td>JSON Schema for validation</td>
         </tr>
         <tr>
           <td><strong>Execution Logs</strong></td>
-          <td><code>.agentcrew/logs/&lt;date&gt;/&lt;time&gt;/&lt;slug&gt;/</code></td>
+          <td><code>.crewmarkdown/logs/&lt;date&gt;/&lt;time&gt;/&lt;slug&gt;/</code></td>
           <td>Markdown per role per session</td>
         </tr>
         <tr>
           <td><strong>Legacy Logs</strong></td>
-          <td><code>.agentcrew/log/</code></td>
+          <td><code>.crewmarkdown/log/</code></td>
           <td>Flat directory by objective</td>
         </tr>
       </tbody>

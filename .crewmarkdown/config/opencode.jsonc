@@ -1,0 +1,12 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "skills": {
+    "paths": ["~/.agents/skills"]
+  },
+  "command": {
+    "CrewMarkdown": {
+      "description": "Load CrewMarkdown workflow skill and route the current request to an objective with role squad assignment",
+      "template": "Load the CrewMarkdown skill and determine which objective applies to the user's request. Read .crewmarkdown/00-objectives.md to find the matching objective, then read .crewmarkdown/00-team.md for the invocation pattern. Load relevant role contracts and follow the objective file's procedure."
+    }
+  }
+}

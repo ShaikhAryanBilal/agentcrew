@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AgentCrew Docs — Home</title>
+<title>CrewMarkdown Docs — Home</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
 
 <nav class="sidebar">
   <div class="sidebar-header">
-    <div class="logo">AgentCrew</div>
+    <div class="logo">CrewMarkdown</div>
     <span class="version">v1.0</span>
   </div>
   <div class="nav-section">Docs</div>
@@ -26,10 +26,10 @@
     <li><a href="objectives.html"><span class="nav-icon">&#9673;</span> Objectives</a></li>
     <li><a href="roles.html"><span class="nav-icon">&#9733;</span> Roles</a></li>
     <li><a href="procedures.html"><span class="nav-icon">&#9776;</span> Procedures</a></li>
-    <li><a href="debate.html"><span class="nav-icon">&#9878;</span> Debate</a></li>
+    <li><a href="features.html"><span class="nav-icon">&#9878;</span> Features</a></li>
   </ul>
   <div class="sidebar-footer">
-    <a href="https://github.com/ShaikhAryanBilal/agentcrew" target="_blank">&#128279; GitHub</a>
+    <a href="https://github.com/ShaikhAryanBilal/CrewMarkdown" target="_blank">&#128279; GitHub</a>
     &middot; MIT
   </div>
 </nav>
@@ -38,12 +38,16 @@
   <section class="hero">
     <div class="hero-badge">AI-Native Framework</div>
     <h1>Autonomous AI Squads That Ship Production Software</h1>
-    <p class="hero-sub">33 specialized roles &middot; 11 lifecycle objectives &middot; Solo &middot; Squad &middot; Orchestrate &middot; Meeting</p>
+    <p class="hero-sub">33 roles + 58 sub-specializations &middot; 11 lifecycle objectives &middot; Solo &middot; Squad &middot; Orchestrate &middot; Meeting</p>
 
     <div class="hero-stats">
       <div class="hero-stat">
         <div class="num">33</div>
         <div class="label">Roles</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">58</div>
+        <div class="label">Sub-Specs</div>
       </div>
       <div class="hero-stat">
         <div class="num">11</div>
@@ -67,18 +71,56 @@
 
     <div class="demo-box">
       <span class="line"><span class="prompt">You:</span>       <span class="response">"Build the payment system"</span></span>
-      <span class="line"><span class="arrow">AgentCrew:</span> Orchestrator &rarr; 7 objectives &rarr; squad assembles &rarr; artifacts ship &#10003;</span>
+      <span class="line"><span class="arrow">CrewMarkdown:</span> Orchestrator &rarr; 11 objectives &rarr; squad assembles &rarr; artifacts ship &#10003;</span>
     </div>
   </section>
 
+  <div class="role-grid">
+    <a href="#why" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
+      <div class="role-title">Why CrewMarkdown?</div>
+      <div class="role-superpower">The problem it solves</div>
+      <div class="role-produces"><strong>No SaaS. No vendor lock.</strong></div>
+    </a>
+    <a href="#how-it-works" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
+      <div class="role-title">How It Works</div>
+      <div class="role-superpower">Request to ship pipeline</div>
+      <div class="role-produces"><strong>Solo, Squad, Orchestrate, Meeting</strong></div>
+    </a>
+    <a href="#agent-format" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
+      <div class="role-title">Agent-Centric Format</div>
+      <div class="role-superpower">Every file is a system prompt</div>
+      <div class="role-produces"><strong>YAML + structured markdown</strong></div>
+    </a>
+    <a href="#the-crew" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
+      <div class="role-title">The Crew</div>
+      <div class="role-superpower">33 AI agent roles</div>
+      <div class="role-produces"><strong>Contracts, workflows, gates</strong></div>
+    </a>
+    <a href="#quick-start" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
+      <div class="role-title">Quick Start</div>
+      <div class="role-superpower">Running in under a minute</div>
+      <div class="role-produces"><strong>Copy, generate, configure, go</strong></div>
+    </a>
+    <a href="#project-structure" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
+      <div class="role-title">Project Structure</div>
+      <div class="role-superpower">What ships in .crewmarkdown</div>
+      <div class="role-produces"><strong>Objectives, roles, procedures</strong></div>
+    </a>
+    <a href="#invocation-modes" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
+      <div class="role-title">Invocation Modes</div>
+      <div class="role-superpower">How to call the crew</div>
+      <div class="role-produces"><strong>Patterns for every use case</strong></div>
+    </a>
+  </div>
+
   <hr class="section-divider">
 
-  <h2>Why AgentCrew?</h2>
+  <h2 id="why">Why CrewMarkdown?</h2>
   <p>AI agents are great at writing code but <strong>terrible at software process</strong>. Without structure, every prompt is a gamble &mdash; you might get code with no tests, no threat model, no PRD, no deploy plan.</p>
-  <p>AgentCrew gives AI agents a <strong>repeatable software engineering brain</strong>. 33 roles with hardened contracts, workflows, and quality gates. Drop it in any project, point your AI at it, and get production-grade results.</p>
+  <p>CrewMarkdown gives AI agents a <strong>repeatable software engineering brain</strong>. 33 roles + 58 sub-specializations with hardened contracts, workflows, and quality gates. Drop it in any project, point your AI at it, and get production-grade results.</p>
   <p><strong>No SaaS. No API keys. No vendor lock.</strong> Just markdown files any AI agent can read.</p>
 
-  <h2>How It Works</h2>
+  <h2 id="how-it-works">How It Works</h2>
   <p><strong>User Request</strong> &rarr; <strong>Objective Match</strong> &rarr; <strong>Squad Assembly</strong> &rarr; <strong>Execute &amp; Verify</strong> &rarr; <strong>Ship &#10003;</strong></p>
 
   <div class="mode-table">
@@ -104,7 +146,7 @@
     </div>
   </div>
 
-  <h2>Agent-Centric Format</h2>
+  <h2 id="agent-format">Agent-Centric Format</h2>
   <p>Every file is a <strong>system prompt for an AI agent</strong> &mdash; YAML metadata + structured instructions, no prose fluff.</p>
 
   <div class="table-wrap">
@@ -138,7 +180,7 @@
 
   <p class="text-muted text-sm"><strong>Zero dependencies.</strong> Every file reads as a prompt.</p>
 
-  <h2>The Crew <span class="tag tag-purple">33 Roles</span></h2>
+  <h2 id="the-crew">The Crew <span class="tag tag-purple">33 Roles</span> <span class="tag tag-cyan">58 Sub-Specs</span></h2>
 
   <div class="role-grid">
     <div class="role-card">
@@ -310,31 +352,31 @@
 
   <hr class="section-divider">
 
-  <h2>Quick Start</h2>
+  <h2 id="quick-start">Quick Start</h2>
   <pre><code><span style="color:var(--text-muted);"># 1. Copy to your project</span>
-cp -r .agentcrew ./your-project/
+cp -r .crewmarkdown ./your-project/
 
 <span style="color:var(--text-muted);"># 2. Generate codebase map</span>
-./.agentcrew/scripts/generate-codebase-map.ps1
+./.crewmarkdown/scripts/generate-codebase-map.ps1
 
 <span style="color:var(--text-muted);"># 3. Configure AI agents</span>
-./.agentcrew/config/setup.ps1        <span style="color:var(--text-muted);"># Windows</span>
-./.agentcrew/config/setup.sh --all   <span style="color:var(--text-muted);"># Linux/macOS</span>
+./.crewmarkdown/config/setup.ps1        <span style="color:var(--text-muted);"># Windows</span>
+./.crewmarkdown/config/setup.sh --all   <span style="color:var(--text-muted);"># Linux/macOS</span>
 
 <span style="color:var(--text-muted);"># 4. Make a request</span>
 <span style="color:var(--accent-green);">#    "PM, write a PRD for login"</span>
 <span style="color:var(--accent-green);">#    "Squad (QA, Security), verify quality"</span>
 <span style="color:var(--accent-green);">#    "Build the full e-commerce platform"</span></code></pre>
 
-  <p>Your AI agent reads <code>.agentcrew/00-objectives.md</code>, routes to the right objective, loads the squad, and executes.</p>
+  <p>Your AI agent reads <code>.crewmarkdown/00-objectives.md</code>, routes to the right objective, loads the squad, and executes.</p>
 
-  <h2>Project Structure</h2>
-  <pre><code>.agentcrew/
+  <h2 id="project-structure">Project Structure</h2>
+  <pre><code>.crewmarkdown/
 ├── 00-objectives.md       <span style="color:var(--text-muted);"># YAML frontmatter routing table</span>
 ├── 00-team.md             <span style="color:var(--text-muted);"># YAML frontmatter crew roster</span>
 ├── 00-roles.md            <span style="color:var(--text-muted);"># 33 role definitions</span>
 ├── objectives/            <span style="color:var(--text-muted);"># 11 lifecycle objectives</span>
-├── roles/                 <span style="color:var(--text-muted);"># 33 contracts + workflows</span>
+├── roles/                 <span style="color:var(--text-muted);"># 33 contracts + workflows + 58 subspecs</span>
 ├── procedures/            <span style="color:var(--text-muted);"># Step-by-step guides</span>
 ├── debate/                <span style="color:var(--text-muted);"># Decision framework</span>
 ├── meeting/               <span style="color:var(--text-muted);"># Meeting mode workflow</span>
@@ -346,7 +388,7 @@ cp -r .agentcrew ./your-project/
 ├── log/                   <span style="color:var(--text-muted);"># Execution logs</span>
 └── state/workflow.json    <span style="color:var(--text-muted);"># Progress tracker</span></code></pre>
 
-  <h2>Invocation Modes</h2>
+  <h2 id="invocation-modes">Invocation Modes</h2>
   <div class="table-wrap">
     <table>
       <thead>

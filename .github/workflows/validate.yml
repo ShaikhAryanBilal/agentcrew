@@ -4,12 +4,12 @@ on:
   push:
     branches: [main]
     paths:
-      - '.agentcrew/**'
+      - '.crewmarkdown/**'
       - 'codebase-map.md'
   pull_request:
     branches: [main]
     paths:
-      - '.agentcrew/**'
+      - '.crewmarkdown/**'
       - 'codebase-map.md'
   schedule:
     - cron: '0 6 * * 1'  # Every Monday 6am
@@ -23,19 +23,19 @@ jobs:
 
       - name: Validate cross-references (bash)
         run: |
-          chmod +x .agentcrew/scripts/validate-workflow.sh
-          ./.agentcrew/scripts/validate-workflow.sh
+          chmod +x .crewmarkdown/scripts/validate-workflow.sh
+          ./.crewmarkdown/scripts/validate-workflow.sh
 
       - name: Regenerate codebase-map
         run: |
           echo "Regenerating codebase-map.md..."
-          echo "Run locally with: ./.agentcrew/scripts/generate-codebase-map.ps1 (Windows) or generate-codebase-map.sh (Linux/Mac)"
+          echo "Run locally with: ./.crewmarkdown/scripts/generate-codebase-map.ps1 (Windows) or generate-codebase-map.sh (Linux/Mac)"
           echo "Checked $(find . -type f -not -path './.git/*' | wc -l) files"
 
       - name: Check workflow.json validity
         run: |
           if command -v python3 &> /dev/null; then
-            python3 -m json.tool .agentcrew/state/workflow.json > /dev/null && echo "workflow.json: valid"
+            python3 -m json.tool .crewmarkdown/state/workflow.json > /dev/null && echo "workflow.json: valid"
           else
             echo "python3 not available, skipping json validation"
           fi
@@ -48,13 +48,13 @@ jobs:
             if grep -qnP '\t' "$file"; then
               echo "  WARN: $file contains tabs (use spaces)"
             fi
-          done < <(find .agentcrew -name '*.md' -type f)
+          done < <(find .crewmarkdown -name '*.md' -type f)
           echo "Markdown lint complete"
 
       - name: Check contract sections
         run: |
           errors=0
-          for contract in .agentcrew/roles/*/contract.md; do
+          for contract in .crewmarkdown/roles/*/contract.md; do
             for section in "## Skills" "## Known Procedures" "## Good Practices" "## Bad Practices" "## Artifact Templates"; do
               if ! grep -q "$section" "$contract"; then
                 echo "  MISSING: $contract -> $section"
@@ -64,7 +64,7 @@ jobs:
             for section in "## Quality Checklist"; do
               role="${contract%/contract.md}"
               role="${role##*/}"
-              wf=".agentcrew/roles/$role/workflow.md"
+              wf=".crewmarkdown/roles/$role/workflow.md"
               if ! grep -q "$section" "$wf"; then
                 echo "  MISSING: $wf -> $section"
                 errors=$((errors+1))
@@ -76,18 +76,18 @@ jobs:
 
       - name: Check animation scripts exist
         run: |
-          [ -f .agentcrew/animations/show-party.ps1 ] && echo "show-party.ps1: found" || { echo "show-party.ps1: MISSING"; exit 1; }
-          [ -f .agentcrew/animations/show-party.sh ] && echo "show-party.sh: found" || { echo "show-party.sh: MISSING"; exit 1; }
+          [ -f .crewmarkdown/animations/show-party.ps1 ] && echo "show-party.ps1: found" || { echo "show-party.ps1: MISSING"; exit 1; }
+          [ -f .crewmarkdown/animations/show-party.sh ] && echo "show-party.sh: found" || { echo "show-party.sh: MISSING"; exit 1; }
 
       - name: Check state dashboard script
         run: |
-          [ -f .agentcrew/scripts/show-state.ps1 ] && echo "show-state.ps1: found" || { echo "show-state.ps1: MISSING"; exit 1; }
-          [ -f .agentcrew/scripts/show-state.sh ] && echo "show-state.sh: found" || { echo "show-state.sh: MISSING"; exit 1; }
+          [ -f .crewmarkdown/scripts/show-state.ps1 ] && echo "show-state.ps1: found" || { echo "show-state.ps1: MISSING"; exit 1; }
+          [ -f .crewmarkdown/scripts/show-state.sh ] && echo "show-state.sh: found" || { echo "show-state.sh: MISSING"; exit 1; }
 
       - name: Summary
         run: |
           echo "## Validation Summary" >> $GITHUB_STEP_SUMMARY
-          echo "- Steps: $(find .agentcrew -name '*.md' -not -path '*/log/*' -not -path '*/custom/*' -not -path '*/roles/*' | wc -l)" >> $GITHUB_STEP_SUMMARY
-          echo "- Roles: $(find .agentcrew/roles -name '*.md' | wc -l)" >> $GITHUB_STEP_SUMMARY
-          echo "- Scripts: $(find .agentcrew/scripts -name '*.ps1' -o -name '*.sh' | wc -l)" >> $GITHUB_STEP_SUMMARY
-          echo "- Animations: $(find .agentcrew/animations -name '*.ps1' -o -name '*.sh' | wc -l)" >> $GITHUB_STEP_SUMMARY
+          echo "- Steps: $(find .crewmarkdown -name '*.md' -not -path '*/log/*' -not -path '*/custom/*' -not -path '*/roles/*' | wc -l)" >> $GITHUB_STEP_SUMMARY
+          echo "- Roles: $(find .crewmarkdown/roles -name '*.md' | wc -l)" >> $GITHUB_STEP_SUMMARY
+          echo "- Scripts: $(find .crewmarkdown/scripts -name '*.ps1' -o -name '*.sh' | wc -l)" >> $GITHUB_STEP_SUMMARY
+          echo "- Animations: $(find .crewmarkdown/animations -name '*.ps1' -o -name '*.sh' | wc -l)" >> $GITHUB_STEP_SUMMARY

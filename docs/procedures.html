@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AgentCrew Docs — Procedures</title>
+<title>CrewMarkdown Docs — Procedures</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
 
 <nav class="sidebar">
   <div class="sidebar-header">
-    <div class="logo">AgentCrew</div>
+    <div class="logo">CrewMarkdown</div>
     <span class="version">v1.0</span>
   </div>
   <div class="nav-section">Docs</div>
@@ -26,10 +26,10 @@
     <li><a href="objectives.html"><span class="nav-icon">&#9673;</span> Objectives</a></li>
     <li><a href="roles.html"><span class="nav-icon">&#9733;</span> Roles</a></li>
     <li class="active"><a href="procedures.html"><span class="nav-icon">&#9776;</span> Procedures</a></li>
-    <li><a href="debate.html"><span class="nav-icon">&#9878;</span> Debate</a></li>
+    <li><a href="features.html"><span class="nav-icon">&#9878;</span> Features</a></li>
   </ul>
   <div class="sidebar-footer">
-    <a href="https://github.com/ShaikhAryanBilal/agentcrew" target="_blank">&#128279; GitHub</a>
+    <a href="https://github.com/ShaikhAryanBilal/CrewMarkdown" target="_blank">&#128279; GitHub</a>
     &middot; MIT
   </div>
 </nav>
@@ -38,7 +38,55 @@
   <h1>Procedures</h1>
   <p class="page-subtitle">Step-by-step guides organized by phase &mdash; the how-to references roles use during execution.</p>
 
-  <h2>Phase Mapping</h2>
+  <div class="role-grid">
+    <a href="#phase-mapping" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
+      <div class="role-title">Phase Mapping</div>
+      <div class="role-superpower">Phase to procedure directory</div>
+      <div class="role-produces"><strong>6 phases &rarr; 6 directories</strong></div>
+    </a>
+    <a href="#requirements" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
+      <div class="role-title">Requirements</div>
+      <div class="role-superpower">Vision, stories, estimation</div>
+      <div class="role-produces"><strong>8 procedures</strong></div>
+    </a>
+    <a href="#design" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
+      <div class="role-title">Design</div>
+      <div class="role-superpower">Architecture, UX, security</div>
+      <div class="role-produces"><strong>6 procedures</strong></div>
+    </a>
+    <a href="#development" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
+      <div class="role-title">Development</div>
+      <div class="role-superpower">Implement, review, test</div>
+      <div class="role-produces"><strong>4 procedures</strong></div>
+    </a>
+    <a href="#qa" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
+      <div class="role-title">QA</div>
+      <div class="role-superpower">Test planning, bug tracking</div>
+      <div class="role-produces"><strong>6 procedures</strong></div>
+    </a>
+    <a href="#deployment" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
+      <div class="role-title">Deployment</div>
+      <div class="role-superpower">Release, rollback, monitoring</div>
+      <div class="role-produces"><strong>4 procedures</strong></div>
+    </a>
+    <a href="#maintenance" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
+      <div class="role-title">Maintenance</div>
+      <div class="role-superpower">Incidents, retro, feedback</div>
+      <div class="role-produces"><strong>4 procedures</strong></div>
+    </a>
+    <a href="#cross-cutting" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
+      <div class="role-title">Cross-Cutting</div>
+      <div class="role-superpower">Meeting, campaign, people ops</div>
+      <div class="role-produces"><strong>6 procedures</strong></div>
+    </a>
+    <a href="#sdlc-config" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
+      <div class="role-title">SDLC Config</div>
+      <div class="role-superpower">Model selection &amp; best practices</div>
+      <div class="role-produces"><strong>8 models, 2 procs</strong></div>
+    </a>
+  </div>
+
+  <h2 id="phase-mapping">Phase Mapping</h2>
   <div class="table-wrap">
     <table>
       <thead>
@@ -85,7 +133,7 @@
 
   <hr class="section-divider">
 
-  <h2>Requirements Phase</h2>
+  <h2 id="requirements">Requirements Phase</h2>
   <p>4 steps guiding PM and BA through gathering, analyzing, documenting, and signing off requirements.</p>
 
   <ul class="step-list">
@@ -94,11 +142,11 @@
     <li><span class="step-num">3.</span><span class="step-content"><strong>PRD Writing</strong> &mdash; <code>03-prd.md</code> &mdash; PM</span></li>
     <li><span class="step-num">4.</span><span class="step-content"><strong>Review &amp; Sign-off</strong> &mdash; <code>04-requirements-review-and-signoff.md</code> &mdash; PM</span></li>
   </ul>
-  <p class="text-muted text-sm">Location: <code>.agentcrew/procedures/01-requirements/</code></p>
+  <p class="text-muted text-sm">Location: <code>.crewmarkdown/procedures/01-requirements/</code></p>
 
   <hr class="section-divider">
 
-  <h2>Design Phase</h2>
+  <h2 id="design">Design Phase</h2>
   <p>6 steps guiding Architect, UX, and Security through system design.</p>
 
   <ul class="step-list">
@@ -109,11 +157,11 @@
     <li><span class="step-num">5.</span><span class="step-content"><strong>Design Review</strong> &mdash; <code>05-design-review.md</code> &mdash; Tech Lead</span></li>
     <li><span class="step-num">6.</span><span class="step-content"><strong>Threat Modeling</strong> &mdash; <code>06-threat-modeling.md</code> &mdash; Security</span></li>
   </ul>
-  <p class="text-muted text-sm">Location: <code>.agentcrew/procedures/02-design/</code></p>
+  <p class="text-muted text-sm">Location: <code>.crewmarkdown/procedures/02-design/</code></p>
 
   <hr class="section-divider">
 
-  <h2>Development Phase</h2>
+  <h2 id="development">Development Phase</h2>
   <p>7 steps guiding EM, Tech Lead, and Developers through implementation.</p>
 
   <ul class="step-list">
@@ -125,11 +173,11 @@
     <li><span class="step-num">6.</span><span class="step-content"><strong>Unit Testing</strong> &mdash; <code>06-unit-testing.md</code> &mdash; Dev</span></li>
     <li><span class="step-num">7.</span><span class="step-content"><strong>Integration</strong> &mdash; <code>07-integration.md</code> &mdash; Backend/DevOps</span></li>
   </ul>
-  <p class="text-muted text-sm">Location: <code>.agentcrew/procedures/03-development/</code></p>
+  <p class="text-muted text-sm">Location: <code>.crewmarkdown/procedures/03-development/</code></p>
 
   <hr class="section-divider">
 
-  <h2>QA Phase</h2>
+  <h2 id="qa">QA Phase</h2>
   <p>9 steps guiding QA and Security through validation.</p>
 
   <ul class="step-list">
@@ -143,11 +191,11 @@
     <li><span class="step-num">8.</span><span class="step-content"><strong>QA Sign-off</strong> &mdash; <code>08-qa-signoff.md</code> &mdash; QA</span></li>
     <li><span class="step-num">9.</span><span class="step-content"><strong>Security Pentest</strong> &mdash; <code>09-security-pentest.md</code> &mdash; Security</span></li>
   </ul>
-  <p class="text-muted text-sm">Location: <code>.agentcrew/procedures/04-qa/</code></p>
+  <p class="text-muted text-sm">Location: <code>.crewmarkdown/procedures/04-qa/</code></p>
 
   <hr class="section-divider">
 
-  <h2>Deployment Phase</h2>
+  <h2 id="deployment">Deployment Phase</h2>
   <p>4 steps guiding DevOps and PM through release.</p>
 
   <ul class="step-list">
@@ -156,11 +204,11 @@
     <li><span class="step-num">3.</span><span class="step-content"><strong>Production Deployment</strong> &mdash; <code>03-production-deployment.md</code> &mdash; DevOps</span></li>
     <li><span class="step-num">4.</span><span class="step-content"><strong>Post-Deployment</strong> &mdash; <code>04-post-deployment.md</code> &mdash; DevOps</span></li>
   </ul>
-  <p class="text-muted text-sm">Location: <code>.agentcrew/procedures/05-deployment/</code></p>
+  <p class="text-muted text-sm">Location: <code>.crewmarkdown/procedures/05-deployment/</code></p>
 
   <hr class="section-divider">
 
-  <h2>Maintenance Phase</h2>
+  <h2 id="maintenance">Maintenance Phase</h2>
   <p>3 steps + cross-cutting guides for production operations.</p>
 
   <ul class="step-list">
@@ -168,11 +216,11 @@
     <li><span class="step-num">2.</span><span class="step-content"><strong>Hotfix Process</strong> &mdash; <code>02-hotfix-process.md</code> &mdash; Dev</span></li>
     <li><span class="step-num">3.</span><span class="step-content"><strong>Feedback Loop</strong> &mdash; <code>03-feedback-loop.md</code> &mdash; EM / PM</span></li>
   </ul>
-  <p class="text-muted text-sm">Location: <code>.agentcrew/procedures/06-maintenance/</code></p>
+  <p class="text-muted text-sm">Location: <code>.crewmarkdown/procedures/06-maintenance/</code></p>
 
   <hr class="section-divider">
 
-  <h2>Cross-Cutting Procedures</h2>
+  <h2 id="cross-cutting">Cross-Cutting Procedures</h2>
   <div class="table-wrap">
     <table>
       <thead>
@@ -212,7 +260,7 @@
     </table>
   </div>
 
-  <h2>SDLC Configuration</h2>
+  <h2 id="sdlc-config">SDLC Configuration</h2>
   <p>SDLC model selection guides and configuration files.</p>
 
   <ul class="step-list">
@@ -221,7 +269,7 @@
 
   <hr class="section-divider">
 
-  <p class="text-muted text-sm">All 38 procedures are in <code>.agentcrew/procedures/</code> organized by phase.</p>
+  <p class="text-muted text-sm">All 38 procedures are in <code>.crewmarkdown/procedures/</code> organized by phase.</p>
 
   <hr class="section-divider">
 

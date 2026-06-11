@@ -1,0 +1,17 @@
+# CrewMarkdown — GitHub Copilot Instructions
+
+This project uses `.crewmarkdown/00-objectives.md` for workflow routing.
+
+## On Any Software Request
+
+1. Read `codebase-map.md` if exists (file tree)
+2. Read `.crewmarkdown/00-objectives.md` → find matching objective
+3. Check `.crewmarkdown/custom/<phase>.md` for overrides
+4. Follow objective's procedure → produce artifacts
+5. Write log to `.crewmarkdown/logs/<yyyy>/<MM>/<dd>/<HHmmss>/<chat-slug>-[<HHmmss>]/<role>.md` (derive `<chat-slug>` from request text)
+6. Update `.crewmarkdown/state/workflow.json`
+
+## Key Files
+- `.crewmarkdown/00-objectives.md` — routing table + objective index
+- `.crewmarkdown/state/workflow.json` — current state
+- `codebase-map.md` — file tree (generated)

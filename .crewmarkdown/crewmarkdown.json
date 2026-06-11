@@ -1,0 +1,26 @@
+{
+  "$schema": "./config/crewmarkdown.schema.json",
+  "project": {
+    "name": "",
+    "description": "",
+    "sdlcModel": "agile",
+    "securityGates": true
+  },
+  "roles": {
+    "available": ["PM","BA","Architect","UX Designer","Security","Tech Lead","Frontend","Backend","QA","DevOps","EM","Technical Writer"],
+    "defaultSquad": {}
+  },
+  "custom": {
+    "phaseOverrides": {},
+    "procedureOverrides": {}
+  },
+  "logging": {
+    "level": "normal",
+    "path": ".crewmarkdown/logs/"
+  },
+  "integrations": {
+    "ci": "",
+    "ticketing": "",
+    "notifications": ""
+  }
+}

@@ -1,7 +1,7 @@
-# AgentCrew — generated/state artifacts
+# CrewMarkdown — generated/state artifacts
 codebase-map.md
-.agentcrew/logs/
-.agentcrew/state/
+.crewmarkdown/logs/
+.crewmarkdown/state/
 .vscode/
 
 # OS files

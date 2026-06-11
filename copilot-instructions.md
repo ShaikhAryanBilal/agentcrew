@@ -1,4 +1,4 @@
-# AgentCrew — Copilot Routing
+# CrewMarkdown — Copilot Routing
 
 ## Entry
 1. Read `00-objectives.md` → match request to objective
@@ -8,5 +8,5 @@
 5. Produce artifacts, log, update state
 
 ## Key Files
-- `.agentcrew/00-objectives.md` — routing table
-- `.agentcrew/state/workflow.json` — state
+- `.crewmarkdown/00-objectives.md` — routing table
+- `.crewmarkdown/state/workflow.json` — state

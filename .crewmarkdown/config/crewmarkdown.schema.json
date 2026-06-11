@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "CrewMarkdown-config",
+  "title": "CrewMarkdown Configuration",
+  "description": "Schema for .crewmarkdown/CrewMarkdown.json project config and ~/.config/CrewMarkdown/config.json machine config",
+  "type": "object",
+  "properties": {
+    "project": {
+      "type": "object",
+      "description": "Project-level configuration",
+      "properties": {
+        "name": { "type": "string", "description": "Project name" },
+        "description": { "type": "string", "description": "Project description" },
+        "sdlcModel": {
+          "type": "string",
+          "enum": ["waterfall", "v-model", "spiral", "agile", "iterative", "incremental", "big-bang", "rad"],
+          "description": "SDLC model to use"
+        },
+        "securityGates": { "type": "boolean", "description": "Enable SG1-SG4 security gates" }
+      }
+    },
+    "roles": {
+      "type": "object",
+      "description": "Role configuration and squad overrides",
+      "properties": {
+        "available": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Roles available for this project"
+        },
+        "defaultSquad": {
+          "type": "object",
+          "description": "Override default squads per objective",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "custom": {
+      "type": "object",
+      "description": "Custom phase and procedure overrides",
+      "properties": {
+        "phaseOverrides": {
+          "type": "object",
+          "description": "Per-phase custom instructions",
+          "additionalProperties": { "type": "string" }
+        },
+        "procedureOverrides": {
+          "type": "object",
+          "description": "Override procedure file paths per step ID",
+          "additionalProperties": { "type": "string" }
+        }
+      }
+    },
+    "logging": {
+      "type": "object",
+      "description": "Logging configuration",
+      "properties": {
+        "level": { "type": "string", "enum": ["minimal", "normal", "verbose"] },
+        "path": { "type": "string", "description": "Log output path" }
+      }
+    },
+    "integrations": {
+      "type": "object",
+      "description": "External tool integrations",
+      "properties": {
+        "ci": { "type": "string", "description": "CI platform (github-actions, gitlab-ci, jenkins, etc.)" },
+        "ticketing": { "type": "string", "description": "Ticketing system (jira, linear, github-issues, etc.)" },
+        "notifications": { "type": "string", "description": "Notification channel (slack, teams, discord, etc.)" }
+      }
+    },
+    "user": {
+      "type": "object",
+      "description": "Machine-level user configuration (stored in ~/.config/CrewMarkdown/)",
+      "properties": {
+        "name": { "type": "string" },
+        "defaultRole": { "type": "string" },
+        "preferredModel": { "type": "string" }
+      }
+    },
+    "tools": {
+      "type": "object",
+      "description": "AI tool paths and settings (machine-level)",
+      "properties": {
+        "opencode": {
+          "type": "object",
+          "properties": {
+            "configPath": { "type": "string" },
+            "skillPaths": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "cursor": {
+          "type": "object",
+          "properties": { "rulesPath": { "type": "string" } }
+        },
+        "claude": {
+          "type": "object",
+          "properties": { "configPath": { "type": "string" } }
+        }
+      }
+    },
+    "defaults": {
+      "type": "object",
+      "description": "Default values (machine-level)",
+      "properties": {
+        "sdlcModel": {
+          "type": "string",
+          "enum": ["waterfall", "v-model", "spiral", "agile", "iterative", "incremental", "big-bang", "rad"]
+        },
+        "logging": {
+          "type": "object",
+          "properties": {
+            "level": { "type": "string", "enum": ["minimal", "normal", "verbose"] }
+          }
+        }
+      }
+    },
+    "tone": {
+      "type": "object",
+      "description": "Communication tone preferences (machine-level)",
+      "properties": {
+        "mode": { "type": "string", "enum": ["lite", "full", "ultra"] },
+        "compression": { "type": "boolean" }
+      }
+    }
+  }
+}

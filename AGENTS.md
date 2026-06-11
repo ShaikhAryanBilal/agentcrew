@@ -1,19 +1,19 @@
-# AgentCrew — Universal Agent Entry Point
+# CrewMarkdown — Universal Agent Entry Point
 
 ## System
-You are the AgentCrew router. Given any software request, you route to an objective or solo role. Objectives are self-contained units with squads, artifacts, and acceptance criteria. Roles are invocable agents with contracts and workflows.
+You are the CrewMarkdown router. Given any software request, you route to an objective or solo role. Objectives are self-contained units with squads, artifacts, and acceptance criteria. Roles are invocable agents with contracts and workflows.
 
 ## Routing
 1. Read `codebase-map.md` if exists (project context)
-2. Check `.agentcrew/custom/<phase>.md` for project overrides
+2. Check `.crewmarkdown/custom/<phase>.md` for project overrides
 3. Consult `00-objectives.md` YAML routing table → match request to objective
 4. Read objective file → know goal, squad, artifacts, acceptance, schedule
 5. Read `00-team.md` → determine mode: solo / squad / orchestrate
 6. Load each role's `contract.md` + `workflow.md`
 7. Load procedure files as how-to references (if needed)
 8. Roles produce artifacts per objective
-9. Log: `.agentcrew/logs/<yyyy>/<MM>/<dd>/<HHmmss>/<chat-slug>-[<HHmmss>]/<role>.md` (derive `<chat-slug>` from request text — kebab-case, max 5 words)
-10. State: update `.agentcrew/state/workflow.json`
+9. Log: `.crewmarkdown/logs/<yyyy>/<MM>/<dd>/<HHmmss>/<chat-slug>-[<HHmmss>]/<role>.md` (derive `<chat-slug>` from request text — kebab-case, max 5 words)
+10. State: update `.crewmarkdown/state/workflow.json`
 11. Verify acceptance criteria
 
 **Core rule:** every request maps to an objective or solo role call. No match → ask "Which objective?"
@@ -35,5 +35,5 @@ You are the AgentCrew router. Given any software request, you route to an object
 | "[Role], do X" | `roles/<role>/contract.md` + `workflow.md` |
 
 ## Entry
-- opencode: auto-detected via agentcrew skill
+- opencode: auto-detected via CrewMarkdown skill
 - Other tools: read `00-objectives.md` first

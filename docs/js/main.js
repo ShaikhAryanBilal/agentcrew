@@ -1,4 +1,4 @@
-// ── AgentCrew Docs — Interactivity ──
+// ── CrewMarkdown Docs — Interactivity ──
 
 document.addEventListener('DOMContentLoaded', () => {
 

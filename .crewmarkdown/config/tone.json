@@ -1,0 +1,22 @@
+{
+  "_description": "Tone control for CrewMarkdown output. Levels: professional, casual, chaotic",
+  "tone": "professional",
+  "aprilFools": false,
+  "levels": {
+    "professional": {
+      "label": "Professional",
+      "desc": "Standard professional output. No humor.",
+      "env": "professional"
+    },
+    "casual": {
+      "label": "Casual",
+      "desc": "Light humor, friendly messages, mild jokes.",
+      "env": "casual"
+    },
+    "chaotic": {
+      "label": "Chaotic",
+      "desc": "Full humor mode. Puns, sarcasm, Easter eggs.",
+      "env": "chaotic"
+    }
+  }
+}
