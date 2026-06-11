@@ -1,13 +1,13 @@
 # CrewMarkdown
 
-**AI-Native Software Engineering Framework** — 33 roles · 58 sub-specializations · 11 lifecycle objectives · Solo · Squad · Orchestrate · Meeting · Zero-Config
+**AI-Native Software Engineering Framework** — 35 roles · 78 sub-specializations · 11 lifecycle objectives · Solo · Squad · Orchestrate · Meeting · Zero-Config
 
 > **For everyone.** Entrepreneur describing an idea. Engineer specifying an API. Same system adapts to your skill level automatically.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![AI Ready](https://img.shields.io/badge/AI-Ready-8A2BE2)](#)
-[![Sub-Specs](https://img.shields.io/badge/Sub--Specs-58-22d3ee)](#)
+[![Sub-Specs](https://img.shields.io/badge/Sub--Specs-78-22d3ee)](#)
 [![No Dependencies](https://img.shields.io/badge/Dependencies-Zero-success)](#)
 
 ---
@@ -67,7 +67,7 @@ No config. No setup. The same request pipeline adapts to you.
 
 ---
 
-## The Crew — 33 Professional Roles
+## The Crew — 35 Professional Roles
 
 Every role ships with a YAML-frontmatter contract, a structured workflow, a quality checklist, and production-grade artifact templates. Roles span the full software delivery lifecycle.
 
@@ -96,6 +96,7 @@ Every role ships with a YAML-frontmatter contract, a structured workflow, a qual
 | Role | Core Competency | Key Deliverables |
 |------|----------------|-----------------|
 | **Data Engineer** | ETL/ELT pipelines, data warehousing | Pipelines, data schemas, data catalogs, lineage documentation |
+| **DBA** | Database administration, performance tuning, migrations | DB health reports, migration plans, backup strategies, performance baselines |
 | **Data Scientist** | Statistics, ML, A/B testing | Analysis reports, experiment results, dashboards, recommendations |
 | **ML Engineer** | Model training, evaluation, serving, monitoring | Trained models, evaluation reports, serving endpoints, drift monitors |
 
@@ -113,6 +114,7 @@ Every role ships with a YAML-frontmatter contract, a structured workflow, a qual
 |------|----------------|-----------------|
 | **DevOps Engineer** | Infrastructure, CI/CD, deployment, monitoring | Environments, CI/CD pipelines, deployed builds, monitoring dashboards |
 | **Engineering Manager** | Sprint planning, team process, retrospectives | Sprint plans, capacity allocations, velocity reports, retro reports |
+| **Scrum Master** | Agile ceremonies, impediment removal, coaching | Sprint backlogs, retrospective reports, velocity metrics, agile maturity assessments |
 | **Technical Writer** | Documentation, API references, user guides | API docs, user guides, architecture docs, release notes, changelogs |
 
 ### Business & Strategy
@@ -190,10 +192,10 @@ Your AI agent reads `.crewmarkdown/00-objectives.md`, routes your request to the
 ```
 .crewmarkdown/
 ├── 00-objectives.md       # Request → objective routing table (YAML)
-├── 00-roles.md            # All 33 roles at a glance
+├── 00-roles.md            # All 35 roles at a glance
 ├── 00-team.md             # Invocation patterns with YAML frontmatter
 ├── objectives/            # 11 lifecycle objectives with squads
-├── roles/                 # 33 role contracts + workflows + 58 sub-specializations
+├── roles/                 # 35 role contracts + workflows + 78 sub-specializations
 ├── procedures/            # Step-by-step how-to guides by phase (38 total)
 ├── config/                # AI agent configuration templates
 ├── debate/                # Structured decision-making framework

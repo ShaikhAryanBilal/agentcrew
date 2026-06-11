@@ -35,8 +35,8 @@
 </nav>
 
 <main class="content">
-  <h1>Roles <span class="tag tag-purple">33</span> <span class="tag tag-cyan">58 Sub-Specs</span></h1>
-  <p class="page-subtitle">33 invocable AI roles + 58 sub-specializations with YAML-frontmatter contracts and workflows. Solo, squad, meeting, or orchestrated.</p>
+  <h1>Roles <span class="tag tag-purple">35</span> <span class="tag tag-cyan">78 Sub-Specs</span></h1>
+  <p class="page-subtitle">35 invocable AI roles + 78 sub-specializations with YAML-frontmatter contracts and workflows. Solo, squad, meeting, or orchestrated.</p>
 
   <div class="role-grid">
 
@@ -71,13 +71,13 @@
     </div>
 
     <div class="role-card">
-      <div class="role-title">Frontend Developer <span class="tag tag-cyan">1 sub-spec</span></div>
+      <div class="role-title">Frontend Developer <span class="tag tag-cyan">6 sub-specs</span></div>
       <div class="role-superpower">UI implementation, client logic</div>
       <div class="role-produces"><strong>Provides:</strong> UI code, component tests, API integration</div>
     </div>
 
     <div class="role-card">
-      <div class="role-title">Backend Developer <span class="tag tag-cyan">1 sub-spec</span></div>
+      <div class="role-title">Backend Developer <span class="tag tag-cyan">8 sub-specs</span></div>
       <div class="role-superpower">API, services, data layer, business logic</div>
       <div class="role-produces"><strong>Provides:</strong> API endpoints, business logic, DB migrations, integration tests</div>
     </div>
@@ -104,6 +104,12 @@
       <div class="role-title">Data Engineer</div>
       <div class="role-superpower">ETL/ELT pipelines, data warehouse/lake, data quality</div>
       <div class="role-produces"><strong>Provides:</strong> Pipelines, schemas, data catalog, lineage docs</div>
+    </div>
+
+    <div class="role-card">
+      <div class="role-title">DBA <span class="tag tag-cyan">4 sub-specs</span></div>
+      <div class="role-superpower">Database administration, performance tuning, migrations</div>
+      <div class="role-produces"><strong>Provides:</strong> DB health reports, migration plans, backup strategies, performance baselines</div>
     </div>
 
     <div class="role-card">
@@ -146,6 +152,12 @@
       <div class="role-title">Engineering Manager</div>
       <div class="role-superpower">Sprint planning, team process, retrospectives, capacity</div>
       <div class="role-produces"><strong>Provides:</strong> Sprint plan, capacity allocation, task breakdown, retro report</div>
+    </div>
+
+    <div class="role-card">
+      <div class="role-title">Scrum Master <span class="tag tag-cyan">4 sub-specs</span></div>
+      <div class="role-superpower">Agile ceremonies, impediment removal, coaching</div>
+      <div class="role-produces"><strong>Provides:</strong> Sprint backlog, retrospective reports, velocity metrics, maturity assessments</div>
     </div>
 
     <div class="role-card">
@@ -243,7 +255,7 @@
   <hr class="section-divider">
 
   <h2>Sub-Specializations</h2>
-  <p>17 role families offer 58 sub-specializations for framework-specific and layer-specific prompt refinement. The routing engine performs hybrid keyword resolution &mdash; scanning request text against sub-spec <code>keywords:</code> fields, applying layer &times; framework matching, and falling back to the generic parent contract when no sub-spec match is found. This ensures zero execution flow interruption while delivering precisely tailored role prompts.</p>
+  <p>19 role families offer 78 sub-specializations for framework-specific and layer-specific prompt refinement. The routing engine performs hybrid keyword resolution &mdash; scanning request text against sub-spec <code>keywords:</code> fields, applying layer &times; framework matching, and falling back to the generic parent contract when no sub-spec match is found. This ensures zero execution flow interruption while delivering precisely tailored role prompts.</p>
 
   <div class="table-wrap">
     <table>
@@ -252,8 +264,8 @@
       </thead>
       <tbody>
         <tr><td>Product Manager</td><td>B2B, B2C, Platform, Growth</td><td><code>roles/pm/{subspec}/contract.md</code></td></tr>
-        <tr><td>Frontend Dev</td><td>UI-React</td><td><code>roles/frontend/ui-react/contract.md</code></td></tr>
-        <tr><td>Backend Dev</td><td>API-Express</td><td><code>roles/backend/api-express/contract.md</code></td></tr>
+        <tr><td>Frontend Dev</td><td>UI-React, HTML-CSS, Vue, Angular, Svelte, Vanilla</td><td><code>roles/frontend/{subspec}/contract.md</code></td></tr>
+        <tr><td>Backend Dev</td><td>API-Express, PHP, Node, Python, Go, Java, Rust, .NET</td><td><code>roles/backend/{subspec}/contract.md</code></td></tr>
         <tr><td>Mobile Dev</td><td>iOS-Swift, Android-Kotlin, Cross-Platform-RN</td><td><code>roles/mobile-dev/{subspec}/contract.md</code></td></tr>
         <tr><td>DevOps</td><td>AWS, Azure, GCP</td><td><code>roles/devops/{subspec}/contract.md</code></td></tr>
         <tr><td>Data Engineer</td><td>Batch-ETL, Streaming, Warehouse, Data-Lake</td><td><code>roles/data-engineer/{subspec}/contract.md</code></td></tr>
@@ -268,6 +280,8 @@
         <tr><td>Legal</td><td>Contracts, Privacy, IP, Employment, Corporate</td><td><code>roles/legal/{subspec}/contract.md</code></td></tr>
         <tr><td>BizDev</td><td>Strategic-Partnerships, Channel, M&amp;A</td><td><code>roles/bizdev/{subspec}/contract.md</code></td></tr>
         <tr><td>Content Strategist</td><td>SEO-Content, Brand-Content, Technical-Content</td><td><code>roles/content-strategist/{subspec}/contract.md</code></td></tr>
+        <tr><td>Scrum Master</td><td>Scrum, Kanban, SAFe, Agile-Coach</td><td><code>roles/scrum-master/{subspec}/contract.md</code></td></tr>
+        <tr><td>DBA</td><td>Relational, NoSQL, Cloud, Data-Warehouse</td><td><code>roles/dba/{subspec}/contract.md</code></td></tr>
       </tbody>
     </table>
   </div>
