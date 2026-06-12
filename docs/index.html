@@ -38,12 +38,12 @@
   <section class="hero">
     <div class="hero-badge">Universal AI Workflow Framework</div>
     <h1>Autonomous AI Squads That Ship Any Domain</h1>
-    <p class="hero-sub">42 roles + 78 sub-specializations &middot; 11 lifecycle objectives &middot; Solo &middot; Squad &middot; Orchestrate &middot; Meeting &middot; Incident &middot; Review &middot; Interview &middot; Negotiation &middot; Retrospective &middot; Hackathon &middot; Onboarding &middot; Zero-Config</p>
+    <p class="hero-sub">43 roles + 78 sub-specializations &middot; 12 lifecycle objectives &middot; Solo &middot; Squad &middot; Orchestrate &middot; Meeting &middot; Incident &middot; Review &middot; Interview &middot; Negotiation &middot; Retrospective &middot; Hackathon &middot; Onboarding &middot; Tactical &middot; Zero-Config</p>
     <p class="hero-sub" style="font-size:0.9rem;margin-top:0.25rem;color:var(--accent-green);"><strong>Any domain, any skill level.</strong> Engineer, marketer, HR, manager &mdash; describe what you need. The agent adapts.</p>
 
     <div class="hero-stats">
       <div class="hero-stat">
-        <div class="num">42</div>
+        <div class="num">43</div>
         <div class="label">Roles</div>
       </div>
       <div class="hero-stat">
@@ -51,7 +51,7 @@
         <div class="label">Sub-Specs</div>
       </div>
       <div class="hero-stat">
-        <div class="num">11</div>
+        <div class="num">12</div>
         <div class="label">Objectives</div>
       </div>
       <div class="hero-stat">
@@ -85,7 +85,7 @@
     <a href="#how-it-works" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
       <div class="role-title">How It Works</div>
       <div class="role-superpower">Request to ship pipeline</div>
-      <div class="role-produces"><strong>Solo, Squad, Orchestrate, Meeting + 7 special modes</strong></div>
+      <div class="role-produces"><strong>Solo, Squad, Orchestrate, Meeting + 8 special modes</strong></div>
     </a>
     <a href="#agent-format" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
       <div class="role-title">Agent-Centric Format</div>
@@ -94,7 +94,7 @@
     </a>
     <a href="#the-crew" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
       <div class="role-title">The Crew</div>
-      <div class="role-superpower">42 AI agent roles</div>
+      <div class="role-superpower">43 AI agent roles</div>
       <div class="role-produces"><strong>Contracts, workflows, gates</strong></div>
     </a>
     <a href="#quick-start" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
@@ -118,7 +118,7 @@
 
   <h2 id="why">Why CrewMarkdown?</h2>
   <p>AI agents are exceptionally capable, but they lack <strong>structured process</strong> — whether building software, launching a campaign, or planning a budget. Without a defined framework, every prompt produces inconsistent results. Work arrives without planning, risk assessment, quality checks, or deployment strategy. The result is unpredictable quality and costly rework.</p>
-  <p>CrewMarkdown solves this by providing any AI agent with a <strong>repeatable, production-grade workflow for any domain</strong> — engineering, business, creative, and operations. 42 specialized roles + 78 sub-specializations, each with hardened contracts, structured workflows, and quality gates. Drop it into any project, point your AI at it, and get consistent, professional results.</p>
+  <p>CrewMarkdown solves this by providing any AI agent with a <strong>repeatable, production-grade workflow for any domain</strong> — engineering, business, creative, and operations. 43 specialized roles + 78 sub-specializations, each with hardened contracts, structured workflows, and quality gates. Drop it into any project, point your AI at it, and get consistent, professional results.</p>
   <p><strong>No SaaS. No API keys. No vendor lock.</strong> Just plain markdown files that any AI agent can read and execute against.</p>
 
   <h2 id="how-it-works">How It Works</h2>
@@ -229,6 +229,11 @@ flowchart LR
       <div class="mode-example">"/onboard new backend dev"</div>
       <div class="mode-desc">Guided new hire ramp-up from orientation to independent contribution</div>
     </div>
+    <div class="mode-row">
+      <div class="mode-label">Tactical</div>
+      <div class="mode-example">"/tactical"</div>
+      <div class="mode-desc">Continuous always-on thread, dynamic role dispatch per request</div>
+    </div>
   </div>
 
   <h2 id="agent-format">Agent-Centric Format</h2>
@@ -304,7 +309,7 @@ cp -r .crewmarkdown ./your-project/
 ├── 00-team.md             <span style="color:var(--text-muted);"># YAML frontmatter crew roster</span>
 ├── 00-roles.md            <span style="color:var(--text-muted);"># 35 role definitions</span>
 ├── objectives/            <span style="color:var(--text-muted);"># 11 lifecycle objectives</span>
-├── roles/                 <span style="color:var(--text-muted);"># 42 contracts + workflows + 78 subspecs</span>
+├── roles/                 <span style="color:var(--text-muted);"># 43 contracts + workflows + 78 subspecs</span>
 ├── procedures/            <span style="color:var(--text-muted);"># Step-by-step guides</span>
 ├── incident/              <span style="color:var(--text-muted);"># Incident response</span>
 ├── review/                <span style="color:var(--text-muted);"># Structured review</span>
@@ -313,6 +318,7 @@ cp -r .crewmarkdown ./your-project/
 ├── retrospective/         <span style="color:var(--text-muted);"># Retrospective</span>
 ├── hackathon/             <span style="color:var(--text-muted);"># Hackathon</span>
 ├── onboarding/            <span style="color:var(--text-muted);"># Onboarding</span>
+├── tactical/              <span style="color:var(--text-muted);"># Tactical thread</span>
 ├── debate/                <span style="color:var(--text-muted);"># Decision framework</span>
 ├── meeting/               <span style="color:var(--text-muted);"># Meeting mode workflow</span>
 ├── custom/                <span style="color:var(--text-muted);"># Per-project overrides</span>
@@ -398,6 +404,11 @@ cp -r .crewmarkdown ./your-project/
           <td><span class="tag tag-blue">Onboarding</span></td>
           <td>New hire ramp-up, guided orientation</td>
           <td><code>/onboard [role]</code></td>
+        </tr>
+        <tr>
+          <td><span class="tag tag-pink">Tactical</span></td>
+          <td>Continuous always-on thread, dynamic role dispatch</td>
+          <td><code>/tactical</code></td>
         </tr>
       </tbody>
     </table>

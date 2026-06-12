@@ -4,6 +4,24 @@
 
 ---
 
+## Day 5 — 2026-06-12
+
+### Added
+- **Tactical Mode** (`/tactical`) — continuous always-on thread mode that stays active for the entire conversation, dynamically dispatching roles per request with persistent context
+- **Tactical Commander role** (`roles/tactical-commander/`) — owns the tactical thread: activate, dispatch, track, decide, summarize with full contract + workflow
+- **5 tactical procedures** (`tactical/01-activate.md` through `05-summarize.md`) — thread state init, role dispatch, action tracking, decision logging, tactical summary generation
+- **43rd role** in all docs and config — Tactical Commander added to routing table, role registry, and execution modes
+
+### Changed
+- `README.md` — header, execution modes, role count, roles table, project structure, variants updated for tactical mode
+- `docs/index.html` — hero badge, stats (43 roles, 12 objectives), execution modes, invocation modes, project structure updated
+- `docs/objectives.html` — Mermaid diagram (+M9), routing table, subtitle updated
+- `docs/features.html` — tactical mode card and full section added
+- `docs/roles.html` — title/subtitle (42→43), Tactical Commander role card added
+- `CHANGELOG.md` — this entry
+
+---
+
 ## Day 4 — 2026-06-11
 
 ### Added

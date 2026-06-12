@@ -7,7 +7,7 @@
     "securityGates": true
   },
   "roles": {
-    "available": ["PM","BA","Architect","Tech Lead","Frontend","Backend","Mobile Dev","UX Designer","UX Researcher","Data Engineer","Data Scientist","ML Engineer","QA","Security","DevOps","SRE","EM","Technical Writer","Marketing","Growth Marketing","Sales","BizDev","Customer Success","HR","Finance","Legal","SEO Specialist","Content Strategist","Solutions Architect","General Management","Meeting Facilitator","Debator","Orchestrator"],
+    "available": ["PM","BA","Architect","Tech Lead","Frontend","Backend","Mobile Dev","UX Designer","UX Researcher","Data Engineer","Data Scientist","ML Engineer","QA","Security","DevOps","SRE","EM","Technical Writer","Marketing","Growth Marketing","Sales","BizDev","Customer Success","HR","Finance","Legal","SEO Specialist","Content Strategist","Solutions Architect","General Management","Meeting Facilitator","Debator","Orchestrator","Tactical Commander"],
     "defaultSquad": {}
   },
   "custom": {

@@ -95,6 +95,11 @@
       <div class="role-superpower">New hire ramp-up to independence</div>
       <div class="role-produces"><strong>/onboard [role]</strong></div>
     </a>
+    <a href="#tactical-mode" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
+      <div class="role-title">Tactical <span class="tag tag-pink">New</span></div>
+      <div class="role-superpower">Continuous always-on thread, dynamic dispatch</div>
+      <div class="role-produces"><strong>/tactical</strong></div>
+    </a>
     <a href="#subspec" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
       <div class="role-title">Sub-Specialization</div>
       <div class="role-superpower">Per-request role refinement by framework + layer</div>
@@ -543,8 +548,8 @@ flowchart TD
   <hr class="section-divider">
 
   <!-- New Special Mode Cards -->
-  <h2>New Special Modes <span class="tag tag-green">7 New</span></h2>
-  <p class="page-subtitle">In addition to Debate and Meeting, CrewMarkdown now includes 7 new cross-cutting modes for production response, quality assurance, research, conflict resolution, team growth, and innovation.</p>
+  <h2>New Special Modes <span class="tag tag-green">8 New</span></h2>
+  <p class="page-subtitle">In addition to Debate and Meeting, CrewMarkdown now includes 8 new cross-cutting modes for production response, quality assurance, research, conflict resolution, team growth, innovation, and continuous operations.</p>
 
   <div class="role-grid">
     <a href="#incident-mode" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
@@ -581,6 +586,11 @@ flowchart TD
       <div class="role-title">Onboarding</div>
       <div class="role-superpower">Guided new hire ramp-up to independent contribution</div>
       <div class="role-produces"><strong>/onboard [role]</strong></div>
+    </a>
+    <a href="#tactical-mode" class="role-card" style="text-decoration:none;color:inherit;cursor:pointer;">
+      <div class="role-title">Tactical</div>
+      <div class="role-superpower">Continuous always-on thread, dynamic role dispatch</div>
+      <div class="role-produces"><strong>/tactical</strong></div>
     </a>
   </div>
 
@@ -704,6 +714,25 @@ flowchart TD
     <span class="process-step">5. Follow-up</span>
   </div>
   <p>Judging criteria: Innovation (25%), Impact (25%), Execution (25%), Presentation (15%), Teamwork (10%). Special categories for Best Technical Achievement, Most Creative, Best UX, People's Choice.</p>
+
+  <!-- Tactical -->
+  <hr class="section-divider">
+  <h2 id="tactical-mode">Tactical Mode</h2>
+  <p class="page-subtitle">Continuous always-on mode that stays active for the entire thread, dynamically dispatching roles per request with persistent context. Activated via <code>/tactical</code>.</p>
+  <div class="highlight-box"><strong>Cross-cutting:</strong> Once activated, remains live across the whole conversation — routes every request to the right role(s), maintains thread state, logs decisions, and produces tactical summaries.</div>
+  <h3>Process Flow</h3>
+  <div class="process-flow">
+    <span class="process-step active">1. Activate</span>
+    <span class="process-arrow">&rarr;</span>
+    <span class="process-step">2. Dispatch</span>
+    <span class="process-arrow">&rarr;</span>
+    <span class="process-step">3. Track</span>
+    <span class="process-arrow">&rarr;</span>
+    <span class="process-step">4. Decide</span>
+    <span class="process-arrow">&rarr;</span>
+    <span class="process-step">5. Summarize</span>
+  </div>
+  <p>The Tactical Commander initializes thread state on activation, dispatches roles dynamically for each request, maintains an action register and decision log, and produces tactical summaries on demand or thread end.</p>
 
   <!-- Onboarding -->
   <hr class="section-divider">

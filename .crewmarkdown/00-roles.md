@@ -45,6 +45,7 @@
 | 40 | Retro Facilitator | Retrospectives, root cause analysis, improvement | `roles/retro-facilitator/contract.md` | — | `roles/retro-facilitator/workflow.md` | "/retro [period]" | Conduct Retrospective with team |
 | 41 | Hackathon Champion | Hackathon organization, mentoring, demo day | `roles/hackathon-champion/contract.md` | — | `roles/hackathon-champion/workflow.md` | "/hackathon [theme]" | Run Hackathon with participants |
 | 42 | Onboarding Buddy | New hire onboarding, mentoring, ramp-up | `roles/onboarding-buddy/contract.md` | — | `roles/onboarding-buddy/workflow.md` | "/onboard [role]" | Execute Onboarding with newcomer |
+| 43 | Tactical Commander | Continuous thread, dynamic role dispatch | `roles/tactical-commander/contract.md` | — | `roles/tactical-commander/workflow.md` | "/tactical" | Run Tactical Thread with dynamic roles |
 
 ## Step → Procedure Reference
 | Step ID | Procedure File | Used By |
@@ -124,3 +125,8 @@
 | onboarding/learn | `onboarding/03-learn.md` | Onboarding Buddy |
 | onboarding/check | `onboarding/04-check.md` | Onboarding Buddy |
 | onboarding/ramp | `onboarding/05-ramp.md` | Onboarding Buddy |
+| tactical/activate | `tactical/01-activate.md` | Tactical Commander |
+| tactical/dispatch | `tactical/02-dispatch.md` | Tactical Commander |
+| tactical/track | `tactical/03-track.md` | Tactical Commander |
+| tactical/decide | `tactical/04-decide.md` | Tactical Commander |
+| tactical/summarize | `tactical/05-summarize.md` | Tactical Commander |

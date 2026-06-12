@@ -39,6 +39,7 @@ description: >
 | Retrospective | "/retro [period]" | Sprint/project reflection, improvement |
 | Hackathon | "/hackathon [theme]" | Rapid prototyping, innovation sprint |
 | Onboarding | "/onboard [role]" | New hire ramp-up, guided orientation |
+| Tactical | "/tactical" | Continuous always-on thread, dynamic role dispatch per request |
 
 ## Domain Scope
 CrewMarkdown handles all domains — not just coding:

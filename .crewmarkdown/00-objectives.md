@@ -156,6 +156,12 @@ routing:
     squad: Onboarding Buddy + dynamic roles
     mode: Onboarding
     confidence: high
+  - request: Tactical mode / /tactical [thread]
+    synonyms: tactical, always on, continuous, standing, persistent, ongoing, never stop, live thread
+    objective: Run Tactical Thread
+    squad: Tactical Commander + dynamic roles
+    mode: Tactical
+    confidence: high
   - request: Create campaign / Launch marketing
     synonyms: campaign, marketing, go to market, gtm, content, ad
     objective: Execute Campaign
@@ -247,6 +253,10 @@ objectives_index:
     file: onboarding/
     squad: Onboarding Buddy + dynamic roles
     default_mode: Onboarding
+  - id: obj/run-tactical
+    file: tactical/
+    squad: Tactical Commander + dynamic roles
+    default_mode: Tactical
 phase_mapping:
   - phase: config/sdlc-models.md
     maps_to: Select SDLC Model (optional)
@@ -311,6 +321,9 @@ phase_mapping:
   - phase: onboarding/
     maps_to: Onboarding (any role)
     used_by: Onboarding Buddy + newcomer
+  - phase: tactical/
+    maps_to: Tactical mode (continuous thread)
+    used_by: Tactical Commander + dynamic roles
 security_gates:
   - gate: SG1
     before: Design review
@@ -401,6 +414,7 @@ If user types `/reroute <objective-id>` at any point:
 | Retrospective | "/retro [period]" | Sprint/project reflection, continuous improvement |
 | Hackathon | "/hackathon [theme]" | Rapid prototyping, innovation sprint |
 | Onboarding | "/onboard [role]" | New hire ramp-up, guided orientation |
+| Tactical | "/tactical" | Continuous always-on thread, dynamic role dispatch per request |
 
 ## State
 `.crewmarkdown/state/workflow.json` tracks: achievedObjectives, currentObjective, artifacts, phaseGates

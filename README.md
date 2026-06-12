@@ -1,6 +1,6 @@
 # CrewMarkdown
 
-**Universal AI Agent Workflow Framework** — 42 roles · 78 sub-specializations · 11 lifecycle objectives · Solo · Squad · Orchestrate · Meeting · Incident · Review · Interview · Negotiation · Retrospective · Hackathon · Onboarding · Zero-Config
+**Universal AI Agent Workflow Framework** — 43 roles · 78 sub-specializations · 12 lifecycle objectives · Solo · Squad · Orchestrate · Meeting · Incident · Review · Interview · Negotiation · Retrospective · Hackathon · Onboarding · Tactical · Zero-Config
 
 > **For any domain.** Engineer building an API. Marketer launching a campaign. HR onboarding a new hire. Manager planning a budget. Same system adapts to your skill level automatically.
 
@@ -71,10 +71,11 @@ No config. No setup. The same request pipeline adapts to you.
 | **Retrospective** | *"/retro sprint 12"* | Blameless reflection, root cause analysis, improvement experiments |
 | **Hackathon** | *"/hackathon AI tools"* | Pitch, team formation, time-boxed build, demo, judging |
 | **Onboarding** | *"/onboard new backend dev"* | Structured ramp-up from orientation to independent contribution |
+| **Tactical** | *"/tactical"* | Continuous always-on thread, dynamic role dispatch per request |
 
 ---
 
-## The Crew — 42 Professional Roles
+## The Crew — 43 Professional Roles
 
 Every role ships with a YAML-frontmatter contract, a structured workflow, a quality checklist, and production-grade artifact templates. Roles span the full software delivery lifecycle.
 
@@ -159,8 +160,9 @@ Every role ships with a YAML-frontmatter contract, a structured workflow, a qual
 | **Retro Facilitator** | Retrospectives, root cause analysis, improvement | Retro records, insight statements, action items, experiments |
 | **Hackathon Champion** | Hackathon organization, mentoring, demo day | Pitch sessions, team formations, judging scores, archives |
 | **Onboarding Buddy** | New hire mentoring, structured ramp-up | Onboarding plans, learning sessions, progress checks, completion reports |
+| **Tactical Commander** | Continuous always-on thread, dynamic role dispatch | Thread state, action register, decision log, tactical summaries |
 
-Each role is invocable via `"[Role], do [task]"` for solo execution or assembled dynamically into squads per objective. Special mode roles are invoked via their mode prefix: `/incident`, `/review`, `/interview`, `/negotiate`, `/retro`, `/hackathon`, `/onboard`.
+Each role is invocable via `"[Role], do [task]"` for solo execution or assembled dynamically into squads per objective. Special mode roles are invoked via their mode prefix: `/incident`, `/review`, `/interview`, `/negotiate`, `/retro`, `/hackathon`, `/onboard`, `/tactical`.
 
 ---
 
@@ -219,6 +221,7 @@ Your AI agent reads `.crewmarkdown/00-objectives.md`, routes your request to the
 ├── retrospective/         # Retrospective workflow
 ├── hackathon/             # Hackathon workflow
 ├── onboarding/            # New hire onboarding workflow
+├── tactical/              # Continuous tactical thread workflow
 ├── debate/                # Structured decision-making framework
 ├── meeting/               # Meeting mode workflow
 ├── custom/                # Project-specific phase overrides
@@ -257,6 +260,7 @@ Your AI agent reads `.crewmarkdown/00-objectives.md`, routes your request to the
 | **Retrospective** (`.crewmarkdown/retrospective/`) | Team reflection — gather data, generate insights, decide actions |
 | **Hackathon** (`.crewmarkdown/hackathon/`) | Innovation sprints — pitch, build, demo, judge, follow-up |
 | **Onboarding** (`.crewmarkdown/onboarding/`) | New hire ramp-up — orient, learn, check, ramp to independence |
+| **Tactical** (`.crewmarkdown/tactical/`) | Continuous thread — activate, dispatch, track, decide, summarize |
 
 ---
 

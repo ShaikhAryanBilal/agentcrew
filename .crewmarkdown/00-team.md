@@ -168,6 +168,10 @@ roles:
     contract: roles/onboarding-buddy/contract.md
     workflow: roles/onboarding-buddy/workflow.md
     specialty: New hire onboarding, mentoring, structured ramp-up
+  - name: Tactical Commander
+    contract: roles/tactical-commander/contract.md
+    workflow: roles/tactical-commander/workflow.md
+    specialty: Continuous always-on thread, dynamic role dispatch
 ---
 
 # CrewMarkdown — Universal Crew Orchestration Hub
@@ -218,11 +222,15 @@ Effect: Load hackathon objective ? assign Hackathon Champion ? pitch ? plan ? bu
 Syntax: `"/onboard [role]" / "onboard [newcomer]"`
 Effect: Load onboarding objective ? assign Onboarding Buddy ? plan ? orient ? learn ? check ? ramp ? log
 
-### 12. Sub-Spec Invocation
+### 12. Tactical
+Syntax: `"/tactical"` / `"always on"` / `"continuous mode"`
+Effect: Load tactical objective ? assign Tactical Commander ? init thread state ? announce standing ? for each request: dispatch roles dynamically ? track actions ? log decisions ? summarize on demand ? produce final report on `/end`
+
+### 13. Sub-Spec Invocation
 Syntax: `"[Role]/<subspec>, [task]"` or implicit via keyword match
 Effect: Routing scans `keywords:` in sub-spec contracts → if match found, load sub-spec instead of parent. Parent cached as fallback. Sub-specs live at `roles/<family>/<subspec>/{contract,workflow}.md`
 
-### 13. Reroute
+### 14. Reroute
 Syntax: `"/reroute <objective-id>"` or `"wrong route, should be <objective-id>"`
 Effect: Abandon current objective (log as cancelled) ? load specified objective ? log correction to `state/reroute-feedback.json` ? update `state/routing-cache.json`
 

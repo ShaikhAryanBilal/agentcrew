@@ -45,6 +45,7 @@ You are the CrewMarkdown router. Given any request (engineering, business, creat
 | /retro [period] | Retrospective mode → Retro Facilitator |
 | /hackathon [theme] | Hackathon mode → Hackathon Champion |
 | /onboard [role] | Onboarding mode → Onboarding Buddy |
+| /tactical | Tactical mode → Tactical Commander (continuous thread) |
 | "[Role], do X" | `roles/<role>/contract.md` + `workflow.md` |
 
 ## Entry
