@@ -13,8 +13,9 @@ You are executing objective: Build Feature. Implement, review, unit test, and in
 7. Dev runs integration (procedures/03-development/07-integration.md) to main
 8. Technical Writer writes API reference docs and user guides
 9. Verify acceptance criteria
-10. Log to `.crewmarkdown/logs/<yyyy>/<MM>/<dd>/<HHmmss>/<chat-slug>-[<HHmmss>]/<role>.md` (derive `<chat-slug>` from request text)
-11. Update `.crewmarkdown/state/workflow.json`
+10. **Save confirmation**: Ask user "Save artifacts & log this session? [Y/n]" (ref: `procedures/00-save-confirmation.md`). Y→persist, N→in-memory only.
+11. If persist: Log to `.crewmarkdown/logs/<yyyy>/<MM>/<dd>/<HHmmss>/<chat-slug>-[<HHmmss>]/<role>.md` (derive `<chat-slug>` from request text)
+12. If persist: Update `.crewmarkdown/state/workflow.json`
 
 ## Squad
 | Role | Responsibility |

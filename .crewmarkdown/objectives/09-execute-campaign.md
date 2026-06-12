@@ -13,8 +13,9 @@ You are executing objective: Execute Campaign. Plan, execute, and measure a mult
 7. Measure results against KPIs, produce analytics report
 8. Conduct post-mortem, document wins/learnings
 9. Verify acceptance criteria
-10. Log to `.crewmarkdown/logs/<yyyy>/<MM>/<dd>/<HHmmss>/<chat-slug>-[<HHmmss>]/<role>.md`
-11. Update `.crewmarkdown/state/workflow.json`
+10. **Save confirmation**: Ask user "Save artifacts & log this session? [Y/n]" (ref: `procedures/00-save-confirmation.md`). Y→persist, N→in-memory only.
+11. If persist: Log to `.crewmarkdown/logs/<yyyy>/<MM>/<dd>/<HHmmss>/<chat-slug>-[<HHmmss>]/<role>.md`
+12. If persist: Update `.crewmarkdown/state/workflow.json`
 
 ## Squad
 | Role | Responsibility |

@@ -12,8 +12,9 @@ You are executing objective: Ship Release. Plan, deploy, and verify a production
 6. Technical Writer writes release notes / changelog
 7. PM holds rollback approval authority; rollback plan documented and practiced
 8. Verify acceptance criteria
-9. Log to `.crewmarkdown/logs/<yyyy>/<MM>/<dd>/<HHmmss>/<chat-slug>-[<HHmmss>]/<role>.md` (derive `<chat-slug>` from request text)
-10. Update `.crewmarkdown/state/workflow.json`
+9. **Save confirmation**: Ask user "Save artifacts & log this session? [Y/n]" (ref: `procedures/00-save-confirmation.md`). Y→persist, N→in-memory only.
+10. If persist: Log to `.crewmarkdown/logs/<yyyy>/<MM>/<dd>/<HHmmss>/<chat-slug>-[<HHmmss>]/<role>.md` (derive `<chat-slug>` from request text)
+11. If persist: Update `.crewmarkdown/state/workflow.json`
 
 ## Squad
 | Role | Responsibility |

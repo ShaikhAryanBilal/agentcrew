@@ -12,8 +12,9 @@ You are executing objective: Execute People Ops. Manage the people lifecycle —
 6. General Management approves headcount, allocates budget
 7. HR runs performance cycle, engagement survey, training programs
 8. Verify acceptance criteria
-9. Log to `.crewmarkdown/logs/<yyyy>/<MM>/<dd>/<HHmmss>/<chat-slug>-[<HHmmss>]/<role>.md`
-10. Update `.crewmarkdown/state/workflow.json`
+9. **Save confirmation**: Ask user "Save artifacts & log this session? [Y/n]" (ref: `procedures/00-save-confirmation.md`). Y→persist, N→in-memory only.
+10. If persist: Log to `.crewmarkdown/logs/<yyyy>/<MM>/<dd>/<HHmmss>/<chat-slug>-[<HHmmss>]/<role>.md`
+11. If persist: Update `.crewmarkdown/state/workflow.json`
 
 ## Squad
 | Role | Responsibility |

@@ -11,8 +11,9 @@ You are executing objective: Operate & Learn. Maintain production health, respon
 5. EM runs retrospective (Went Well, Went Wrong, To Improve) and creates improvement backlog items
 6. PM produces prioritized feature requests for next cycle; feedback loops back to Clarify Vision
 7. Verify acceptance criteria
-8. Log to `.crewmarkdown/logs/<yyyy>/<MM>/<dd>/<HHmmss>/<chat-slug>-[<HHmmss>]/<role>.md` (derive `<chat-slug>` from request text)
-9. Update `.crewmarkdown/state/workflow.json`
+8. **Save confirmation**: Ask user "Save artifacts & log this session? [Y/n]" (ref: `procedures/00-save-confirmation.md`). Y→persist, N→in-memory only.
+9. If persist: Log to `.crewmarkdown/logs/<yyyy>/<MM>/<dd>/<HHmmss>/<chat-slug>-[<HHmmss>]/<role>.md` (derive `<chat-slug>` from request text)
+10. If persist: Update `.crewmarkdown/state/workflow.json`
 
 ## Squad
 | Role | Responsibility |

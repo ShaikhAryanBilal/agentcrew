@@ -9,8 +9,9 @@ You are executing objective: Plan Work. Break down approved designs into a commi
 3. EM breaks tasks down (each ≤ 1 dev-day) with Tech Lead providing size estimates (S/M/L/XL)
 4. PM defines sprint goal, EM commits sprint plan (procedures/03-development/01-sprint-planning.md)
 5. Verify acceptance criteria
-6. Log to `.crewmarkdown/logs/<yyyy>/<MM>/<dd>/<HHmmss>/<chat-slug>-[<HHmmss>]/<role>.md` (derive `<chat-slug>` from request text)
-7. Update `.crewmarkdown/state/workflow.json`
+6. **Save confirmation**: Ask user "Save artifacts & log this session? [Y/n]" (ref: `procedures/00-save-confirmation.md`). Y→persist, N→in-memory only.
+7. If persist: Log to `.crewmarkdown/logs/<yyyy>/<MM>/<dd>/<HHmmss>/<chat-slug>-[<HHmmss>]/<role>.md` (derive `<chat-slug>` from request text)
+8. If persist: Update `.crewmarkdown/state/workflow.json`
 
 ## Squad
 | Role | Responsibility |

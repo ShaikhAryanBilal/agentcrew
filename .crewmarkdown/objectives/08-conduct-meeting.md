@@ -11,8 +11,9 @@ You are executing objective: Conduct Meeting. Run a structured real-time meeting
 5. Facilitator records action items with owners (meeting/04-action-items.md)
 6. Facilitator writes minutes (meeting/05-minutes.md)
 7. Verify acceptance criteria
-8. Log to `.crewmarkdown/logs/<yyyy>/<MM>/<dd>/<HHmmss>/<chat-slug>-[<HHmmss>]/meeting.md` (derive `<chat-slug>` from meeting topic)
-9. Update `.crewmarkdown/state/workflow.json`
+8. **Save confirmation**: Ask user "Save artifacts & log this session? [Y/n]" (ref: `procedures/00-save-confirmation.md`). Y→persist, N→in-memory only.
+9. If persist: Log to `.crewmarkdown/logs/<yyyy>/<MM>/<dd>/<HHmmss>/<chat-slug>-[<HHmmss>]/meeting.md` (derive `<chat-slug>` from meeting topic)
+10. If persist: Update `.crewmarkdown/state/workflow.json`
 
 ## Squad
 | Role | Responsibility |

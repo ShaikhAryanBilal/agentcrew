@@ -13,8 +13,9 @@ You are executing objective: Verify Quality. Execute complete test coverage (fun
 7. Dev fixes bugs throughout; QA tracks (procedures/04-qa/06-bug-tracking.md)
 8. QA runs UAT (procedures/04-qa/07-uat.md) and obtains sign-off (procedures/04-qa/08-qa-signoff.md)
 9. Verify acceptance criteria (including SG3)
-10. Log to `.crewmarkdown/logs/<yyyy>/<MM>/<dd>/<HHmmss>/<chat-slug>-[<HHmmss>]/<role>.md` (derive `<chat-slug>` from request text)
-11. Update `.crewmarkdown/state/workflow.json`
+10. **Save confirmation**: Ask user "Save artifacts & log this session? [Y/n]" (ref: `procedures/00-save-confirmation.md`). Y→persist, N→in-memory only.
+11. If persist: Log to `.crewmarkdown/logs/<yyyy>/<MM>/<dd>/<HHmmss>/<chat-slug>-[<HHmmss>]/<role>.md` (derive `<chat-slug>` from request text)
+12. If persist: Update `.crewmarkdown/state/workflow.json`
 
 ## Squad
 | Role | Responsibility |

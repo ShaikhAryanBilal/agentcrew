@@ -9,8 +9,9 @@ You are executing objective: Clarify Vision. Transform raw stakeholder input int
 3. BA writes P0/P1 user stories with 2-3 acceptance criteria each
 4. PM writes PRD (procedures/01-requirements/03-prd.md), reviews, and obtains sign-off (procedures/01-requirements/04-requirements-review-and-signoff.md)
 5. Verify acceptance criteria
-6. Log to `.crewmarkdown/logs/<yyyy>/<MM>/<dd>/<HHmmss>/<chat-slug>-[<HHmmss>]/<role>.md` (derive `<chat-slug>` from request text)
-7. Update `.crewmarkdown/state/workflow.json`
+6. **Save confirmation**: Ask user "Save artifacts & log this session? [Y/n]" (ref: `procedures/00-save-confirmation.md`). Y→persist, N→in-memory only.
+7. If persist: Log to `.crewmarkdown/logs/<yyyy>/<MM>/<dd>/<HHmmss>/<chat-slug>-[<HHmmss>]/<role>.md` (derive `<chat-slug>` from request text)
+8. If persist: Update `.crewmarkdown/state/workflow.json`
 
 ## Squad
 | Role | Responsibility |
